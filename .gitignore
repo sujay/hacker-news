@@ -1,0 +1,6 @@
+# Build Output
+.next
+.DS_Store
+
+# Dependencies
+node_modules/
