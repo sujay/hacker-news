@@ -16,7 +16,10 @@ const Layout = (props) => (
       <div id="main">
         {props.children}
       </div>
-      <footer>&copy; 2018 Sujay Thomas.</footer>
+      <footer>
+        &copy; {(new Date().getFullYear())} <a href="https://isujay.com/">Sujay Thomas</a>.<br />
+        Built in <a href="https://reactjs.org/">React</a> &amp; <a href="https://nextjs.org/">Next.js</a>.<br />
+        HN API from <a href="https://github.com/cheeaun/node-hnapi/">cheeaun</a>.</footer>
     </div>
 
     <style jsx global>{`
