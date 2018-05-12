@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Head from 'next/head';
 
 import { get } from "../components/fetch";
 import Layout from '../components/layout';
@@ -13,6 +14,9 @@ export default class Index extends Component {
     const { data } = this.props;
     return (
       <Layout>
+        <Head>
+          <title>Hacker News - Top News</title>
+        </Head>
         <ListDetail data={data} />
       </Layout>
     )
