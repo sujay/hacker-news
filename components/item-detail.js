@@ -1,17 +1,19 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 
 class ItemDetail extends Component {
   render() {
     const { data } = this.props;
     return (
-      <div className="item">
-        <h3><a href={data.url} className="link" rel="nofollow">{data.title}</a> <span className="domain">({data.domain})</span></h3>
-        <div className="content">
-          <div dangerouslySetInnerHTML={{ __html: data.content }}></div>
-        </div>
-        <div className="meta">
-          <span className="points">{data.points} points </span> <span> | </span>
-          <span className="user">{data.user}</span> posted <span className="time">{data.time_ago}</span>
+      <Fragment>
+        <div className="item">
+          <h3><a href={data.url} className="link" rel="nofollow">{data.title}</a> <span className="domain">({data.domain})</span></h3>
+          <div className="content">
+            <div dangerouslySetInnerHTML={{ __html: data.content }}></div>
+          </div>
+          <div className="meta">
+            <span className="points">{data.points} points </span> <span> | </span>
+            <span className="user">{data.user}</span> posted <span className="time">{data.time_ago}</span>
+          </div>
         </div>
         <style jsx>{`
           .item {
@@ -45,7 +47,7 @@ class ItemDetail extends Component {
             line-height: 1.6em;
           }
         `}</style>
-      </div>
+      </Fragment>
     )
   }
 }
