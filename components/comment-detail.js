@@ -46,6 +46,7 @@ class CommentDetail extends Component {
             padding: 10px;
             padding-top: 0;
             word-wrap: break-word;
+            overflow: scroll;
           }
         `}</style>
       </Fragment>
