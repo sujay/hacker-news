@@ -2,6 +2,8 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { Fragment } from 'react';
 
+import Nav from '../components/nav';
+
 const Layout = (props) => (
   <Fragment>
     <Head>
@@ -13,6 +15,7 @@ const Layout = (props) => (
 
     <div id="container">
       <header><h1><Link href="/"><a>Hacker News</a></Link></h1></header>
+      <Nav />
       <div id="main">
         {props.children}
       </div>
