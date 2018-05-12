@@ -1,9 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 
 class CommentDetail extends Component {
   render() {
-    const { comment } = this.props;
+    const { data } = this.props;
     return (
+      <Fragment>
+      <div className="comments">
+      <h5>Comments:</h5>
+      {data.comments.map((comment) =>
       <div className="comment" key={comment.id}>
         <div className="meta"><span className="user">{comment.user}</span> said <span className="time" title={comment.time}>{comment.time_ago}</span>:</div>
         <div className="content" dangerouslySetInnerHTML={{ __html: comment.content }}></div>
@@ -30,6 +34,9 @@ class CommentDetail extends Component {
           }
         `}</style>
       </div>
+      )}
+      </div>
+      </Fragment>
     )
   }
 }

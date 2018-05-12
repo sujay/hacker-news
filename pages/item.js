@@ -20,11 +20,7 @@ export default class Item extends Component {
           <title>HN - {data.title}</title>
         </Head>
         <ItemDetail data={data} />
-        <div className="comments">
-          {data.comments.map((comment) =>
-            <CommentDetail comment={comment} />
-          )}
-        </div>
+        <CommentDetail data={data} />
       </Layout>
     )
   }
