@@ -1,5 +1,7 @@
 import React, { Component, Fragment } from 'react';
 
+import Meta from '../components/meta';
+
 class ItemDetail extends Component {
   render() {
     const item = this.props.data;
@@ -11,12 +13,9 @@ class ItemDetail extends Component {
             {item.domain && <span className="domain">({item.domain})</span>}
           </h3>
           <div className="content">
-          </div>
-          <div className="meta">
-            <span className="points">{data.points} points </span> <span> | </span>
-            <span className="user">{data.user}</span> posted <span className="time">{data.time_ago}</span>
             <div dangerouslySetInnerHTML={{ __html: item.content }}></div>
           </div>
+          <Meta item={item} />
         </div>
         <style jsx>{`
           .item {
@@ -25,10 +24,6 @@ class ItemDetail extends Component {
           }
           .item .content {
             font-size: 15px;
-          }
-          .item .meta {
-            font-size: 13px;
-            color: #888;
           }
           .item h3 {
             font-size: 24px;
