@@ -7,7 +7,7 @@ const Layout = (props) => (
     <Head>
       <title>Hacker News</title>
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.1/dist/css/bootstrap.min.css" />
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.0/normalize.min.css" />
     </Head>
 
     <div id="container">
@@ -19,36 +19,40 @@ const Layout = (props) => (
     </div>
 
     <style jsx global>{`
-      html {
-      }
       body {
-        background-color: #eee !important;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+        line-height: 1.3em;
       }
-      #container {
-        background-color: #fff;
-        max-width: 960px;
-        padding: 0 30px;
-        margin: auto;
-      }
-      header, footer {
-        padding: 40px 0;
+      header {
+        background-color: #F96630;
+        padding: 30px 20px;
       }
       h1 {
+        font-size: 40px;
         font-weight: bold;
+        margin: 0;
       }
       h1 a {
-        color: #000;
-      }
-      h1 a:hover {
-        color: #444;
+        color: #FFF;
+        text-decoration: none;
+        border-bottom: none !important;
       }
       h1 a:hover, a:hover {
+        color: #FFF;
         text-decoration: none;
+      }
+      a {
+        color: #000;
+        border-bottom: solid 1px #eee !important;
+      }
+      a:hover {
+        color: #000;
+        border: none !important;
       }
       footer {
         font-size: 12px;
         color: #888;
-        /* padding: 30px; */
+        padding: 40px 0;
         text-align: center;
       }
     `}</style>
