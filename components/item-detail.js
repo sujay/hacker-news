@@ -2,17 +2,20 @@ import React, { Component, Fragment } from 'react';
 
 class ItemDetail extends Component {
   render() {
-    const { data } = this.props;
+    const item = this.props.data;
     return (
       <Fragment>
         <div className="item">
-          <h3><a href={data.url} className="link" rel="nofollow">{data.title}</a> <span className="domain">({data.domain})</span></h3>
+          <h3>
+            <a href={item.url} className="link" rel="nofollow">{item.title}</a>
+            {item.domain && <span className="domain">({item.domain})</span>}
+          </h3>
           <div className="content">
-            <div dangerouslySetInnerHTML={{ __html: data.content }}></div>
           </div>
           <div className="meta">
             <span className="points">{data.points} points </span> <span> | </span>
             <span className="user">{data.user}</span> posted <span className="time">{data.time_ago}</span>
+            <div dangerouslySetInnerHTML={{ __html: item.content }}></div>
           </div>
         </div>
         <style jsx>{`
