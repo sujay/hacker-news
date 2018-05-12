@@ -18,11 +18,12 @@ export default class Index extends Component {
           {data.map((item) =>
           <li key={item.id}>
             <h6>
-              <Link prefetch href={`/item?id=${item.id}`}><a>{item.title}</a></Link>
+              <Link prefetch href={item.url}><a rel="nofollow">{item.title}</a></Link>
             </h6>
             <div className="meta">
-              <Link prefetch href={`/item?id=${item.id}`}><a>{item.user} posted {item.time_ago}<br/>
-              {item.comments_count} comments</a></Link>
+              <span className="points">{item.points} points </span> <span> | </span>
+              {item.user} posted {item.time_ago}<br/>
+              <Link prefetch href={`/item?id=${item.id}`}><a>{item.comments_count} comments</a></Link>
             </div>
           </li>
           )}
