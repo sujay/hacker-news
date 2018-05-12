@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import Link from 'next/link';
 
 class CommentDetail extends Component {
   render() {
@@ -10,7 +11,13 @@ class CommentDetail extends Component {
           <h5>Comments:</h5>
           {comments.map((comment) =>
           <div className="comment" key={comment.id}>
-            <div className="meta"><span className="user">{comment.user}</span> said <span className="time" title={comment.time}>{comment.time_ago}</span>:</div>
+            <div className="meta">
+              <span className="user">
+                <Link href={{ pathname: 'user', query: {name: comment.user} }}>
+                  <a>{comment.user}</a>
+                </Link>
+              </span>
+              <span> said </span> <span className="time" title={comment.time}>{comment.time_ago}</span>:</div>
             <div className="content" dangerouslySetInnerHTML={{ __html: comment.content }}></div>
           </div>
           )}
@@ -39,7 +46,10 @@ class CommentDetail extends Component {
             border-radius: 3px;
           }
           .comment .user {
-            color: #000;
+            color: #000;;
+          }
+          .comment .user a {
+            font-weight: normal;
           }
           .comment .content {
             line-height: 1.3em;
