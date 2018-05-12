@@ -5,18 +5,20 @@ import Meta from '../components/meta';
 
 class ListDetail extends Component {
   render() {
-    const { data } = this.props;
+    const items = this.props.data;
     return (
       <Fragment>
         <ul>
-          {data.map((item) =>
+          {items.length>0 ? items.map((item) =>
           <li key={item.id}>
             <h6>
               <Link href={item.url}><a rel="nofollow">{item.title}</a></Link>
             </h6>
             <Meta item={item} />
           </li>
-          )}
+          ):
+          <li style={{ textAlign: 'center', padding: 40 }}>No posts.</li>
+          }
         </ul>
         <style jsx>{`
           ul {
