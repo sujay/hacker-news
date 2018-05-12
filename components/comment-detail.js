@@ -15,13 +15,14 @@ class CommentDetail extends Component {
           </div>
           )}
         </div>
+        }
         <style jsx>{`
           h5 {
-            background-color: #333;
-            color: #FFF;
-            padding: 20px;
+            background-color: #eee;
+            color: #111;
+            padding: 15px 20px;
             margin-top: 0px;
-            margin-bottom: 0px;
+            margin-bottom: 5px;
             font-size: 16px;
           }
           .comment {
