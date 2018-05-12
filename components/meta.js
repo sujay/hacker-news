@@ -31,6 +31,9 @@ class ListDetail extends Component {
           .comments {
             display: block;
           }
+          .user a {
+            font-weight: normal;
+          }
         `}</style>
       </Fragment>
     )
