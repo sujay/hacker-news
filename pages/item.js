@@ -17,7 +17,7 @@ export default class Item extends Component {
     return (
       <Layout>
         <Head>
-          <title>HN - {data.title}</title>
+          <title>Hacker News - {data.title}</title>
         </Head>
         <ItemDetail data={data} />
         <CommentDetail data={data} />
