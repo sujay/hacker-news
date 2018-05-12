@@ -23,7 +23,7 @@ const Layout = (props) => (
       <footer>
         &copy; {(new Date().getFullYear())} <a href="https://isujay.com/">Sujay Thomas</a>.<br />
         Built in <a href="https://reactjs.org/">React</a> &amp; <a href="https://nextjs.org/">Next</a>.<br />
-        HN API from <a href="https://github.com/cheeaun/node-hnapi/">node-hnapi</a>.</footer>
+        API from <a href="https://github.com/cheeaun/node-hnapi/">node-hnapi</a>.</footer>
     </div>
     <style jsx>{`
       #container {
