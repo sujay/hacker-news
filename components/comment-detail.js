@@ -27,7 +27,7 @@ class CommentDetail extends Component {
           }
           .comment {
             font-size: 13px;
-            padding: 20px;
+            padding: 10px;
             border-bottom: solid 1px #eee;
             padding-bottom: 0;
           }
@@ -45,8 +45,10 @@ class CommentDetail extends Component {
             line-height: 1.3em;
             padding: 10px;
             padding-top: 0;
+            padding-bottom: 0;
             word-wrap: break-word;
             overflow: scroll;
+            max-width: 650px;
           }
         `}</style>
       </Fragment>
