@@ -12,8 +12,12 @@ class ListDetail extends Component {
             <span className="points">{item.points} points </span> <span> | </span>
             </Fragment>
             }
-          <span className="user">{item.user}</span> posted <span className="time">{item.time_ago}</span>
           <span className="comments"><Link href={`/item?id=${item.id}`}><a>{item.comments_count} comments</a></Link></span>
+          <span className="user">
+            <Link href={{ pathname: 'user', query: {name: item.user} }}>
+              <a>{item.user}</a>
+            </Link>
+          </span> posted <span className="time">{item.time_ago}</span>
         </div>
         <style jsx>{`
           .meta {
