@@ -13,7 +13,7 @@ class ListDetail extends Component {
             </Fragment>
             }
           <span className="user">{item.user}</span> posted <span className="time">{item.time_ago}</span>
-          <span className="comments"><Link prefetch href={`/item?id=${item.id}`}><a>{item.comments_count} comments</a></Link></span>
+          <span className="comments"><Link href={`/item?id=${item.id}`}><a>{item.comments_count} comments</a></Link></span>
         </div>
         <style jsx>{`
           .meta {

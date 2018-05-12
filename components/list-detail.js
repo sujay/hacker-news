@@ -12,7 +12,7 @@ class ListDetail extends Component {
           {data.map((item) =>
           <li key={item.id}>
             <h6>
-              <Link prefetch href={item.url}><a rel="nofollow">{item.title}</a></Link>
+              <Link href={item.url}><a rel="nofollow">{item.title}</a></Link>
             </h6>
             <Meta item={item} />
           </li>
