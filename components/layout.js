@@ -26,9 +26,20 @@ const Layout = (props) => (
         HN API from <a href="https://github.com/cheeaun/node-hnapi/">node-hnapi</a>.</footer>
     </div>
     <style jsx>{`
+      #container {
+        max-width: 960px;
+        margin: auto;
+      }
+      #main {
+        background-color: #FFF;
+        border-radius: 5px;
+        overflow: hidden;
+      }
       header {
         background-color: #F96630;
         padding: 20px;
+        border-bottom-right-radius: 5px;
+        border-bottom-left-radius: 5px;
       }
       h1 {
         font-size: 40px;
@@ -42,9 +53,6 @@ const Layout = (props) => (
       h1 a:hover {
         color: #FFF;
         text-decoration: none;
-      }
-      #main {
-        background-color: #FFF;
       }
       footer {
         font-size: 13px;
