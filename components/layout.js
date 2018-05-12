@@ -80,6 +80,10 @@ const Layout = (props) => (
         font-weight: 500;
         line-height: 1.2;
       }
+      ul {
+        margin: 0;
+        padding: 0;
+      }
       a {
         color: #000;
         font-weight: bold;

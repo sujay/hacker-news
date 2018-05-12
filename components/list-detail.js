@@ -21,10 +21,6 @@ class ListDetail extends Component {
           }
         </ul>
         <style jsx>{`
-          ul {
-            margin: 0;
-            padding: 0;
-          }
           li {
             padding: 20px;
             list-style-type: none;

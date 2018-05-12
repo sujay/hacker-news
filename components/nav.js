@@ -20,10 +20,6 @@ class Nav extends Component {
             background-color: #333;
             padding: 0 5px;
           }
-          ul {
-            margin: 0;
-            padding: 0;
-          }
           li {
             display: inline-block;
           }
