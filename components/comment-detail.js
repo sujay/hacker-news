@@ -2,12 +2,13 @@ import React, { Component, Fragment } from 'react';
 
 class CommentDetail extends Component {
   render() {
-    const { data } = this.props;
+    const comments = this.props.data.comments;
     return (
       <Fragment>
+        {comments.length > 0 &&
         <div className="comments">
           <h5>Comments:</h5>
-          {data.comments.map((comment) =>
+          {comments.map((comment) =>
           <div className="comment" key={comment.id}>
             <div className="meta"><span className="user">{comment.user}</span> said <span className="time" title={comment.time}>{comment.time_ago}</span>:</div>
             <div className="content" dangerouslySetInnerHTML={{ __html: comment.content }}></div>
