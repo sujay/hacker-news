@@ -11,6 +11,7 @@ const Layout = (props) => (
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       <link href="https://isujay.com/favicon.ico" rel="shortcut icon" />
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.0/normalize.min.css" />
+      <link rel="dns-prefetch" href="//api.hackerwebapp.com" />
     </Head>
 
     <div id="container">
