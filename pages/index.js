@@ -36,27 +36,17 @@ export default class Index extends Component {
           li {
             padding: 20px;
             list-style-type: none;
-            border-top: none;
-            border-bottom: solid 1px #eee !important;
-            /* cursor: pointer; */
-          }
-          li a {
-            color: #000;
-            border-bottom: none !important;
-            text-decoration: none;
+            border-bottom: solid 1px #eee;
+            line-height: 1.5em;
           }
           h6 {
             font-size: 20px;
-            font-weight: normal;
             margin: 0;
-            margin-bottom: 10px;
+            margin-bottom: 1px;
           }
           .meta {
-            font-size: 12px;
-            color: #555;
-          }
-          .meta a {
-            color: #555;
+            font-size: 13px;
+            color: #888;
           }
         `}</style>
       </Layout>

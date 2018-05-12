@@ -15,36 +15,34 @@ class ItemDetail extends Component {
         </div>
         <style jsx>{`
           .item {
-            padding: 30px 20px;
+            padding: 20px 20px;
             border-bottom: solid 1px #eee;
           }
           .item .content {
             font-size: 15px;
           }
-          .item .domain {
-            font-size: 14px;
-            color: #888;
-          }
           .item .meta {
-            font-size: 14px;
+            font-size: 13px;
             color: #888;
           }
-          .item .meta span {
-            color: #555;
+          .item h3 {
+            font-size: 24px;
+            margin-top: 0;
+            margin-bottom: 5px;
           }
           .item a {
             color: #000;
             text-decoration: none;
-            border-bottom: solid 2px #AAA !important;
-          }
-          .item h3 {
-            font-size: 20px;
-            margin-top: 0;
-            margin-bottom: 15px;
           }
           .item a:hover {
             color: #000;
-            text-decoration: none;
+            text-decoration: underline;
+          }
+          .item .domain {
+            font-size: 14px;
+            color: #888;
+            display: block;
+            line-height: 1.6em;
           }
         `}</style>
       </div>
