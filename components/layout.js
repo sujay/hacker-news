@@ -24,8 +24,8 @@ const Layout = (props) => (
 
     <style jsx global>{`
       body {
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
         line-height: 1.3em;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
       }
       header {
         background-color: #F96630;
