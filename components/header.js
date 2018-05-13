@@ -7,8 +7,8 @@ class Header extends Component {
         <h2>{this.props.children}</h2>
         <style jsx>{`
           h2 {
-            background-color: #888;
-            color: #FFF;
+            background-color: #DDD;
+            color: #000;
             font-size: 28px;
             margin: 0;
             padding: 20px;
