@@ -17,11 +17,11 @@ class ListDetail extends Component {
               <a>{item.user}</a>
             </Link>
           </span> posted <span className="time">{item.time_ago}</span>
-          <span className="comments">
+          {item.comments_count > 0 && <span className="comments_link">
             <Link href={{ pathname: 'item', query: {id: item.id} }}>
-              <a>{item.comments_count} comments</a>
+              <a>{item.comments_count} Comment{item.comments_count > 1 && `s`}</a>
             </Link>
-          </span>
+          </span>}
         </div>
         <style jsx>{`
           .meta {
@@ -29,7 +29,8 @@ class ListDetail extends Component {
             line-height: 1.8em;
             color: #888;
           }
-          .comments {
+          .comments_link {
+            text-transform: lowercase;
             display: block;
           }
           .user a {
