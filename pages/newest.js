@@ -17,9 +17,9 @@ export default class Newest extends Component {
     return (
       <Layout>
         <Head>
-          <title>Hacker News - Newest</title>
+          <title>Hacker News - Newest {page && page > 1 ? `(Page ${page})` : ``}</title>
         </Head>
-        <Header>Newest</Header>
+        <Header page={page}>Newest</Header>
         <ListDetail data={data} />
         <PageNav page={page} />
       </Layout>

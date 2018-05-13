@@ -17,9 +17,9 @@ export default class Ask extends Component {
     return (
       <Layout>
         <Head>
-          <title>Hacker News - Ask</title>
+          <title>Hacker News - Ask {page && page > 1 ? `(Page ${page})` : ``}</title>
         </Head>
-        <Header>AskHN</Header>
+        <Header page={page}>AskHN</Header>
         <ListDetail data={data} />
         <PageNav page={page} />
       </Layout>

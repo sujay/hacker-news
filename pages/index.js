@@ -17,9 +17,9 @@ export default class Index extends Component {
     return (
       <Layout>
         <Head>
-          <title>Hacker News - Top News</title>
+          <title>Hacker News - Top News {page && page > 1 ? `(Page ${page})` : ``}</title>
         </Head>
-        <Header>Top</Header>
+        <Header page={page}>Top</Header>
         <ListDetail data={data} />
         <PageNav page={page} />
       </Layout>

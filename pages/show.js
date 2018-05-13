@@ -17,9 +17,9 @@ export default class Show extends Component {
     return (
       <Layout>
         <Head>
-          <title>Hacker News - Show</title>
+          <title>Hacker News - Show {page && page > 1 ? `(Page ${page})` : ``}</title>
         </Head>
-        <Header>ShowHN</Header>
+        <Header page={page}>ShowHN</Header>
         <ListDetail data={data} />
         <PageNav page={page} />
       </Layout>
