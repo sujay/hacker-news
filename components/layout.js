@@ -27,7 +27,7 @@ const Layout = (props) => (
     </div>
     <style jsx>{`
       #container {
-        max-width: 960px;
+        max-width: 800px;
         margin: auto;
       }
       #main {
