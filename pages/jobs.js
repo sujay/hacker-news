@@ -21,6 +21,7 @@ export default class Jobs extends Component {
           <li key={item.id}>
             <h6>
               <Link href={item.url}><a rel="nofollow">{item.title}</a></Link>
+              {item.domain && <span className="domain"> ({item.domain})</span>}
             </h6>
           </li>
           )}
@@ -35,6 +36,9 @@ export default class Jobs extends Component {
             font-size: 15px;
             margin: 0;
             margin-bottom: 2px;
+          }
+          .domain {
+            color: #888;
           }
         `}</style>
       </Layout>
