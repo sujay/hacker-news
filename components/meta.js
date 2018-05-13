@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 class ListDetail extends Component {
   render() {
-    const item = this.props.item;
+    const { item } = this.props;
     return (
       <Fragment>
         <div className="meta">
