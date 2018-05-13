@@ -21,7 +21,6 @@ export default class Jobs extends Component {
         </Head>
         <Header>Jobs</Header>
         <ListDetail data={data} />
-        <PageNav page={page} />
       </Layout>
     )
   }
