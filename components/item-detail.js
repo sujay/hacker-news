@@ -12,9 +12,9 @@ class ItemDetail extends Component {
             <a href={item.url} className="link" rel="nofollow">{item.title}</a>
             {item.domain && <span className="domain">({item.domain})</span>}
           </h3>
-          <div className="content">
+          {item.content && <div className="content">
             <div dangerouslySetInnerHTML={{ __html: item.content }}></div>
-          </div>
+          </div>}
           <Meta item={item} />
         </div>
         <style jsx>{`
@@ -23,7 +23,8 @@ class ItemDetail extends Component {
             border-bottom: solid 1px #eee;
           }
           .item .content {
-            font-size: 15px;
+            font-size: 14px;
+            margin: 20px 0;
           }
           .item h3 {
             font-size: 24px;
