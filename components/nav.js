@@ -26,7 +26,7 @@ class Nav extends Component {
           a {
             display: block;
             color: #FFF;
-            padding: 10px 15px;
+            padding: 15px;
           }
           a:hover {
             text-decoration: none;
