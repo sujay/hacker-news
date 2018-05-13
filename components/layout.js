@@ -86,6 +86,12 @@ const Layout = (props) => (
         line-height: 1.15em;
         color: #333;
       }
+      p:first-child {
+        margin-top: 0;
+      }
+      p:last-child {
+        margin-bottom: 0;
+      }
       h1,h2,h3,h4,h5,h6 {
         font-weight: 500;
         line-height: 1.2;
@@ -102,6 +108,10 @@ const Layout = (props) => (
       a:hover {
         color: #000;
         text-decoration: underline;
+      }
+      pre, code {
+        font-size: 11px;
+        font-family: "Input Mono"
       }
     `}</style>
   </Fragment>
