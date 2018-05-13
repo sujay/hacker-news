@@ -26,13 +26,14 @@ class Layout extends Component {
       <Fragment>
         <Head>
           <title>Hacker News</title>
+          <meta name="description" content="Hacker News clone created in Next.js. Hacker News is a social news website focusing on computer science and entrepreneurship." />
           <meta name="viewport" content="initial-scale=1.0, width=device-width" />
           <link href="https://isujay.com/favicon.ico" rel="shortcut icon" />
           <link rel="dns-prefetch" href="//api.hackerwebapp.com" />
         </Head>
 
         <div id="container">
-          <header><h1><Link href="/"><a>Hacker News</a></Link></h1></header>
+          <header><h1><Link href="/"><a title="Hacker News is a social news website focusing on computer science and entrepreneurship.">Hacker News</a></Link></h1></header>
           <Nav />
           <div id="main">
             {this.props.children}
