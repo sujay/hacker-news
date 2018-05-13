@@ -30,7 +30,7 @@ class Header extends Component {
             font-size: 14px;
             font-weight: normal;
             position: relative;
-            top: 7px;
+            top: 8px;
           }
         `}</style>
       </Fragment>
