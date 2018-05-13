@@ -46,7 +46,7 @@ class Comment extends Component {
             font-weight: normal;
           }
           .comment .content {
-            line-height: 1.3em;
+            line-height: 1.6em;
             padding: 20px;
             margin-bottom: 8px;
             word-wrap: break-word;
