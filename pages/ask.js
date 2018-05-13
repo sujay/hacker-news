@@ -21,7 +21,7 @@ export default class Ask extends Component {
         </Head>
         <Header page={page}>AskHN</Header>
         <ListDetail data={data} />
-        <PageNav page={page} />
+        <PageNav page={page} limit={4} />
       </Layout>
     )
   }

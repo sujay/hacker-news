@@ -21,7 +21,7 @@ export default class Show extends Component {
         </Head>
         <Header page={page}>ShowHN</Header>
         <ListDetail data={data} />
-        <PageNav page={page} />
+        <PageNav page={page} limit={2} />
       </Layout>
     )
   }
