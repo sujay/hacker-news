@@ -3,6 +3,7 @@
   "author": "Sujay Thomas",
   "description": "A Hacker News clone created in Next.js.",
   "version": "1.0.0",
+  "private": true,
   "dependencies": {
     "isomorphic-unfetch": "^2.0.0",
     "next": "^6.0.1",
