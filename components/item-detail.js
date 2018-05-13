@@ -19,31 +19,31 @@ class ItemDetail extends Component {
         </div>
         <style jsx>{`
           .item {
-            padding: 20px 20px;
+            padding: 20px;
             border-bottom: solid 1px #eee;
           }
-          .item .content {
+          .content {
             font-size: 14px;
             margin: 20px 0;
           }
-          .item h3 {
+          h3 {
             font-size: 24px;
             margin-top: 0;
             margin-bottom: 5px;
           }
-          .item a {
+          a {
             color: #000;
             text-decoration: none;
           }
-          .item a:hover {
+          a:hover {
             color: #000;
             text-decoration: underline;
           }
-          .item .domain {
+          .domain {
             font-size: 14px;
             color: #888;
             display: block;
-            line-height: 1.6em;
+            margin-top: 8px;
           }
         `}</style>
       </Fragment>
