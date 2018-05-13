@@ -45,12 +45,12 @@ const Layout = (props) => (
       }
       header {
         background-color: #F96630;
-        padding: 20px;
+        padding: 12px 20px;
         border-bottom-right-radius: 5px;
         border-bottom-left-radius: 5px;
       }
       h1 {
-        font-size: 40px;
+        font-size: 50px;
         font-weight: bold;
         margin: 0;
       }
@@ -67,7 +67,7 @@ const Layout = (props) => (
         color: #bbb;
         padding: 30px 0;
         text-align: center;
-        line-height: 2em;
+        line-height: 1.6em;
       }
       footer a {
         color: #FFF;
