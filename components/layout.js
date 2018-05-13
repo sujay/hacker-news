@@ -11,7 +11,7 @@ Router.onRouteChangeStart = () => NProgress.start();
 Router.onRouteChangeComplete = () => NProgress.done();
 Router.onRouteChangeError = () => NProgress.done();
 
-const loaderColor = '#FBD300';
+const loaderColor = '#00ACFF';
 
 const Layout = (props) => (
   <Fragment>
