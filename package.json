@@ -1,5 +1,7 @@
 {
   "name": "hacker-news",
+  "author": "Sujay Thomas",
+  "description": "A Hacker News clone created in Next.js.",
   "version": "1.0.0",
   "dependencies": {
     "isomorphic-unfetch": "^2.0.0",
