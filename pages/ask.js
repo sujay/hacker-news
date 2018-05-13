@@ -16,10 +16,7 @@ export default class Ask extends Component {
     const { data, page } = this.props;
     return (
       <Layout>
-        <Head>
-          <title>Hacker News - Ask {page && page > 1 ? `(Page ${page})` : ``}</title>
-        </Head>
-        <Header page={page}>AskHN</Header>
+        <Header page={page}>Ask</Header>
         <ListDetail data={data} />
         <PageNav page={page} limit={4} />
       </Layout>

@@ -1,10 +1,14 @@
 import React, { Component, Fragment } from 'react';
+import Head from 'next/head';
 
 class Header extends Component {
   render() {
     const { children, page } = this.props;
     return (
       <Fragment>
+        <Head>
+          <title>Hacker News - {children} {page && page > 1 ? `(${page})` : ``}</title>
+        </Head>
         <h2>
           {children}
           {page && page > 1 &&

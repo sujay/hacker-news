@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Head from 'next/head';
 
 import { get } from "../components/fetch";
 import Layout from '../components/layout';
@@ -16,9 +15,6 @@ export default class Newest extends Component {
     const { data, page } = this.props;
     return (
       <Layout>
-        <Head>
-          <title>Hacker News - Newest {page && page > 1 ? `(Page ${page})` : ``}</title>
-        </Head>
         <Header page={page}>Newest</Header>
         <ListDetail data={data} />
         <PageNav page={page} />

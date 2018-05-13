@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Head from 'next/head';
 
 import { get } from "../components/fetch";
 import Layout from '../components/layout';
@@ -16,10 +15,7 @@ export default class Show extends Component {
     const { data, page } = this.props;
     return (
       <Layout>
-        <Head>
-          <title>Hacker News - Show {page && page > 1 ? `(Page ${page})` : ``}</title>
-        </Head>
-        <Header page={page}>ShowHN</Header>
+        <Header page={page}>Show</Header>
         <ListDetail data={data} />
         <PageNav page={page} limit={2} />
       </Layout>

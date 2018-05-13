@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Head from 'next/head';
 
 import { get } from "../components/fetch";
 import Layout from '../components/layout';
@@ -16,9 +15,6 @@ export default class Jobs extends Component {
     const { data, page } = this.props;
     return (
       <Layout>
-        <Head>
-          <title>Hacker News - Jobs</title>
-        </Head>
         <Header>Jobs</Header>
         <ListDetail data={data} />
       </Layout>

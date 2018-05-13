@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Head from 'next/head';
 
 import { get } from "../components/fetch";
 import Layout from '../components/layout';
@@ -14,10 +13,7 @@ export default class Show extends Component {
     const user = this.props.data;
     return (
       <Layout>
-        <Head>
-          <title>Hacker News - User {user.id}</title>
-        </Head>
-        <Header>User</Header>
+        <Header user={user}>User</Header>
         <div className="user">
           <h3>{user.id}</h3>
           <div className="meta"><label>Registered:</label> <span>{user.created}</span></div>
