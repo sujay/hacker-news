@@ -67,6 +67,7 @@ const Layout = (props) => (
         color: #bbb;
         padding: 30px 0;
         text-align: center;
+        line-height: 2em;
       }
       footer a {
         color: #FFF;

@@ -26,6 +26,7 @@ class ListDetail extends Component {
         <style jsx>{`
           .meta {
             font-size: 13px;
+            line-height: 1.8em;
             color: #888;
           }
           .comments {

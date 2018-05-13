@@ -29,6 +29,7 @@ class ListDetail extends Component {
           h6 {
             font-size: 20px;
             margin: 0;
+            margin-bottom: 2px;
           }
         `}</style>
       </Fragment>
