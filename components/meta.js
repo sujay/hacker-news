@@ -9,9 +9,9 @@ class ListDetail extends Component {
         <div className="meta">
           {item.points &&
             <Fragment>
-            <span className="points">{item.points} points </span> <span> | </span>
+            <span className="points">{item.points} points </span> <span className="pipe"> | </span>
             </Fragment>
-            }
+          }
           <span className="user">
             <Link href={{ pathname: 'user', query: {name: item.user} }}>
               <a>{item.user}</a>
@@ -35,6 +35,10 @@ class ListDetail extends Component {
           }
           .user a {
             font-weight: normal;
+          }
+          .pipe {
+            color: #DDD;
+            margin: 0 3px;
           }
         `}</style>
       </Fragment>
