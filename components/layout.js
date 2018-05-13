@@ -2,9 +2,13 @@ import React, { Component, Fragment } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import Router from 'next/router';
+
 import NProgress from 'nprogress';
+import ReactGA from 'react-ga';
 
 import Nav from '../components/nav';
+
+ReactGA.initialize('UA-77573-28');
 
 NProgress.configure({ showSpinner: false });
 Router.onRouteChangeStart = () => NProgress.start();
@@ -13,14 +17,10 @@ Router.onRouteChangeError = () => NProgress.done();
 
 const loaderColor = '#00ACFF';
 
-  <Fragment>
-    <Head>
-      <title>Hacker News</title>
-      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      <link href="https://isujay.com/favicon.ico" rel="shortcut icon" />
-      <link rel="dns-prefetch" href="//api.hackerwebapp.com" />
-    </Head>
 class Layout extends Component {
+  componentDidMount() {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }
   render() {
     return (
       <Fragment>
