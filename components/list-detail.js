@@ -12,7 +12,7 @@ class ListDetail extends Component {
           {items.length>0 ? items.map((item) =>
           <li key={item.id}>
             <h6>
-              <Link href={item.url}><a rel="nofollow">{item.title}</a></Link>
+              <Link href={{ pathname: 'item', query: {id: item.id} }}><a rel="nofollow">{item.title}</a></Link>
             </h6>
             <Meta item={item} />
           </li>
