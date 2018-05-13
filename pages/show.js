@@ -3,6 +3,7 @@ import Head from 'next/head';
 
 import { get } from "../components/fetch";
 import Layout from '../components/layout';
+import Header from '../components/header';
 import ListDetail from '../components/list-detail';
 import PageNav from '../components/page-nav';
 
@@ -18,6 +19,7 @@ export default class Show extends Component {
         <Head>
           <title>Hacker News - Show</title>
         </Head>
+        <Header>ShowHN</Header>
         <ListDetail data={data} />
         <PageNav page={page} />
       </Layout>
