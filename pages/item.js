@@ -21,6 +21,12 @@ export default class Item extends Component {
         </Head>
         <ItemDetail data={data} />
         <CommentDetail data={data} />
+        <style jsx global>{`
+          .item .comments_link {
+            display: none;
+          }
+        `}
+        </style>
       </Layout>
     )
   }
