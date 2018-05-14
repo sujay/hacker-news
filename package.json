@@ -1,7 +1,7 @@
 {
   "name": "hacker-news",
   "author": "Sujay Thomas",
-  "description": "A Hacker News clone created in Next.js.",
+  "description": "A Hacker News clone built with React and Next.js.",
   "version": "1.0.0",
   "private": true,
   "dependencies": {

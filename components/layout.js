@@ -26,7 +26,7 @@ class Layout extends Component {
       <Fragment>
         <Head>
           <title>Hacker News</title>
-          <meta name="description" content="Hacker News clone created in Next.js. Hacker News is a social news website focusing on computer science and entrepreneurship." />
+          <meta name="description" content="A Hacker News clone built with React and Next.js. Hacker News is a social news website focusing on computer science and entrepreneurship." />
           <meta name="viewport" content="initial-scale=1.0, width=device-width" />
           <link href="https://isujay.com/favicon.ico" rel="shortcut icon" />
           <link rel="dns-prefetch" href="//api.hackerwebapp.com" />
@@ -40,7 +40,7 @@ class Layout extends Component {
           </div>
           <footer>
             &copy; {(new Date().getFullYear())} <a href="https://isujay.com/">Sujay Thomas</a>.<br />
-            Built in <a href="https://reactjs.org/">React</a> &amp; <a href="https://nextjs.org/">Next</a>.<br />
+            Built with <a href="https://reactjs.org/">React</a> &amp; <a href="https://nextjs.org/">Next.js</a>.<br />
             API from <a href="https://github.com/cheeaun/node-hnapi/">node-hnapi</a>.</footer>
         </div>
         <style jsx>{`
