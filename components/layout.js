@@ -28,7 +28,7 @@ class Layout extends Component {
           <title>Hacker News</title>
           <meta name="description" content="A Hacker News clone built with React and Next.js. Hacker News is a social news website focusing on computer science and entrepreneurship." />
           <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-          <link href="https://isujay.com/favicon.ico" rel="shortcut icon" />
+          <link href="/static/favicon.ico" rel="shortcut icon" />
           <link rel="dns-prefetch" href="//api.hackerwebapp.com" />
         </Head>
 
