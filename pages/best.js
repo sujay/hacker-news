@@ -6,8 +6,8 @@ import Header from '../components/header';
 import ListDetail from '../components/list-detail';
 import PageNav from '../components/page-nav';
 
-export default class Top extends Component {
-  static async getInitialProps({ query: { type = "top", page = "1" } }) {
+export default class Best extends Component {
+  static async getInitialProps({ query: { type = "best", page = "1" } }) {
     const json = await get({ type, page });
     return { data: json, page: page };
   }
@@ -15,9 +15,9 @@ export default class Top extends Component {
     const { data, page } = this.props;
     return (
       <Layout>
-        <Header page={page}>Top</Header>
+        <Header page={page}>Best</Header>
         <ListDetail data={data} />
-        <PageNav page={page} />
+        <PageNav page={page} limit={7} />
       </Layout>
     )
   }
