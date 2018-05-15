@@ -7,7 +7,8 @@ class Nav extends Component {
       <Fragment>
         <nav>
           <ul>
-            <li><Link href="/"><a>Top</a></Link></li>
+            <li><Link href="/"><a>Best</a></Link></li>
+            <li><Link href="/top"><a>Top</a></Link></li>
             <li><Link href="/newest"><a>New</a></Link></li>
             <li><Link href="/show"><a>ShowHN</a></Link></li>
             <li><Link href="/ask"><a>AskHN</a></Link></li>
