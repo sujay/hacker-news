@@ -41,7 +41,7 @@ class ItemDetail extends Component {
           }
           .domain {
             font-size: 14px;
-            color: #888;
+            color: #666;
             display: block;
             margin-top: 8px;
           }

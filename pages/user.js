@@ -37,7 +37,7 @@ export default class Show extends Component {
             flex-direction: row;
           }
           label {
-            color: #888;
+            color: #666;
             display: inline-flex;
             flex: 0 0 90px;
           }

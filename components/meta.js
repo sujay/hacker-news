@@ -33,7 +33,7 @@ class ListDetail extends Component {
           .meta {
             font-size: 13px;
             line-height: 1.8em;
-            color: #888;
+            color: #666;
           }
           .comments_link {
             text-transform: lowercase;

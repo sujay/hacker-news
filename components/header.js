@@ -27,7 +27,7 @@ class Header extends Component {
           }
           h2 span {
             float: right;
-            color: #888;
+            color: #666;
             height: 100%;
             vertical-align: center;
             display: block;
