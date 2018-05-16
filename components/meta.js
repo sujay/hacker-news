@@ -10,7 +10,7 @@ class ListDetail extends Component {
           {item.points &&
             <Fragment>
               <span className="points">{item.points} points</span>
-              <span className="pipe"> | </span>
+              <span className="pipe"></span>
             </Fragment>
           }
           {item.user &&
@@ -43,8 +43,12 @@ class ListDetail extends Component {
             font-weight: normal;
           }
           .pipe {
-            color: #DDD;
-            margin: 0 3px;
+            display: inline-block;
+            position: relative;
+            top: 1px;
+            height: 9px;
+            margin: 0 8px;
+            border-right: solid 1px #DDD;
           }
         `}</style>
       </Fragment>
