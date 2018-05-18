@@ -17,6 +17,6 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "heroku-postbuild": "next build"
+    "pm2": "next build && pm2 start npm --name \"hacker-news\" -- start --watch"
   }
 }
