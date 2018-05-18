@@ -64,6 +64,8 @@ class Layout extends Component {
             font-size: 50px;
             font-weight: bold;
             margin: 0;
+            position: relative;
+            left: -3px;
           }
           h1 a {
             color: #FFF;
