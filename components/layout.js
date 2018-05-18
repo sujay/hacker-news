@@ -123,7 +123,7 @@ class Layout extends Component {
           }
           pre, code {
             font-size: 11px;
-            font-family: "Input Mono"
+            font-family: Input Mono, Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, sans-serif;
           }
           #nprogress .bar {
             background: ${loaderColor};
