@@ -19,7 +19,7 @@ class Nav extends Component {
           nav {
             font-size: 14px;
             background-color: #333;
-            padding: 0 5px;
+            padding: 0 10px;
           }
           li {
             display: inline-block;
