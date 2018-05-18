@@ -16,7 +16,6 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start",
-    "pm2": "next build && pm2 start npm --name \"hacker-news\" -- start --watch"
+    "start": "next start"
   }
 }
