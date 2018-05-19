@@ -10,12 +10,12 @@ import Nav from '../components/nav';
 
 ReactGA.initialize('UA-77573-28');
 
-NProgress.configure({ showSpinner: false });
+NProgress.configure({ showSpinner: false, minimum: 0.15, speed: 300 });
 Router.onRouteChangeStart = () => NProgress.start();
 Router.onRouteChangeComplete = () => NProgress.done();
 Router.onRouteChangeError = () => NProgress.done();
 
-const loaderColor = '#00ACFF';
+const loaderColor = '#09CAFD';
 
 class Layout extends Component {
   componentDidMount() {
@@ -127,6 +127,7 @@ class Layout extends Component {
           }
           #nprogress .bar {
             background: ${loaderColor};
+            height: 3px;
           }
           nprogress .peg {
             box-shadow:0 0 10px ${loaderColor} , 0 0 5px ${loaderColor};
