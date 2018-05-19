@@ -10,7 +10,7 @@ class Comment extends Component {
         <div className="comment" key={comment.id}>
           <div className="meta">
             <span className="user">
-              <Link href={{ pathname: 'user', query: {name: comment.user} }}>
+              <Link href={{ pathname: '/user', query: { name: comment.user } }}>
                 <a>{comment.user}</a>
               </Link>
             </span>
