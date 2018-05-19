@@ -14,9 +14,9 @@ class PageNav extends Component {
     return (
       <Fragment>
         <div className="pagination">
-          <span className="left">{page > 1 && <Link href={{pathname:pathname, query:{page: previous}}}><a>&larr; </a></Link>}</span>
+          <span className="left">{page > 1 && <Link href={{ pathname: pathname, query: { page: previous } }}><a>&larr; </a></Link>}</span>
           <span className="current">Page {page}</span>
-          <span className="right">{page < limit && <Link href={{pathname:pathname, query:{page: next}}}><a> &rarr;</a></Link>}</span>
+          <span className="right">{page < limit && <Link href={{ pathname: pathname, query: { page: next } }}><a> &rarr;</a></Link>}</span>
         </div>
         <style jsx>{`
           .pagination {
