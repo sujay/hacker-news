@@ -41,8 +41,8 @@ class Layout extends Component {
           </div>
           <footer>
             &copy; {(new Date().getFullYear())} <a href="https://isujay.com/">Sujay Thomas</a>.<br />
-            Built with <a href="https://reactjs.org/">React</a> &amp; <a href="https://nextjs.org/">Next.js</a>.<br />
-            Data via <a href="https://github.com/cheeaun/node-hnapi/">node-hnapi</a>.<br />
+            Built with <a href="https://reactjs.org/" rel="nofollow">React</a> &amp; <a href="https://nextjs.org/" rel="nofollow">Next.js</a>.<br />
+            Data via <a href="https://github.com/cheeaun/node-hnapi/" rel="nofollow">node-hnapi</a>.<br />
             Source on <a href="https://github.com/sujay/hacker-news">GitHub</a>.
           </footer>
         </div>
