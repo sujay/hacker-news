@@ -10,7 +10,7 @@ import Nav from '../components/nav';
 
 ReactGA.initialize('UA-77573-28');
 
-NProgress.configure({ showSpinner: false, minimum: 0.15, speed: 300 });
+NProgress.configure({ showSpinner: false, trickleSpeed: 100, speed: 150 });
 Router.onRouteChangeStart = () => NProgress.start();
 Router.onRouteChangeComplete = () => NProgress.done();
 Router.onRouteChangeError = () => NProgress.done();
