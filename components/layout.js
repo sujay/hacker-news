@@ -54,7 +54,7 @@ class Layout extends Component {
             overflow: hidden;
           }
           header {
-            background-color: #F96630;
+            background-color: #fc6621;
             padding: 12px 20px;
             border-bottom-right-radius: 5px;
             border-bottom-left-radius: 5px;

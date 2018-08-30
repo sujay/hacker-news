@@ -36,7 +36,7 @@ class PageNav extends Component {
             width: 33%;
           }
           span a:hover {
-            color: #F96630;
+            color: #fc6621;
             text-decoration: none;
           }
           .left, .right {
