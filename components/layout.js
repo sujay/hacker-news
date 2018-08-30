@@ -15,8 +15,6 @@ Router.onRouteChangeStart = () => NProgress.start();
 Router.onRouteChangeComplete = () => NProgress.done();
 Router.onRouteChangeError = () => NProgress.done();
 
-const loaderColor = '#09CAFD';
-
 class Layout extends Component {
   componentDidMount() {
     ReactGA.pageview(window.location.pathname + window.location.search);
@@ -28,7 +26,6 @@ class Layout extends Component {
           <title>Hacker News</title>
           <meta name="description" content="A Hacker News clone built with React and Next.js. Hacker News is a social news website focusing on computer science and entrepreneurship." />
           <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-          <link rel="stylesheet" href="/static/base.css" />
           <link href="/static/favicon.ico" rel="shortcut icon" />
           <link rel="dns-prefetch" href="//api.hackerwebapp.com" />
         </Head>
@@ -92,6 +89,11 @@ class Layout extends Component {
           }
         `}</style>
         <style jsx global>{`
+          /* sanitize.css */
+          *,::after,::before{background-repeat:no-repeat;box-sizing:border-box}::after,::before{text-decoration:inherit;vertical-align:inherit}html{cursor:default;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Oxygen,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";line-height:1.15;-moz-tab-size:4;tab-size:4;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;word-break:break-word}body{margin:0}h1{font-size:2em;margin:.67em 0}hr{height:0;overflow:visible}main{display:block}nav ol,nav ul{list-style:none}pre{font-family:Menlo,Consolas,Roboto Mono,Ubuntu Monospace,Oxygen Mono,Liberation Mono,monospace;font-size:1em}a{background-color:transparent}abbr[title]{text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:bolder}code,kbd,samp{font-family:Menlo,Consolas,Roboto Mono,Ubuntu Monospace,Oxygen Mono,Liberation Mono,monospace;font-size:1em}small{font-size:80%}::-moz-selection{background-color:#b3d4fc;color:#000;text-shadow:none}::selection{background-color:#b3d4fc;color:#000;text-shadow:none}audio,canvas,iframe,img,svg,video{vertical-align:middle}audio,video{display:inline-block}audio:not([controls]){display:none;height:0}img{border-style:none}svg{fill:currentColor}svg:not(:root){overflow:hidden}table{border-collapse:collapse}button,input,select{margin:0}button,input,select,textarea{font-family:inherit;font-size:inherit;line-height:inherit}button{overflow:visible;text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}fieldset{padding:.35em .75em .625em}input{overflow:visible}legend{color:inherit;display:table;max-width:100%;white-space:normal}progress{display:inline-block;vertical-align:baseline}select{text-transform:none}textarea{margin:0;overflow:auto;resize:vertical}[type=checkbox],[type=radio]{padding:0}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-input-placeholder{color:inherit;opacity:.54}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details{display:block}dialog{background-color:#fff;border:solid;color:#000;display:block;height:-moz-fit-content;height:-webkit-fit-content;height:fit-content;left:0;margin:auto;padding:1em;position:absolute;right:0;width:-moz-fit-content;width:-webkit-fit-content;width:fit-content}dialog:not([open]){display:none}summary{display:list-item}canvas{display:inline-block}template{display:none}[tabindex],a,area,button,input,label,select,summary,textarea{-ms-touch-action:manipulation;touch-action:manipulation}[hidden]{display:none}[aria-busy=true]{cursor:progress}[aria-controls]{cursor:pointer}[aria-disabled],[disabled]{cursor:disabled}[aria-hidden=false][hidden]:not(:focus){clip:rect(0,0,0,0);display:inherit;position:absolute}
+          /* nprogress */
+          #nprogress{pointer-events:none}#nprogress .bar{background:#29d;position:fixed;z-index:1031;top:0;left:0;width:100%;height:2px}#nprogress .peg{display:block;position:absolute;right:0;width:100px;height:100%;box-shadow:0 0 10px #29d,0 0 5px #29d;opacity:1;-webkit-transform:rotate(3deg) translate(0,-4px);-ms-transform:rotate(3deg) translate(0,-4px);transform:rotate(3deg) translate(0,-4px)}
+          /* hacker-news */
           html {
             background-color: #333;
           }
@@ -128,15 +130,11 @@ class Layout extends Component {
             font-family: Input Mono, Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, sans-serif;
           }
           #nprogress .bar {
-            background: ${loaderColor};
+            background: #09CAFD;
             height: 3px;
           }
           nprogress .peg {
-            box-shadow:0 0 10px ${loaderColor} , 0 0 5px ${loaderColor};
-          }
-          #nprogress .spinner-icon {
-            border-top-color: ${loaderColor};
-            border-left-color: ${loaderColor};
+            box-shadow: 0 0 10px #09CAFD, 0 0 5px #09CAFD;
           }
         `}</style>
       </Fragment>
