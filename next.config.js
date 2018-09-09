@@ -6,11 +6,11 @@ module.exports = {
       test: /\.(png)$/,
       use: [
         {
-          loader: "file-loader",
+          loader: 'file-loader',
           options: {
-            publicPath: "/_next/static/img/",
-            outputPath: "static/img/",
-            name: "[name]-[hash].[ext]"
+            publicPath: '/_next/static/img/',
+            outputPath: 'static/img/',
+            name: '[name]-[hash].[ext]'
           }
         }
       ]
