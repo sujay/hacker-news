@@ -15,9 +15,9 @@ Router.onRouteChangeStart = () => NProgress.start();
 Router.onRouteChangeComplete = () => NProgress.done();
 Router.onRouteChangeError = () => NProgress.done();
 
-const iconApple = require('../static/apple-touch-icon.png');
-const icon32 = require('../static/favicon-32x32.png');
-const icon16 = require('../static/favicon-16x16.png');
+const iconApple = require('../static/img/apple-touch-icon.png');
+const icon32 = require('../static/img/favicon-32x32.png');
+const icon16 = require('../static/img/favicon-16x16.png');
 
 class Layout extends Component {
   componentDidMount() {

@@ -8,8 +8,8 @@ module.exports = {
         {
           loader: "file-loader",
           options: {
-            publicPath: "/_next/static/",
-            outputPath: "static/",
+            publicPath: "/_next/static/img/",
+            outputPath: "static/img/",
             name: "[name]-[hash].[ext]"
           }
         }
