@@ -15,6 +15,10 @@ Router.onRouteChangeStart = () => NProgress.start();
 Router.onRouteChangeComplete = () => NProgress.done();
 Router.onRouteChangeError = () => NProgress.done();
 
+const iconApple = require('../static/apple-touch-icon.png');
+const icon32 = require('../static/favicon-32x32.png');
+const icon16 = require('../static/favicon-16x16.png');
+
 class Layout extends Component {
   componentDidMount() {
     ReactGA.pageview(window.location.pathname + window.location.search);
@@ -26,9 +30,9 @@ class Layout extends Component {
           <title>Hacker News</title>
           <meta name="description" content="A Hacker News clone built with React and Next.js. Hacker News is a social news website focusing on computer science and entrepreneurship." />
           <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-          <link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png" />
-          <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png" />
-          <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png" />
+          <link rel="apple-touch-icon" sizes="180x180" href={iconApple} />
+          <link rel="icon" type="image/png" sizes="32x32" href={icon32} />
+          <link rel="icon" type="image/png" sizes="16x16" href={icon16} />
           <link rel="dns-prefetch" href="//api.hackerwebapp.com" />
         </Head>
 
