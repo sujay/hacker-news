@@ -7,7 +7,7 @@ import ItemDetail from '../components/item-detail'
 import CommentDetail from '../components/comment-detail'
 
 export default class Item extends Component {
-  static async getInitialProps ({ query: { id = props.url.query.id } }) {
+  static async getInitialProps ({ query: { id } }) {
     const json = await get({ id })
     return { data: json }
   }
