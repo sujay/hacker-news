@@ -5,12 +5,12 @@ import Comment from '../components/comment'
 class CommentDetail extends Component {
   render () {
     const comments = this.props.data.comments
-    const { comments_count } = this.props.data
+    const commentsCount = this.props.data.comments_count
     return (
       <Fragment>
         {comments.length > 0 &&
         <div className='comments'>
-          <h5>{comments_count} Comment{comments_count > 1 && `s`}:</h5>
+          <h5>{commentsCount} Comment{commentsCount > 1 && `s`}:</h5>
           <Comment comments={comments} />
         </div>
         }
