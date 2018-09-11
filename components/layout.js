@@ -1,52 +1,52 @@
-import React, { Component, Fragment } from 'react';
-import Head from 'next/head';
-import Link from 'next/link';
-import Router from 'next/router';
+import React, { Component, Fragment } from 'react'
+import Head from 'next/head'
+import Link from 'next/link'
+import Router from 'next/router'
 
-import NProgress from 'nprogress';
-import ReactGA from 'react-ga';
+import NProgress from 'nprogress'
+import ReactGA from 'react-ga'
 
-import Nav from '../components/nav';
+import Nav from '../components/nav'
 
-ReactGA.initialize('UA-77573-28');
+ReactGA.initialize('UA-77573-28')
 
-NProgress.configure({ showSpinner: false, trickleSpeed: 100, speed: 150 });
-Router.onRouteChangeStart = () => NProgress.start();
-Router.onRouteChangeComplete = () => NProgress.done();
-Router.onRouteChangeError = () => NProgress.done();
+NProgress.configure({ showSpinner: false, trickleSpeed: 100, speed: 150 })
+Router.onRouteChangeStart = () => NProgress.start()
+Router.onRouteChangeComplete = () => NProgress.done()
+Router.onRouteChangeError = () => NProgress.done()
 
-const iconApple = require('../static/img/apple-touch-icon.png');
-const icon32 = require('../static/img/favicon-32x32.png');
-const icon16 = require('../static/img/favicon-16x16.png');
+const iconApple = require('../static/img/apple-touch-icon.png')
+const icon32 = require('../static/img/favicon-32x32.png')
+const icon16 = require('../static/img/favicon-16x16.png')
 
 class Layout extends Component {
-  componentDidMount() {
-    ReactGA.pageview(window.location.pathname + window.location.search);
+  componentDidMount () {
+    ReactGA.pageview(window.location.pathname + window.location.search)
   }
-  render() {
+  render () {
     return (
       <Fragment>
         <Head>
           <title>Hacker News</title>
-          <meta name="description" content="A Hacker News clone built with React and Next.js. Hacker News is a social news website focusing on computer science and entrepreneurship." />
-          <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-          <link rel="apple-touch-icon" sizes="180x180" href={iconApple} />
-          <link rel="icon" type="image/png" sizes="32x32" href={icon32} />
-          <link rel="icon" type="image/png" sizes="16x16" href={icon16} />
-          <link rel="dns-prefetch" href="//api.hackerwebapp.com" />
+          <meta name='description' content='A Hacker News clone built with React and Next.js. Hacker News is a social news website focusing on computer science and entrepreneurship.' />
+          <meta name='viewport' content='initial-scale=1.0, width=device-width' />
+          <link rel='apple-touch-icon' sizes='180x180' href={iconApple} />
+          <link rel='icon' type='image/png' sizes='32x32' href={icon32} />
+          <link rel='icon' type='image/png' sizes='16x16' href={icon16} />
+          <link rel='dns-prefetch' href='//api.hackerwebapp.com' />
         </Head>
 
-        <div id="container">
-          <header><h1><Link href="/"><a title="Hacker News is a social news website focusing on computer science and entrepreneurship.">Hacker News</a></Link></h1></header>
+        <div id='container'>
+          <header><h1><Link href='/'><a title='Hacker News is a social news website focusing on computer science and entrepreneurship.'>Hacker News</a></Link></h1></header>
           <Nav />
-          <div id="main">
+          <div id='main'>
             {this.props.children}
           </div>
           <footer>
-            &copy; {(new Date().getFullYear())} <a href="https://isujay.com/">Sujay Thomas</a>.<br />
-            Built with <a href="https://reactjs.org/" rel="nofollow">React</a> &amp; <a href="https://nextjs.org/" rel="nofollow">Next.js</a>.<br />
-            Data via <a href="https://github.com/cheeaun/node-hnapi/" rel="nofollow">node-hnapi</a>.<br />
-            Source on <a href="https://github.com/sujay/hacker-news">GitHub</a>.
+            &copy; {(new Date().getFullYear())} <a href='https://isujay.com/'>Sujay Thomas</a>.<br />
+            Built with <a href='https://reactjs.org/' rel='nofollow'>React</a> &amp; <a href='https://nextjs.org/' rel='nofollow'>Next.js</a>.<br />
+            Data via <a href='https://github.com/cheeaun/node-hnapi/' rel='nofollow'>node-hnapi</a>.<br />
+            Source on <a href='https://github.com/sujay/hacker-news'>GitHub</a>.
           </footer>
         </div>
         <style jsx>{`
@@ -148,4 +148,4 @@ class Layout extends Component {
   }
 }
 
-export default Layout;
+export default Layout

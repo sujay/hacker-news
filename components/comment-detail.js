@@ -1,16 +1,15 @@
-import React, { Component, Fragment } from 'react';
-import Link from 'next/link';
+import React, { Component, Fragment } from 'react'
 
-import Comment from '../components/comment';
+import Comment from '../components/comment'
 
 class CommentDetail extends Component {
-  render() {
-    const comments = this.props.data.comments;
-    const { comments_count } = this.props.data;
+  render () {
+    const comments = this.props.data.comments
+    const { comments_count } = this.props.data
     return (
       <Fragment>
         {comments.length > 0 &&
-        <div className="comments">
+        <div className='comments'>
           <h5>{comments_count} Comment{comments_count > 1 && `s`}:</h5>
           <Comment comments={comments} />
         </div>
@@ -35,4 +34,4 @@ class CommentDetail extends Component {
   }
 }
 
-export default CommentDetail;
+export default CommentDetail

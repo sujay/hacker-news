@@ -1,19 +1,19 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component, Fragment } from 'react'
 
-import Meta from '../components/meta';
+import Meta from '../components/meta'
 
 class ItemDetail extends Component {
-  render() {
-    const item = this.props.data;
+  render () {
+    const item = this.props.data
     return (
       <Fragment>
-        <div className="item">
+        <div className='item'>
           <h3>
-            <a href={item.url} className="link" rel="nofollow">{item.title}</a>
-            {item.domain && <span className="domain">({item.domain})</span>}
+            <a href={item.url} className='link' rel='nofollow'>{item.title}</a>
+            {item.domain && <span className='domain'>({item.domain})</span>}
           </h3>
-          {item.content && <div className="content">
-            <div dangerouslySetInnerHTML={{ __html: item.content }}></div>
+          {item.content && <div className='content'>
+            <div dangerouslySetInnerHTML={{ __html: item.content }} />
           </div>}
           <Meta item={item} />
         </div>
@@ -51,4 +51,4 @@ class ItemDetail extends Component {
   }
 }
 
-export default ItemDetail;
+export default ItemDetail

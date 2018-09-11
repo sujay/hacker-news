@@ -1,18 +1,18 @@
-import React, { Component, Fragment } from 'react';
-import Link from 'next/link';
+import React, { Component, Fragment } from 'react'
+import Link from 'next/link'
 
 class Nav extends Component {
-  render() {
+  render () {
     return (
       <Fragment>
         <nav>
           <ul>
-            <li><Link href="/"><a>Top</a></Link></li>
-            <li><Link href="/best"><a>Best</a></Link></li>
-            <li><Link href="/newest"><a>New</a></Link></li>
-            <li><Link href="/show"><a>ShowHN</a></Link></li>
-            <li><Link href="/ask"><a>AskHN</a></Link></li>
-            <li><Link href="/jobs"><a>Jobs</a></Link></li>
+            <li><Link href='/'><a>Top</a></Link></li>
+            <li><Link href='/best'><a>Best</a></Link></li>
+            <li><Link href='/newest'><a>New</a></Link></li>
+            <li><Link href='/show'><a>ShowHN</a></Link></li>
+            <li><Link href='/ask'><a>AskHN</a></Link></li>
+            <li><Link href='/jobs'><a>Jobs</a></Link></li>
           </ul>
         </nav>
         <style jsx>{`
@@ -40,4 +40,4 @@ class Nav extends Component {
   }
 }
 
-export default Nav;
+export default Nav

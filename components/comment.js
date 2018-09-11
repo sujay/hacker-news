@@ -1,23 +1,23 @@
-import React, { Component, Fragment } from 'react';
-import Link from 'next/link';
+import React, { Component, Fragment } from 'react'
+import Link from 'next/link'
 
 class Comment extends Component {
-  render() {
-    const { comments } = this.props;
+  render () {
+    const { comments } = this.props
     return (
       <Fragment>
         {comments.map((comment) =>
-        <div className="comment" key={comment.id}>
-          <div className="meta">
-            <span className="user">
-              <Link href={{ pathname: '/user', query: { name: comment.user } }}>
-                <a>{comment.user}</a>
-              </Link>
-            </span>
-            <span> said </span> <span className="time" title={comment.time}>{comment.time_ago}</span>:</div>
-          <div className="content" dangerouslySetInnerHTML={{ __html: comment.content }}></div>
-          <Comment comments={comment.comments} />
-        </div>
+          <div className='comment' key={comment.id}>
+            <div className='meta'>
+              <span className='user'>
+                <Link href={{ pathname: '/user', query: { name: comment.user } }}>
+                  <a>{comment.user}</a>
+                </Link>
+              </span>
+              <span> said </span> <span className='time' title={comment.time}>{comment.time_ago}</span>:</div>
+            <div className='content' dangerouslySetInnerHTML={{ __html: comment.content }} />
+            <Comment comments={comment.comments} />
+          </div>
         )}
         <style jsx>{`
           .comment {
@@ -61,4 +61,4 @@ class Comment extends Component {
   }
 }
 
-export default Comment;
+export default Comment

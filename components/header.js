@@ -1,9 +1,9 @@
-import React, { Component, Fragment } from 'react';
-import Head from 'next/head';
+import React, { Component, Fragment } from 'react'
+import Head from 'next/head'
 
 class Header extends Component {
-  render() {
-    const { children, page } = this.props;
+  render () {
+    const { children, page } = this.props
     return (
       <Fragment>
         <Head>
@@ -42,4 +42,4 @@ class Header extends Component {
   }
 }
 
-export default Header;
+export default Header
