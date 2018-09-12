@@ -1,3 +1,5 @@
+/* eslint object-curly-newline: [0] */
+
 import fetch from 'isomorphic-unfetch';
 
 export default async function get({ type = 'news', id, name, page = '1' }) {
