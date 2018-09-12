@@ -9,9 +9,6 @@
         "no-plusplus": [0],
         "operator-linebreak": [0],
         "max-len": [0],
-        "jsx-a11y/anchor-is-valid":
-            [ "error", {
-                "components": [ "Link" ]
-            }]
+        "jsx-a11y/anchor-is-valid": [0]
     }
 }
