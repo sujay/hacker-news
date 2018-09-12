@@ -1,7 +1,7 @@
 // next.config.js
 module.exports = {
   poweredByHeader: false,
-  webpack: config => {
+  webpack: (config) => {
     config.module.rules.push({
       test: /\.(png)$/,
       use: [
@@ -10,11 +10,11 @@ module.exports = {
           options: {
             publicPath: '/_next/static/hn',
             outputPath: 'static/hn',
-            name: '[name]-[hash].[ext]'
-          }
-        }
-      ]
-    })
-    return config
-  }
-}
+            name: '[name]-[hash].[ext]',
+          },
+        },
+      ],
+    });
+    return config;
+  },
+};

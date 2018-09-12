@@ -1,25 +1,30 @@
-import React, { Component, Fragment } from 'react'
-import Link from 'next/link'
+import React, { Fragment } from 'react';
+import Link from 'next/link';
 
-class Comment extends Component {
-  render () {
-    const { comments } = this.props
-    return (
-      <Fragment>
-        {comments.map((comment) =>
-          <div className='comment' key={comment.id}>
-            <div className='meta'>
-              <span className='user'>
-                <Link href={{ pathname: '/user', query: { name: comment.user } }}>
-                  <a>{comment.user}</a>
-                </Link>
-              </span>
-              <span> said </span> <span className='time' title={comment.time}>{comment.time_ago}</span>:</div>
-            <div className='content' dangerouslySetInnerHTML={{ __html: comment.content }} />
-            <Comment comments={comment.comments} />
+export default function Comment(props) {
+  const { comments } = props;
+  return (
+    <Fragment>
+      {comments.map(comment => (
+        <div className="comment" key={comment.id}>
+          <div className="meta">
+            <span className="user">
+              <Link href={{ pathname: '/user', query: { name: comment.user } }}>
+                <a>{comment.user}</a>
+              </Link>
+            </span>
+            <span> said </span>
+            <span className="time" title={comment.time}>
+              {comment.time_ago}
+            </span>
+            :
           </div>
-        )}
-        <style jsx>{`
+          <div className="content" dangerouslySetInnerHTML={{ __html: comment.content }} />
+          <Comment comments={comment.comments} />
+        </div>
+      ))}
+      <style jsx>
+        {`
           .comment {
             font-size: 13px;
             padding: 0px;
@@ -55,10 +60,8 @@ class Comment extends Component {
           pre {
             font-size: 11px;
           }
-        `}</style>
-      </Fragment>
-    )
-  }
+        `}
+      </style>
+    </Fragment>
+  );
 }
-
-export default Comment

@@ -1,27 +1,27 @@
-import fetch from 'isomorphic-unfetch'
+import fetch from 'isomorphic-unfetch';
 
-export async function get ({ type = 'news', id, name, page = '1' }) {
+export default async function get({ type = 'news', id, name, page = '1' }) {
   if (type === 'new') {
-    type = 'newest'
+    type = 'newest';
   }
 
   if (type === 'top') {
-    type = 'news'
+    type = 'news';
   }
 
-  const endpointBase = `https://api.hackerwebapp.com/`
-  let endpointPath = `${type}?page=${page}`
+  const endpointBase = 'https://api.hackerwebapp.com/';
+  let endpointPath = `${type}?page=${page}`;
 
   if (id) {
-    endpointPath = `item/${id}`
+    endpointPath = `item/${id}`;
   } else if (name) {
-    endpointPath = `user/${name}`
+    endpointPath = `user/${name}`;
   }
 
-  const endpoint = `${endpointBase}${endpointPath}`
+  const endpoint = `${endpointBase}${endpointPath}`;
 
-  const res = await fetch(endpoint)
-  const json = await res.json()
+  const res = await fetch(endpoint);
+  const json = await res.json();
 
-  return json
+  return json;
 }

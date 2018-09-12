@@ -1,23 +1,35 @@
-import React, { Component, Fragment } from 'react'
+import React, { Fragment } from 'react';
 
-import Meta from '../components/meta'
+import Meta from './meta';
 
-class ItemDetail extends Component {
-  render () {
-    const item = this.props.data
-    return (
-      <Fragment>
-        <div className='item'>
-          <h3>
-            <a href={item.url} className='link' rel='nofollow'>{item.title}</a>
-            {item.domain && <span className='domain'>({item.domain})</span>}
-          </h3>
-          {item.content && <div className='content'>
-            <div dangerouslySetInnerHTML={{ __html: item.content }} />
-          </div>}
-          <Meta item={item} />
-        </div>
-        <style jsx>{`
+export default function ItemDetail(props) {
+  const item = props.data;
+  return (
+    <Fragment>
+      <div className="item">
+        <h3>
+          <a href={item.url} className="link" rel="nofollow">{item.title}</a>
+          {item.domain &&
+          (
+            <span className="domain">
+              (
+              {item.domain}
+              )
+            </span>
+          )
+        }
+        </h3>
+        {item.content &&
+          (
+            <div className="content">
+              <div dangerouslySetInnerHTML={{ __html: item.content }} />
+            </div>
+          )
+        }
+        <Meta item={item} />
+      </div>
+      <style jsx>
+        {`
           .item {
             padding: 20px;
             border-bottom: solid 1px #eee;
@@ -45,10 +57,8 @@ class ItemDetail extends Component {
             display: block;
             margin-top: 8px;
           }
-        `}</style>
-      </Fragment>
-    )
-  }
+        `}
+      </style>
+    </Fragment>
+  );
 }
-
-export default ItemDetail

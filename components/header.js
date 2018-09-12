@@ -1,22 +1,34 @@
-import React, { Component, Fragment } from 'react'
-import Head from 'next/head'
+import React, { Fragment } from 'react';
+import Head from 'next/head';
 
-class Header extends Component {
-  render () {
-    const { children, page } = this.props
-    return (
-      <Fragment>
-        <Head>
-          <title>Hacker News - {children} {page && page > 1 ? `(${page})` : ``}</title>
-        </Head>
-        <h2>
+export default function Header(props) {
+  const { children, page } = props;
+  return (
+    <Fragment>
+      <Head>
+        <title>
+          Hacker News -
+          { ' ' }
           {children}
-          {page && page > 1 &&
-            <span>Page {page}</span>
-          }
-        </h2>
+          { ' ' }
+          {page && page > 1 ? `(${page})` : ''}
+        </title>
+      </Head>
+      <h2>
+        {children}
+        {page && page > 1 &&
+          (
+            <span>
+              Page
+              {' '}
+              {page}
+            </span>
+          )
+        }
+      </h2>
 
-        <style jsx>{`
+      <style jsx>
+        {`
           h2 {
             background-color: #DDD;
             color: #000;
@@ -36,10 +48,8 @@ class Header extends Component {
             position: relative;
             top: 8px;
           }
-        `}</style>
-      </Fragment>
-    )
-  }
+        `}
+      </style>
+    </Fragment>
+  );
 }
-
-export default Header

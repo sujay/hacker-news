@@ -1,24 +1,28 @@
-import React, { Component, Fragment } from 'react'
-import Link from 'next/link'
+import React, { Fragment } from 'react';
+import Link from 'next/link';
 
-class PageNav extends Component {
-  render () {
-    const { pathname } = this.props
-    let page = parseFloat(this.props.page)
-    let previous = page - 1
-    let next = page + 1
-    let limit = this.props.limit
-    if (!limit) {
-      limit = 10
-    }
-    return (
-      <Fragment>
-        <div className='pagination'>
-          <span className='left'>{page > 1 && <Link href={{ pathname: pathname, query: { page: previous } }}><a>&larr; </a></Link>}</span>
-          <span className='current'>Page {page}</span>
-          <span className='right'>{page < limit && <Link href={{ pathname: pathname, query: { page: next } }}><a> &rarr;</a></Link>}</span>
-        </div>
-        <style jsx>{`
+export default function PageNav(props) {
+  const { pathname } = props;
+  let { page, limit } = props;
+  page = parseFloat(page);
+  const previous = page - 1;
+  const next = page + 1;
+  if (!limit) {
+    limit = 10;
+  }
+  return (
+    <Fragment>
+      <div className="pagination">
+        <span className="left">{page > 1 && <Link href={{ pathname, query: { page: previous } }}><a>&larr; </a></Link>}</span>
+        <span className="current">
+          Page
+          {' '}
+          {page}
+        </span>
+        <span className="right">{page < limit && <Link href={{ pathname, query: { page: next } }}><a> &rarr;</a></Link>}</span>
+      </div>
+      <style jsx>
+        {`
           .pagination {
             text-align: center;
             padding: 30px;
@@ -60,10 +64,8 @@ class PageNav extends Component {
             flex: 1 0 auto;
             align-self: auto;
           }
-        `}</style>
-      </Fragment>
-    )
-  }
+        `}
+      </style>
+    </Fragment>
+  );
 }
-
-export default PageNav
