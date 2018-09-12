@@ -1,14 +1,6 @@
 import fetch from 'isomorphic-unfetch';
 
 export default async function get({ type = 'news', id, name, page = '1' }) {
-  if (type === 'new') {
-    type = 'newest';
-  }
-
-  if (type === 'top') {
-    type = 'news';
-  }
-
   const endpointBase = 'https://api.hackerwebapp.com/';
   let endpointPath = `${type}?page=${page}`;
 
