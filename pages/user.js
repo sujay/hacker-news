@@ -18,28 +18,28 @@ export default class Show extends Component {
         <div className="user">
           <h3>{user.id}</h3>
           <div className="meta">
-            <label>Registered:</label>
-            <span>
+            <span className="label">Registered:</span>
+            <span className="content">
               {user.created}
             </span>
           </div>
           <div className="meta">
-            <label>Karma:</label>
-            <span>{user.karma}</span>
+            <span className="label">Karma:</span>
+            <span className="content">{user.karma}</span>
           </div>
           {user.avg &&
             (
               <div className="meta">
-                <label>Average:</label>
-                <span>{user.avg}</span>
+                <span className="label">Average:</span>
+                <span className="content">{user.avg}</span>
               </div>
             )
           }
           {user.about &&
             (
               <div className="meta">
-                <label>About:</label>
-                <span className="about_text" dangerouslySetInnerHTML={{ __html: user.about }} />
+                <span className="label">About:</span>
+                <span className="content about_text" dangerouslySetInnerHTML={{ __html: user.about }} />
               </div>
             )
           }
@@ -60,12 +60,12 @@ export default class Show extends Component {
               display: flex;
               flex-direction: row;
             }
-            label {
+            .label {
               color: #666;
               display: inline-flex;
               flex: 0 0 90px;
             }
-            .meta span {
+            .content {
               width: auto;
               flex: 0 1 auto;
               word-wrap: break-word;
