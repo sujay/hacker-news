@@ -48,27 +48,10 @@ class Layout extends Component {
             { ' ' }
             {(new Date().getFullYear())}
             { ' ' }
-            <a href="https://isujay.com/">Sujay Thomas</a>
-            .
-            <br />
-            Built with
-            { ' ' }
-            <a href="https://reactjs.org/" rel="nofollow">React</a>
-            { ' ' }
-            &amp;
-            { ' ' }
-            <a href="https://nextjs.org/" rel="nofollow">Next.js</a>
-            .
-            <br />
-            Data via
-            { ' ' }
-            <a href="https://github.com/cheeaun/node-hnapi/" rel="nofollow">node-hnapi</a>
-            .
-            <br />
-            Source on
-            { ' ' }
-            <a href="https://github.com/sujay/hacker-news">GitHub</a>
-            .
+            <a href="https://isujay.com/">Sujay Thomas</a>.<br />
+            Built with <a href="https://reactjs.org/" rel="nofollow">React</a> &amp; <a href="https://nextjs.org/" rel="nofollow">Next.js</a>.<br />
+            Data via <a href="https://github.com/cheeaun/node-hnapi/" rel="nofollow">node-hnapi</a>.<br />
+            Source on <a href="https://github.com/sujay/hacker-news">GitHub</a>.
           </footer>
         </div>
         <style jsx>
