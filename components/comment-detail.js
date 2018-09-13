@@ -3,8 +3,14 @@ import React, { Fragment } from 'react';
 import Comment from './comment';
 
 export default function CommentDetail(props) {
-  const { data: comments } = props;
-  const commentsCount = comments.comments_count;
+  const {
+    data: {
+      comments,
+    },
+    data: {
+      comments_count: commentsCount,
+    },
+  } = props;
   return (
     <Fragment>
       {comments.length > 0 &&
