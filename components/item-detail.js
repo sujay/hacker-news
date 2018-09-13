@@ -3,7 +3,7 @@ import React, { Fragment } from 'react';
 import Meta from './meta';
 
 export default function ItemDetail(props) {
-  const item = props.data;
+  const { data: item } = props;
   return (
     <Fragment>
       <div className="item">

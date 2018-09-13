@@ -11,7 +11,7 @@ export default class Show extends Component {
   }
 
   render() {
-    const user = this.props.data;
+    const { data: user } = this.props;
     return (
       <Layout>
         <Header user={user}>User</Header>

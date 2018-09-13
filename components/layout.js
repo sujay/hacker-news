@@ -25,6 +25,7 @@ class Layout extends Component {
   }
 
   render() {
+    const { children } = this.props;
     return (
       <Fragment>
         <Head>
@@ -41,7 +42,7 @@ class Layout extends Component {
           <header><h1><Link href="/"><a title="Hacker News is a social news website focusing on computer science and entrepreneurship.">Hacker News</a></Link></h1></header>
           <Nav />
           <div id="main">
-            {this.props.children}
+            {children}
           </div>
           <footer>
             &copy;
