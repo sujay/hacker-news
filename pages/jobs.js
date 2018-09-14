@@ -47,7 +47,9 @@ export default class Jobs extends Component {
               margin-bottom: 2px;
             }
             .domain {
+              display: block;
               color: #666;
+              margin-top: 8px;
             }
           `}
         </style>
