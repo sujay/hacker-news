@@ -19,6 +19,7 @@ export default class Item extends Component {
         <Head>
           <title>
             Hacker News -
+            {' '}
             {data.title}
           </title>
         </Head>
