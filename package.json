@@ -7,14 +7,14 @@
   "dependencies": {
     "babel-eslint": "^9.0.0",
     "isomorphic-unfetch": "^2.1.1",
-    "next": "^7.0.0-canary.14",
+    "next": "^7.0.0-canary.20",
     "nprogress": "^0.2.0",
-    "react": "^16.5.0",
-    "react-dom": "^16.5.0",
+    "react": "^16.5.1",
+    "react-dom": "^16.5.1",
     "react-ga": "^2.5.3"
   },
   "devDependencies": {
-    "eslint": "^5.5.0",
+    "eslint": "^5.6.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
