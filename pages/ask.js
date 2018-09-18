@@ -17,7 +17,7 @@ export default class Ask extends Component {
     return (
       <Layout>
         <Header page={page}>Ask</Header>
-        <ListDetail data={data} />
+        <ListDetail items={data} />
         <PageNav page={page} limit={4} />
       </Layout>
     );

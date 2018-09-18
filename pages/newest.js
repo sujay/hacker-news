@@ -17,7 +17,7 @@ export default class Newest extends Component {
     return (
       <Layout>
         <Header page={page}>Newest</Header>
-        <ListDetail data={data} />
+        <ListDetail items={data} />
         <PageNav page={page} />
       </Layout>
     );

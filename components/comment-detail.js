@@ -4,10 +4,10 @@ import Comment from './comment';
 
 export default function CommentDetail(props) {
   const {
-    data: {
+    item: {
       comments,
     },
-    data: {
+    item: {
       comments_count: commentsCount,
     },
   } = props;

@@ -17,7 +17,7 @@ export default class Best extends Component {
     return (
       <Layout>
         <Header page={page}>Best</Header>
-        <ListDetail data={data} />
+        <ListDetail items={data} />
         <PageNav page={page} limit={7} />
       </Layout>
     );

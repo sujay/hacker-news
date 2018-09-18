@@ -13,18 +13,18 @@ export default class Item extends Component {
   }
 
   render() {
-    const { data } = this.props;
+    const { data, data: { title } } = this.props;
     return (
       <Layout>
         <Head>
           <title>
             Hacker News -
             {' '}
-            {data.title}
+            {title}
           </title>
         </Head>
-        <ItemDetail data={data} />
-        <CommentDetail data={data} />
+        <ItemDetail item={data} />
+        <CommentDetail item={data} />
         <style jsx global>
           {`
             .item .comments_link {

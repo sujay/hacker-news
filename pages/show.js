@@ -17,7 +17,7 @@ export default class Show extends Component {
     return (
       <Layout>
         <Header page={page}>Show</Header>
-        <ListDetail data={data} />
+        <ListDetail items={data} />
         <PageNav page={page} limit={2} />
       </Layout>
     );

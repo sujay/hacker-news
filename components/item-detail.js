@@ -3,26 +3,34 @@ import React, { Fragment } from 'react';
 import Meta from './meta';
 
 export default function ItemDetail(props) {
-  const { data: item } = props;
+  const {
+    item,
+    item: {
+      url,
+      title,
+      domain,
+      content,
+    },
+  } = props;
   return (
     <Fragment>
       <div className="item">
         <h3>
-          <a href={item.url} className="link" rel="nofollow">{item.title}</a>
-          {item.domain &&
+          <a href={url} className="link" rel="nofollow">{title}</a>
+          {domain &&
           (
             <span className="domain">
               (
-              {item.domain}
+              {domain}
               )
             </span>
           )
         }
         </h3>
-        {item.content &&
+        {content &&
           (
             <div className="content">
-              <div dangerouslySetInnerHTML={{ __html: item.content }} />
+              <div dangerouslySetInnerHTML={{ __html: content }} />
             </div>
           )
         }

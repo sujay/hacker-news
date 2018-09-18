@@ -17,7 +17,7 @@ export default class Index extends Component {
     return (
       <Layout>
         <Header page={page}>Top</Header>
-        <ListDetail data={data} />
+        <ListDetail items={data} />
         <PageNav page={page} />
       </Layout>
     );

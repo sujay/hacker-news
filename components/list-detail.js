@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Meta from './meta';
 
 export default function ListDetail(props) {
-  const { data: items } = props;
+  const { items } = props;
   return (
     <Fragment>
       <ul>
