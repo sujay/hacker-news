@@ -22,6 +22,7 @@ export default class Item extends Component {
             {' '}
             {title}
           </title>
+          <meta name="robots" content="noindex" />
         </Head>
         <ItemDetail item={data} />
         <CommentDetail item={data} />

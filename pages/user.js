@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import Head from 'next/head';
 import get from '../components/fetch';
 import Layout from '../components/layout';
 import Header from '../components/header';
@@ -14,6 +15,9 @@ export default class Show extends Component {
     const { data: user } = this.props;
     return (
       <Layout>
+        <Head>
+          <meta name="robots" content="noindex" />
+        </Head>
         <Header user={user}>User</Header>
         <div className="user">
           <h3>{user.id}</h3>
