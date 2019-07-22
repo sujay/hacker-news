@@ -55,7 +55,6 @@ export default function Comment(props) {
             padding: 20px;
             margin-bottom: 8px;
             word-wrap: break-word;
-            overflow: scroll;
           }
           pre {
             font-size: 11px;

@@ -73,7 +73,6 @@ export default class Show extends Component {
               width: auto;
               flex: 0 1 auto;
               word-wrap: break-word;
-              overflow: scroll;
             }
           `}
         </style>
