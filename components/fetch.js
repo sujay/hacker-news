@@ -1,21 +1,28 @@
-/* eslint object-curly-newline: [0] */
+import axios from 'axios';
 
-import fetch from 'isomorphic-unfetch';
-
-export default async function get({ type = 'news', id, name, page = '1' }) {
+export default function fetchData(options) {
   const endpointBase = 'https://api.hackerwebapp.com/';
-  let endpointPath = `${type}?page=${page}`;
 
-  if (id) {
-    endpointPath = `item/${id}`;
-  } else if (name) {
-    endpointPath = `user/${name}`;
+  const {
+    page,
+    item,
+    user,
+    type,
+  } = options;
+
+  let endpointPath;
+  if (type === 'item') {
+    endpointPath = `${type}/${item}`;
+  } else if (type === 'user') {
+    endpointPath = `${type}/${user}`;
+  } else {
+    endpointPath = `${type}?page=${page}`;
   }
 
   const endpoint = `${endpointBase}${endpointPath}`;
 
-  const res = await fetch(endpoint);
-  const json = await res.json();
-
-  return json;
+  return axios
+    .get(endpoint)
+    .then(response => response.data)
+    .catch(error => console.log(error));
 }

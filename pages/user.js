@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
-
 import Head from 'next/head';
-import get from '../components/fetch';
+
+import fetchData from '../components/fetch';
 import Layout from '../components/layout';
 import Header from '../components/header';
 
 export default class Show extends Component {
   static async getInitialProps({ query: { name } }) {
-    const json = await get({ name });
-    return { data: json };
+    const options = {
+      type: 'user',
+      user: name,
+    };
+    const data = await fetchData(options);
+    return { data };
   }
 
   render() {
