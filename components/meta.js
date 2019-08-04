@@ -1,16 +1,16 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import Link from 'next/link';
 
 export default function ListDetail(props) {
   const { item } = props;
   return (
-    <Fragment>
+    <>
       <div className="meta">
         {item.points && (
-          <Fragment>
+          <>
             <span className="points">{item.points} points</span>
             <span className="pipe" />
-          </Fragment>
+          </>
         )}
         {item.user && (
           <span className="user">
@@ -55,6 +55,6 @@ export default function ListDetail(props) {
           }
         `}
       </style>
-    </Fragment>
+    </>
   );
 }

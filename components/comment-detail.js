@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
 import Comment from './comment';
 
@@ -8,7 +8,7 @@ export default function CommentDetail(props) {
     item: { comments_count: commentsCount },
   } = props;
   return (
-    <Fragment>
+    <>
       {comments.length > 0 && (
         <div className="comments">
           <h5>
@@ -35,6 +35,6 @@ export default function CommentDetail(props) {
           }
         `}
       </style>
-    </Fragment>
+    </>
   );
 }

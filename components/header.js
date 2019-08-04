@@ -1,10 +1,10 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import Head from 'next/head';
 
 export default function Header(props) {
   const { children, page } = props;
   return (
-    <Fragment>
+    <>
       <Head>
         <title>
           Hacker News - {children} {page && page > 1 ? `(${page})` : ''}
@@ -38,6 +38,6 @@ export default function Header(props) {
           }
         `}
       </style>
-    </Fragment>
+    </>
   );
 }

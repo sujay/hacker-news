@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import Link from 'next/link';
 
 export default function PageNav(props) {
@@ -11,7 +11,7 @@ export default function PageNav(props) {
     limit = 10;
   }
   return (
-    <Fragment>
+    <>
       <div className="pagination">
         <span className="left">
           {page > 1 && (
@@ -75,6 +75,6 @@ export default function PageNav(props) {
           }
         `}
       </style>
-    </Fragment>
+    </>
   );
 }

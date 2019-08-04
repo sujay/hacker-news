@@ -1,10 +1,10 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import Link from 'next/link';
 
 export default function Comment(props) {
   const { comments } = props;
   return (
-    <Fragment>
+    <>
       {comments.map((comment) => (
         <div className="comment" key={comment.id}>
           <div className="meta">
@@ -64,6 +64,6 @@ export default function Comment(props) {
           }
         `}
       </style>
-    </Fragment>
+    </>
   );
 }

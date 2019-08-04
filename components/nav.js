@@ -1,9 +1,9 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import Link from 'next/link';
 
 export default function Nav() {
   return (
-    <Fragment>
+    <>
       <nav>
         <ul>
           <li>
@@ -60,6 +60,6 @@ export default function Nav() {
           }
         `}
       </style>
-    </Fragment>
+    </>
   );
 }

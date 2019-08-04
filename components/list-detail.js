@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import Link from 'next/link';
 
 import Meta from './meta';
@@ -6,7 +6,7 @@ import Meta from './meta';
 export default function ListDetail(props) {
   const { items } = props;
   return (
-    <Fragment>
+    <>
       <ul>
         {items.length > 0 ? (
           items.map((item) => (
@@ -37,6 +37,6 @@ export default function ListDetail(props) {
           }
         `}
       </style>
-    </Fragment>
+    </>
   );
 }

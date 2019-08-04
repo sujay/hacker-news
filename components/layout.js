@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import Router from 'next/router';
@@ -30,7 +30,7 @@ class Layout extends Component {
   render() {
     const { children } = this.props;
     return (
-      <Fragment>
+      <>
         <Head>
           <title>Hacker News</title>
           <meta
@@ -128,7 +128,7 @@ class Layout extends Component {
             }
           `}
         </style>
-      </Fragment>
+      </>
     );
   }
 }

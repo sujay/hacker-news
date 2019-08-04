@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
 import Meta from './meta';
 
@@ -8,7 +8,7 @@ export default function ItemDetail(props) {
     item: { url, title, domain, content },
   } = props;
   return (
-    <Fragment>
+    <>
       <div className="item">
         <h3>
           <a href={url} className="link" rel="nofollow">
@@ -54,6 +54,6 @@ export default function ItemDetail(props) {
           }
         `}
       </style>
-    </Fragment>
+    </>
   );
 }
