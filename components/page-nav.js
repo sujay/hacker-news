@@ -13,13 +13,21 @@ export default function PageNav(props) {
   return (
     <Fragment>
       <div className="pagination">
-        <span className="left">{page > 1 && <Link href={{ pathname, query: { page: previous } }}><a>&larr; </a></Link>}</span>
-        <span className="current">
-          Page
-          {' '}
-          {page}
+        <span className="left">
+          {page > 1 && (
+            <Link href={{ pathname, query: { page: previous } }}>
+              <a>&larr; </a>
+            </Link>
+          )}
         </span>
-        <span className="right">{page < limit && <Link href={{ pathname, query: { page: next } }}><a> &rarr;</a></Link>}</span>
+        <span className="current">Page {page}</span>
+        <span className="right">
+          {page < limit && (
+            <Link href={{ pathname, query: { page: next } }}>
+              <a> &rarr;</a>
+            </Link>
+          )}
+        </span>
       </div>
       <style jsx>
         {`
@@ -43,7 +51,8 @@ export default function PageNav(props) {
             color: #fc6621;
             text-decoration: none;
           }
-          .left, .right {
+          .left,
+          .right {
             font-size: 20px;
           }
           .left {

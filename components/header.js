@@ -7,30 +7,18 @@ export default function Header(props) {
     <Fragment>
       <Head>
         <title>
-          Hacker News -
-          { ' ' }
-          {children}
-          { ' ' }
-          {page && page > 1 ? `(${page})` : ''}
+          Hacker News - {children} {page && page > 1 ? `(${page})` : ''}
         </title>
       </Head>
       <h2>
         {children}
-        {page && page > 1 &&
-          (
-            <span>
-              Page
-              {' '}
-              {page}
-            </span>
-          )
-        }
+        {page && page > 1 && <span>Page {page}</span>}
       </h2>
 
       <style jsx>
         {`
           h2 {
-            background-color: #DDD;
+            background-color: #ddd;
             color: #000;
             font-size: 28px;
             margin: 0;

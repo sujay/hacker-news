@@ -27,30 +27,27 @@ export default class Show extends Component {
           <h3>{user.id}</h3>
           <div className="meta">
             <span className="label">Registered:</span>
-            <span className="content">
-              {user.created}
-            </span>
+            <span className="content">{user.created}</span>
           </div>
           <div className="meta">
             <span className="label">Karma:</span>
             <span className="content">{user.karma}</span>
           </div>
-          {user.avg &&
-            (
-              <div className="meta">
-                <span className="label">Average:</span>
-                <span className="content">{user.avg}</span>
-              </div>
-            )
-          }
-          {user.about &&
-            (
-              <div className="meta">
-                <span className="label">About:</span>
-                <span className="content about_text" dangerouslySetInnerHTML={{ __html: user.about }} />
-              </div>
-            )
-          }
+          {user.avg && (
+            <div className="meta">
+              <span className="label">Average:</span>
+              <span className="content">{user.avg}</span>
+            </div>
+          )}
+          {user.about && (
+            <div className="meta">
+              <span className="label">About:</span>
+              <span
+                className="content about_text"
+                dangerouslySetInnerHTML={{ __html: user.about }}
+              />
+            </div>
+          )}
         </div>
         <style jsx>
           {`

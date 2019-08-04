@@ -4,29 +4,20 @@ import Comment from './comment';
 
 export default function CommentDetail(props) {
   const {
-    item: {
-      comments,
-    },
-    item: {
-      comments_count: commentsCount,
-    },
+    item: { comments },
+    item: { comments_count: commentsCount },
   } = props;
   return (
     <Fragment>
-      {comments.length > 0 &&
-        (
-          <div className="comments">
-            <h5>
-              {commentsCount}
-              {' '}
-              Comment
-              {commentsCount > 1 && 's'}
-              :
-            </h5>
-            <Comment comments={comments} />
-          </div>
-        )
-      }
+      {comments.length > 0 && (
+        <div className="comments">
+          <h5>
+            {commentsCount} Comment
+            {commentsCount > 1 && 's'}:
+          </h5>
+          <Comment comments={comments} />
+        </div>
+      )}
       <style jsx>
         {`
           h5 {

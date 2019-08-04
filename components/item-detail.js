@@ -5,35 +5,22 @@ import Meta from './meta';
 export default function ItemDetail(props) {
   const {
     item,
-    item: {
-      url,
-      title,
-      domain,
-      content,
-    },
+    item: { url, title, domain, content },
   } = props;
   return (
     <Fragment>
       <div className="item">
         <h3>
-          <a href={url} className="link" rel="nofollow">{title}</a>
-          {domain &&
-          (
-            <span className="domain">
-              (
-              {domain}
-              )
-            </span>
-          )
-        }
+          <a href={url} className="link" rel="nofollow">
+            {title}
+          </a>
+          {domain && <span className="domain">({domain})</span>}
         </h3>
-        {content &&
-          (
-            <div className="content">
-              <div dangerouslySetInnerHTML={{ __html: content }} />
-            </div>
-          )
-        }
+        {content && (
+          <div className="content">
+            <div dangerouslySetInnerHTML={{ __html: content }} />
+          </div>
+        )}
         <Meta item={item} />
       </div>
       <style jsx>

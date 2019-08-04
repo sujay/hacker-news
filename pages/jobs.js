@@ -21,19 +21,13 @@ export default class Jobs extends Component {
       <Layout>
         <Header>Jobs</Header>
         <ul>
-          {data.map(item => (
+          {data.map((item) => (
             <li key={item.id}>
               <h6>
-                <Link href={item.url}><a rel="nofollow">{item.title}</a></Link>
-                {item.domain &&
-                  (
-                    <span className="domain">
-                    (
-                      {item.domain}
-                    )
-                    </span>
-                  )
-                }
+                <Link href={item.url}>
+                  <a rel="nofollow">{item.title}</a>
+                </Link>
+                {item.domain && <span className="domain">({item.domain})</span>}
               </h6>
             </li>
           ))}

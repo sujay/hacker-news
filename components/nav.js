@@ -6,12 +6,36 @@ export default function Nav() {
     <Fragment>
       <nav>
         <ul>
-          <li><Link href="/"><a>Top</a></Link></li>
-          <li><Link href="/best"><a>Best</a></Link></li>
-          <li><Link href="/newest"><a>New</a></Link></li>
-          <li><Link href="/show"><a>ShowHN</a></Link></li>
-          <li><Link href="/ask"><a>AskHN</a></Link></li>
-          <li><Link href="/jobs"><a>Jobs</a></Link></li>
+          <li>
+            <Link href="/">
+              <a>Top</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/best">
+              <a>Best</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/newest">
+              <a>New</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/show">
+              <a>ShowHN</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/ask">
+              <a>AskHN</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/jobs">
+              <a>Jobs</a>
+            </Link>
+          </li>
         </ul>
       </nav>
       <style jsx>
@@ -26,12 +50,12 @@ export default function Nav() {
           }
           a {
             display: block;
-            color: #FFF;
+            color: #fff;
             padding: 10px;
           }
           a:hover {
             text-decoration: none;
-            color: #FFF;
+            color: #fff;
             background-color: #111;
           }
         `}

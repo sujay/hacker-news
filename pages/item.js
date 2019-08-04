@@ -17,15 +17,14 @@ export default class Item extends Component {
   }
 
   render() {
-    const { data, data: { title } } = this.props;
+    const {
+      data,
+      data: { title },
+    } = this.props;
     return (
       <Layout>
         <Head>
-          <title>
-            Hacker News -
-            {' '}
-            {title}
-          </title>
+          <title>Hacker News - {title}</title>
           <meta name="robots" content="noindex" />
         </Head>
         <ItemDetail item={data} />

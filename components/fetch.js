@@ -3,12 +3,7 @@ import axios from 'axios';
 export default function fetchData(options) {
   const endpointBase = 'https://api.hackerwebapp.com/';
 
-  const {
-    page,
-    item,
-    user,
-    type,
-  } = options;
+  const { page, item, user, type } = options;
 
   let endpointPath;
   if (type === 'item') {
@@ -23,6 +18,6 @@ export default function fetchData(options) {
 
   return axios
     .get(endpoint)
-    .then(response => response.data)
-    .catch(error => console.log(error));
+    .then((response) => response.data)
+    .catch((error) => console.log(error));
 }

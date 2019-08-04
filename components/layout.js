@@ -33,8 +33,14 @@ class Layout extends Component {
       <Fragment>
         <Head>
           <title>Hacker News</title>
-          <meta name="description" content="A Hacker News clone built with React and Next.js. Hacker News is a social news website focusing on computer science and entrepreneurship." />
-          <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+          <meta
+            name="description"
+            content="A Hacker News clone built with React and Next.js. Hacker News is a social news website focusing on computer science and entrepreneurship."
+          />
+          <meta
+            name="viewport"
+            content="initial-scale=1.0, width=device-width"
+          />
           <link rel="apple-touch-icon" sizes="180x180" href={iconApple} />
           <link rel="icon" type="image/png" sizes="32x32" href={icon32} />
           <link rel="icon" type="image/png" sizes="16x16" href={icon16} />
@@ -42,20 +48,37 @@ class Layout extends Component {
         </Head>
 
         <div id="container">
-          <header><h1><Link href="/"><a title="Hacker News is a social news website focusing on computer science and entrepreneurship.">Hacker News</a></Link></h1></header>
+          <header>
+            <h1>
+              <Link href="/">
+                <a title="Hacker News is a social news website focusing on computer science and entrepreneurship.">
+                  Hacker News
+                </a>
+              </Link>
+            </h1>
+          </header>
           <Nav />
-          <div id="main">
-            {children}
-          </div>
+          <div id="main">{children}</div>
           <footer>
-            &copy;
-            { ' ' }
-            {(new Date().getFullYear())}
-            { ' ' }
-            <a href="https://isujay.com/">Sujay Thomas</a>.<br />
-            Built with <a href="https://reactjs.org/" rel="nofollow">React</a> &amp; <a href="https://nextjs.org/" rel="nofollow">Next.js</a>.<br />
-            Data via <a href="https://github.com/cheeaun/node-hnapi/" rel="nofollow">node-hnapi</a>.<br />
-            Source on <a href="https://github.com/sujay/hacker-news">GitHub</a>.
+            &copy; {' ' + new Date().getFullYear() + ' '}
+            <a href="https://isujay.com/">Sujay Thomas</a>.
+            <br />
+            Built with{' '}
+            <a href="https://reactjs.org/" rel="nofollow">
+              React
+            </a>
+            &amp;
+            <a href="https://nextjs.org/" rel="nofollow">
+              Next.js
+            </a>
+            .
+            <br />
+            Data via{' '}
+            <a href="https://github.com/cheeaun/node-hnapi/" rel="nofollow">
+              node-hnapi
+            </a>
+            . Source on{' '}
+            <a href="https://github.com/sujay/hacker-news">GitHub</a>.
           </footer>
         </div>
         <style jsx>
@@ -65,7 +88,7 @@ class Layout extends Component {
               margin: auto;
             }
             #main {
-              background-color: #FFF;
+              background-color: #fff;
               border-radius: 5px;
               overflow: hidden;
             }
@@ -83,11 +106,11 @@ class Layout extends Component {
               left: -3px;
             }
             h1 a {
-              color: #FFF;
+              color: #fff;
               text-decoration: none;
             }
             h1 a:hover {
-              color: #FFF;
+              color: #fff;
               text-decoration: none;
             }
             footer {
@@ -98,12 +121,10 @@ class Layout extends Component {
               line-height: 1.6em;
             }
             footer a {
-              color: #FFF;
+              color: #fff;
             }
             footer a:hover {
-              color: #FFF;
-            }
-          `}
+              color: #fff;
             }
           `}
         </style>

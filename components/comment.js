@@ -5,7 +5,7 @@ export default function Comment(props) {
   const { comments } = props;
   return (
     <Fragment>
-      {comments.map(comment => (
+      {comments.map((comment) => (
         <div className="comment" key={comment.id}>
           <div className="meta">
             <span className="user">
@@ -19,7 +19,10 @@ export default function Comment(props) {
             </span>
             :
           </div>
-          <div className="content" dangerouslySetInnerHTML={{ __html: comment.content }} />
+          <div
+            className="content"
+            dangerouslySetInnerHTML={{ __html: comment.content }}
+          />
           <Comment comments={comment.comments} />
         </div>
       ))}
@@ -45,7 +48,7 @@ export default function Comment(props) {
             color: #666;
           }
           .comment .user {
-            color: #000;;
+            color: #000;
           }
           .comment .user a {
             font-weight: normal;
