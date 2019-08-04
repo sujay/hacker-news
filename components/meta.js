@@ -6,47 +6,30 @@ export default function ListDetail(props) {
   return (
     <Fragment>
       <div className="meta">
-        {item.points &&
-          (
-            <Fragment>
-              <span className="points">
-                {item.points}
-                {' '}
-                points
-              </span>
-              <span className="pipe" />
-            </Fragment>
-          )
-        }
-        {item.user &&
-          (
-            <span className="user">
-              <Link href={{ pathname: '/user', query: { name: item.user } }}>
-                <a>{item.user}</a>
-              </Link>
-            </span>
-          )
-        }
-        <span className="time">
-          {' '}
-          posted
-          {' '}
-          {item.time_ago}
-        </span>
-        {item.comments_count > 0 &&
-          (
-            <span className="comments_link">
-              <Link href={{ pathname: '/item', query: { id: item.id } }}>
-                <a>
-                  {item.comments_count}
-                  {' '}
-                  Comment
-                  {item.comments_count > 1 && 's'}
-                </a>
-              </Link>
-            </span>
-          )
-        }
+        {item.points && (
+          <Fragment>
+            <span className="points">{item.points} points</span>
+            <span className="pipe" />
+          </Fragment>
+        )}
+        {item.user && (
+          <span className="user">
+            <Link href={{ pathname: '/user', query: { name: item.user } }}>
+              <a>{item.user}</a>
+            </Link>
+          </span>
+        )}
+        <span className="time"> posted {item.time_ago}</span>
+        {item.comments_count > 0 && (
+          <span className="comments_link">
+            <Link href={{ pathname: '/item', query: { id: item.id } }}>
+              <a>
+                {item.comments_count} Comment
+                {item.comments_count > 1 && 's'}
+              </a>
+            </Link>
+          </span>
+        )}
       </div>
       <style jsx>
         {`
@@ -68,7 +51,7 @@ export default function ListDetail(props) {
             top: 1px;
             height: 9px;
             margin: 0 8px;
-            border-right: solid 1px #DDD;
+            border-right: solid 1px #ddd;
           }
         `}
       </style>
