@@ -60,14 +60,15 @@ class Layout extends Component {
           <Nav />
           <div id="main">{children}</div>
           <footer>
-            &copy; {' ' + new Date().getFullYear() + ' '}
-            <a href="https://isujay.com/">Sujay Thomas</a>.
+            &copy; {` ${new Date().getFullYear()} `}
+            <a href="https://isujay.com/">Sujay Thomas</a>
+            .
             <br />
             Built with{' '}
             <a href="https://reactjs.org/" rel="nofollow">
               React
-            </a>
-            &amp;
+            </a>{' '}
+            &amp;{' '}
             <a href="https://nextjs.org/" rel="nofollow">
               Next.js
             </a>
