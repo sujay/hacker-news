@@ -19,5 +19,5 @@ export default function fetchData(options) {
   return axios
     .get(endpoint)
     .then((response) => response.data)
-    .catch((error) => console.log(error));
+    .catch((error) => console.error(error));
 }

@@ -8,7 +8,7 @@ export default function ListDetail(props) {
       <div className="meta">
         {item.points && (
           <>
-            <span className="points">{item.points} points</span>
+            <span className="points">{`${item.points} points`}</span>
             <span className="pipe" />
           </>
         )}
@@ -19,13 +19,13 @@ export default function ListDetail(props) {
             </Link>
           </span>
         )}
-        <span className="time"> posted {item.time_ago}</span>
+        <span className="time">{` posted ${item.time_ago}`}</span>
         {item.comments_count > 0 && (
           <span className="comments_link">
             <Link href={{ pathname: '/item', query: { id: item.id } }}>
               <a>
-                {item.comments_count} Comment
-                {item.comments_count > 1 && 's'}
+                {item.comments_count}
+                {item.comments_count > 1 ? ' Comments' : ' Comment'}
               </a>
             </Link>
           </span>

@@ -60,26 +60,30 @@ class Layout extends Component {
           <Nav />
           <div id="main">{children}</div>
           <footer>
-            &copy; {` ${new Date().getFullYear()} `}
-            <a href="https://isujay.com/">Sujay Thomas</a>
-            .
-            <br />
-            Built with{' '}
-            <a href="https://reactjs.org/" rel="nofollow">
-              React
-            </a>{' '}
-            &amp;{' '}
-            <a href="https://nextjs.org/" rel="nofollow">
-              Next.js
-            </a>
-            .
-            <br />
-            Data via{' '}
-            <a href="https://github.com/cheeaun/node-hnapi/" rel="nofollow">
-              node-hnapi
-            </a>
-            . Source on{' '}
-            <a href="https://github.com/sujay/hacker-news">GitHub</a>.
+            <div>
+              &copy;
+              {` ${new Date().getFullYear()} `}
+              <a href="https://isujay.com/">Sujay Thomas</a>.
+            </div>
+            <div>
+              Built with{' '}
+              <a href="https://reactjs.org/" rel="nofollow">
+                React
+              </a>
+              {' & '}
+              <a href="https://nextjs.org/" rel="nofollow">
+                Next.js
+              </a>
+              .
+            </div>
+            <div>
+              Data via{' '}
+              <a href="https://github.com/cheeaun/node-hnapi/" rel="nofollow">
+                node-hnapi
+              </a>
+              . Source on{' '}
+              <a href="https://github.com/sujay/hacker-news">GitHub</a>.
+            </div>
           </footer>
         </div>
         <style jsx>

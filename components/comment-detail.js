@@ -12,8 +12,8 @@ export default function CommentDetail(props) {
       {comments.length > 0 && (
         <div className="comments">
           <h5>
-            {commentsCount} Comment
-            {commentsCount > 1 && 's'}:
+            {commentsCount}
+            {commentsCount > 1 ? ' Comments:' : ' Comment:'}
           </h5>
           <Comment comments={comments} />
         </div>

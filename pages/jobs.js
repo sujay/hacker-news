@@ -27,7 +27,9 @@ export default class Jobs extends Component {
                 <Link href={item.url}>
                   <a rel="nofollow">{item.title}</a>
                 </Link>
-                {item.domain && <span className="domain">({item.domain})</span>}
+                {item.domain && (
+                  <span className="domain">{`(${item.domain})`}</span>
+                )}
               </h6>
             </li>
           ))}

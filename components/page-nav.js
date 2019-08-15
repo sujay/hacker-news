@@ -20,7 +20,7 @@ export default function PageNav(props) {
             </Link>
           )}
         </span>
-        <span className="current">Page {page}</span>
+        <span className="current">{`Page ${page}`}</span>
         <span className="right">
           {page < limit && (
             <Link href={{ pathname, query: { page: next } }}>

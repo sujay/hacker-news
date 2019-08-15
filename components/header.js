@@ -7,12 +7,13 @@ export default function Header(props) {
     <>
       <Head>
         <title>
-          Hacker News - {children} {page && page > 1 ? `(${page})` : ''}
+          {`Hacker News - ${children}`}
+          {page && page > 1 ? ` (Page ${page})` : ''}
         </title>
       </Head>
       <h2>
         {children}
-        {page && page > 1 && <span>Page {page}</span>}
+        {page && page > 1 && <span>{`Page ${page}`}</span>}
       </h2>
 
       <style jsx>

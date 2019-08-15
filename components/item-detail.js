@@ -14,7 +14,7 @@ export default function ItemDetail(props) {
           <a href={url} className="link" rel="nofollow">
             {title}
           </a>
-          {domain && <span className="domain">({domain})</span>}
+          {domain && <span className="domain">{`(${domain})`}</span>}
         </h3>
         {content && (
           <div className="content">

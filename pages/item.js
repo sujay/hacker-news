@@ -24,7 +24,7 @@ export default class Item extends Component {
     return (
       <Layout>
         <Head>
-          <title>Hacker News - {title}</title>
+          <title>{`Hacker News - ${title}`}</title>
           <meta name="robots" content="noindex" />
         </Head>
         <ItemDetail item={data} />
