@@ -16,13 +16,13 @@ export default class Jobs extends Component {
   }
 
   render() {
-    const { data } = this.props;
+    const { data: items } = this.props;
     return (
       <Layout>
         <Header>Jobs</Header>
         <ul>
-          {data ? (
-            data.map(item => (
+          {items && items.length > 0 ? (
+            items.map((item) => (
               <li key={item.id}>
                 <h6>
                   <Link href={item.url}>
