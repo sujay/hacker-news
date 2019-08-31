@@ -8,8 +8,8 @@ export default function ListDetail(props) {
   return (
     <>
       <ul>
-        {items.length > 0 ? (
-          items.map((item) => (
+        {items ? (
+          items.map(item => (
             <li key={item.id}>
               <h6>
                 <Link href={{ pathname: '/item', query: { id: item.id } }}>
