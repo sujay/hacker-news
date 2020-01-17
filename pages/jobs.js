@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Link from 'next/link';
 
 import fetchData from '../components/fetch';
 import Layout from '../components/layout';
@@ -25,9 +24,9 @@ export default class Jobs extends Component {
             items.map((item) => (
               <li key={item.id}>
                 <h6>
-                  <Link href={item.url}>
-                    <a rel="nofollow">{item.title}</a>
-                  </Link>
+                  <a href={item.url} rel="nofollow">
+                    {item.title}
+                  </a>
                   {item.domain && (
                     <span className="domain">{`(${item.domain})`}</span>
                   )}
