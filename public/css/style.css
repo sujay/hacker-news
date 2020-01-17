@@ -1,0 +1,51 @@
+html {
+  background-color: #333;
+}
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    Helvetica, Arial, sans-serif;
+  line-height: 1.15em;
+  color: #333;
+}
+p:first-child {
+  margin-top: 0;
+}
+p:last-child {
+  margin-bottom: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 500;
+  line-height: 1.2;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+a {
+  color: #000;
+  font-weight: bold;
+  text-decoration: none;
+}
+a:hover {
+  color: #000;
+  text-decoration: underline;
+}
+pre,
+code {
+  font-size: 11px;
+  font-family: Input Mono, Consolas, Menlo, Monaco, Lucida Console,
+    Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New,
+    monospace, sans-serif;
+}
+#nprogress .bar {
+  background: #09cafd;
+  height: 3px;
+}
+nprogress .peg {
+  box-shadow: 0 0 10px #09cafd, 0 0 5px #09cafd;
+}
