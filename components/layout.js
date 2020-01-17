@@ -8,9 +8,6 @@ import ReactGA from 'react-ga';
 
 import Nav from './nav';
 
-import '../static/css/sanitize.css';
-import '../static/css/nprogress.css';
-
 ReactGA.initialize('UA-77573-28');
 
 NProgress.configure({ showSpinner: false, trickleSpeed: 100, speed: 150 });
