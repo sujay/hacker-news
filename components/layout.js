@@ -86,6 +86,7 @@ class Layout extends Component {
         <style jsx>
           {`
             #container {
+              width: 95%;
               max-width: 800px;
               margin: auto;
             }
