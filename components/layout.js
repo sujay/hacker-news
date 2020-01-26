@@ -129,6 +129,11 @@ class Layout extends Component {
             footer a:hover {
               color: #fff;
             }
+            @media only screen and (max-width: 320px) {
+              h1 {
+                font-size: 40px;
+              }
+            }
           `}
         </style>
       </>

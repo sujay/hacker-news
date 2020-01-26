@@ -58,6 +58,19 @@ export default function Nav() {
             color: #fff;
             background-color: #111;
           }
+          @media only screen and (max-width: 400px) {
+            nav {
+              font-size: 13px;
+            }
+          }
+          @media only screen and (max-width: 320px) {
+            nav {
+              font-size: 12px;
+            }
+            a {
+              padding: 7px;
+            }
+          }
         `}
       </style>
     </>
