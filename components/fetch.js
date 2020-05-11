@@ -1,6 +1,4 @@
-import axios from 'axios';
-
-export default function fetchData(options) {
+export default async function fetchData(options) {
   const endpointBase = 'https://api.hackerwebapp.com/';
 
   const { page, item, user, type } = options;
@@ -16,8 +14,8 @@ export default function fetchData(options) {
 
   const endpoint = `${endpointBase}${endpointPath}`;
 
-  return axios
-    .get(endpoint)
-    .then((response) => response.data)
-    .catch((error) => console.error(error));
+  const res = await fetch(endpoint);
+  const json = res.json();
+
+  return json;
 }
