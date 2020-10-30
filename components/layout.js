@@ -58,12 +58,18 @@ class Layout extends Component {
           <div id="main">{children}</div>
           <footer>
             <div>
-              &copy;
+              Content &copy;
               {` ${new Date().getFullYear()} `}
-              <a href="https://isujay.com/">Sujay Thomas</a>.
+              <a href="https://news.ycombinator.com/" rel="nofollow">Hacker News</a>
+              {' '}
+              by
+              {' '}
+              <a href="https://www.ycombinator.com/" rel="nofollow">Y Combinator</a>
+              .
             </div>
             <div>
-              Built with{' '}
+              Built with
+              {' '}
               <a href="https://reactjs.org/" rel="nofollow">
                 React
               </a>
@@ -71,15 +77,25 @@ class Layout extends Component {
               <a href="https://nextjs.org/" rel="nofollow">
                 Next.js
               </a>
+              {' '}
+              by
+              {' '}
+              <a href="https://isujay.com/">Sujay Thomas</a>
               .
             </div>
             <div>
-              Data via{' '}
+              Data via
+              {' '}
               <a href="https://github.com/cheeaun/node-hnapi/" rel="nofollow">
                 node-hnapi
               </a>
-              . Source on{' '}
-              <a href="https://github.com/sujay/hacker-news">GitHub</a>.
+              .
+            </div>
+            <div>
+              Source on
+              {' '}
+              <a href="https://github.com/sujay/hacker-news" rel="nofollow">GitHub</a>
+              .
             </div>
           </footer>
         </div>
