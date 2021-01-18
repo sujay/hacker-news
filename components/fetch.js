@@ -1,5 +1,5 @@
 export default async function fetchData(options) {
-  const endpointBase = 'https://api.hackerwebapp.com/';
+  const endpointBase = 'https://node-hnapi.herokuapp.com/';
 
   const { page, item, user, type } = options;
 
