@@ -1,34 +1,36 @@
 import React from 'react';
 import Link from 'next/link';
+import timeago from 'epoch-timeago';
 
-export default function ListDetail(props) {
-  const { item } = props;
+export default function Meta({ item }) {
   return (
     <>
       <div className="meta">
-        {item.points && (
+        {item.score && item.score > 1 && (
           <>
-            <span className="points">{`${item.points} points`}</span>
+            <span className="points">{`${item.score} points`}</span>
             <span className="pipe" />
           </>
         )}
-        {item.user && (
+        {item.by && (
           <span className="user">
-            <Link href={{ pathname: '/user', query: { name: item.user } }}>
-              <a>{item.user}</a>
+            <Link href={{ pathname: '/user', query: { name: item.by } }}>
+              <a>{item.by}</a>
             </Link>
           </span>
         )}
-        <span className="time">{` posted ${item.time_ago}`}</span>
-        {item.comments_count > 0 && (
-          <span className="comments_link">
+        {item.time && (
+          <span className="time">{` posted ${timeago(item.time * 1000)}`}</span>
+        )}
+        {item.descendants > 0 && (
+          <div className="comments_link">
             <Link href={{ pathname: '/item', query: { id: item.id } }}>
               <a>
-                {item.comments_count}
-                {item.comments_count > 1 ? ' Comments' : ' Comment'}
+                {item.descendants}
+                {item.descendants > 1 ? ' Comments' : ' Comment'}
               </a>
             </Link>
-          </span>
+          </div>
         )}
       </div>
       <style jsx>
@@ -40,7 +42,6 @@ export default function ListDetail(props) {
           }
           .comments_link {
             text-transform: lowercase;
-            display: block;
           }
           .user a {
             font-weight: normal;

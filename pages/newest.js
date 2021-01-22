@@ -1,33 +1,30 @@
 import React from 'react';
 
-import fetchData from '../components/fetch';
+import { getList } from '../components/fetch';
 import Layout from '../components/layout';
 import Header from '../components/header';
 import ListDetail from '../components/list-detail';
-import PageNav from '../components/page-nav';
 
-function Newest({ data, page }) {
+export default function Newest({ list }) {
   return (
     <Layout>
-      <Header page={page}>Newest</Header>
-      <ListDetail items={data} />
-      <PageNav page={page} />
+      <Header>Newest</Header>
+      {list.length > 0 ? (
+        <ListDetail items={list.slice(0, 30)} />
+      ) : (
+        <ul>
+          <li className="load">Error loading posts.</li>
+        </ul>
+      )}
     </Layout>
   );
 }
 
-export async function getServerSideProps({ query: { page = '1' } }) {
-  const options = {
-    type: 'newest',
-    page,
-  };
-  const data = await fetchData(options);
+export async function getServerSideProps() {
+  const list = await getList('newstories');
   return {
     props: {
-      data,
-      page,
+      list,
     },
   };
 }
-
-export default Newest;

@@ -1,20 +1,13 @@
 import React from 'react';
 import Head from 'next/head';
 
-export default function Header(props) {
-  const { children, page } = props;
+export default function Header({ children }) {
   return (
     <>
       <Head>
-        <title>
-          {`Hacker News - ${children}`}
-          {page && page > 1 ? ` (Page ${page})` : ''}
-        </title>
+        <title>{`Hacker News - ${children}`}</title>
       </Head>
-      <h2>
-        {children}
-        {page && page > 1 && <span>{`Page ${page}`}</span>}
-      </h2>
+      <h2>{children}</h2>
 
       <style jsx>
         {`
@@ -25,17 +18,6 @@ export default function Header(props) {
             margin: 0;
             padding: 20px;
             font-weight: bold;
-          }
-          h2 span {
-            float: right;
-            color: #666;
-            height: 100%;
-            vertical-align: center;
-            display: block;
-            font-size: 14px;
-            font-weight: normal;
-            position: relative;
-            top: 8px;
           }
         `}
       </style>

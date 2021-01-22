@@ -2,23 +2,20 @@ import React from 'react';
 
 import Meta from './meta';
 
-export default function ItemDetail(props) {
-  const {
-    item,
-    item: { url, title, domain, content },
-  } = props;
+export default function ItemDetail({ item, item: { url, title, text } }) {
   return (
     <>
       <div className="item">
-        <h3>
-          <a href={url} className="link" rel="nofollow">
-            {title}
-          </a>
-          {domain && <span className="domain">{`(${domain})`}</span>}
-        </h3>
-        {content && (
+        {title && (
+          <h3>
+            <a href={url} className="link" rel="nofollow">
+              {title}
+            </a>
+          </h3>
+        )}
+        {text && (
           <div className="content">
-            <div dangerouslySetInnerHTML={{ __html: content }} />
+            <div dangerouslySetInnerHTML={{ __html: text }} />
           </div>
         )}
         <Meta item={item} />

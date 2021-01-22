@@ -41,6 +41,11 @@ code {
   font-family: Input Mono, Consolas, Menlo, Monaco, Lucida Console,
     Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New,
     monospace, sans-serif;
+  white-space: pre-wrap;
+}
+.load {
+  text-align: center;
+  padding: 40px;
 }
 #nprogress .bar {
   background: #09cafd;
