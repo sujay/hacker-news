@@ -12,7 +12,7 @@ export default function Comment({ item }) {
       setComment(result);
       setLoading(false);
     });
-  }, [item]);
+  }, []);
   return (
     <>
       {!loading ? (

@@ -12,7 +12,7 @@ export default function ListItem({ item: itemId, url }) {
       setItem(data);
       setLoading(false);
     });
-  }, [itemId]);
+  }, []);
   return (
     <>
       {!loading ? (
