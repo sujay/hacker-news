@@ -16,20 +16,26 @@ export default function ListItem({ item: itemId, url }) {
   return (
     <>
       {!loading ? (
-        <li key={item.id}>
-          <h6>
-            {item.url && url ? (
-              <a href={item.url} rel="nofollow">
-                {item.title}
-              </a>
-            ) : (
-              <Link href={{ pathname: '/item', query: { id: item.id } }}>
-                <a>{item.title}</a>
-              </Link>
-            )}
-          </h6>
-          <Meta item={item} />
-        </li>
+        <>
+          {item ? (
+            <li key={item.id}>
+              <h6>
+                {item.url && url ? (
+                  <a href={item.url} rel="nofollow">
+                    {item.title}
+                  </a>
+                ) : (
+                  <Link href={{ pathname: '/item', query: { id: item.id } }}>
+                    <a>{item.title}</a>
+                  </Link>
+                )}
+              </h6>
+              <Meta item={item} />
+            </li>
+          ) : (
+            <li>Error loading this post.</li>
+          )}
+        </>
       ) : (
         <li>Loading...</li>
       )}
