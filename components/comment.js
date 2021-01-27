@@ -51,8 +51,8 @@ export default function Comment({ item }) {
         </div>
       ) : (
         <div className="comment" key={comment.id}>
-          <div className="meta">
-            <span className="user">Comment loading...</span>
+          <div className="loading">
+            <span>Comment loading...</span>
           </div>
         </div>
       )}
@@ -64,8 +64,7 @@ export default function Comment({ item }) {
             padding-bottom: 0;
             padding-right: 0;
             border: solid 1px #eee;
-            overflow: hidden;
-            margin-bottom: -3px;
+            margin-bottom: -1px;
             margin-right: -1px;
           }
           .comment .comment {
@@ -76,6 +75,9 @@ export default function Comment({ item }) {
             padding: 15px 20px;
             font-size: 13px;
             color: #666;
+          }
+          .comment .loading {
+            padding: 15px 20px;
           }
           .comment .user {
             color: #000;
