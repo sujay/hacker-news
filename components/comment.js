@@ -61,23 +61,21 @@ export default function Comment({ item }) {
           .comment {
             font-size: 13px;
             padding: 0px;
-            padding-bottom: 0;
-            padding-right: 0;
             border: solid 1px #eee;
+          }
+          .comment .comment {
+            margin-left: 15px;
             margin-bottom: -1px;
             margin-right: -1px;
           }
-          .comment .comment {
-            margin-left: 20px;
-          }
           .comment .meta {
             background-color: #eee;
-            padding: 15px 20px;
+            padding: 15px;
             font-size: 13px;
             color: #666;
           }
           .comment .loading {
-            padding: 15px 20px;
+            padding: 15px;
           }
           .comment .user {
             color: #000;
@@ -87,8 +85,7 @@ export default function Comment({ item }) {
           }
           .comment .content {
             line-height: 1.6em;
-            padding: 20px;
-            margin-bottom: 8px;
+            margin: 15px;
             word-wrap: break-word;
           }
           pre {

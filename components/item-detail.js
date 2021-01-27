@@ -28,12 +28,12 @@ export default function ItemDetail({ item, item: { url, title, text } }) {
           }
           .content {
             font-size: 14px;
-            margin: 20px 0;
+            margin-bottom: 15px;
           }
           h3 {
             font-size: 24px;
             margin-top: 0;
-            margin-bottom: 5px;
+            margin-bottom: 15px;
           }
           a {
             color: #000;
@@ -42,12 +42,6 @@ export default function ItemDetail({ item, item: { url, title, text } }) {
           a:hover {
             color: #000;
             text-decoration: underline;
-          }
-          .domain {
-            font-size: 14px;
-            color: #666;
-            display: block;
-            margin-top: 8px;
           }
         `}
       </style>
