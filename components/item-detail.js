@@ -15,7 +15,14 @@ export default function ItemDetail({ item, item: { url, title, text } }) {
         )}
         {text && (
           <div className="content">
-            <div dangerouslySetInnerHTML={{ __html: text }} />
+            <div
+              dangerouslySetInnerHTML={{
+                __html: text.replace(
+                  'https:&#x2F;&#x2F;news.ycombinator.com',
+                  '',
+                ),
+              }}
+            />
           </div>
         )}
         <Meta item={item} />
