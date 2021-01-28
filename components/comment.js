@@ -16,10 +16,10 @@ export default function Comment({ item }) {
   return (
     <>
       {!loading ? (
-        <div className="comment" key={comment.id} id={comment.id}>
+        <>
           {comment && !comment.deleted && (
-            <div className="meta">
-              <>
+            <div className="comment" key={comment.id} id={comment.id}>
+              <div className="meta">
                 <span className="user">
                   <Link
                     href={{ pathname: '/user', query: { name: comment.by } }}
@@ -32,25 +32,25 @@ export default function Comment({ item }) {
                   <span className="time">{timeago(comment.time * 1000)}</span>
                 )}
                 :
-              </>
+              </div>
+              {comment.text && !comment.deleted && (
+                <div
+                  className="content"
+                  dangerouslySetInnerHTML={{
+                    __html: comment.text.replace(
+                      'https:&#x2F;&#x2F;news.ycombinator.com',
+                      '',
+                    ),
+                  }}
+                />
+              )}
+              {comment.kids &&
+                comment.kids.map((kid) => <Comment item={kid} key={kid} />)}
             </div>
           )}
-          {comment.text && !comment.deleted && (
-            <div
-              className="content"
-              dangerouslySetInnerHTML={{
-                __html: comment.text.replace(
-                  'https:&#x2F;&#x2F;news.ycombinator.com',
-                  '',
-                ),
-              }}
-            />
-          )}
-          {comment.kids &&
-            comment.kids.map((kid) => <Comment item={kid} key={kid} />)}
-        </div>
+        </>
       ) : (
-        <div className="comment" key={comment.id}>
+        <div className="comment">
           <div className="loading">
             <span>Comment loading...</span>
           </div>
