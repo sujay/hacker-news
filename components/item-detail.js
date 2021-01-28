@@ -8,9 +8,13 @@ export default function ItemDetail({ item, item: { url, title, text } }) {
       <div className="item">
         {title && (
           <h3>
-            <a href={url} className="link" rel="nofollow">
-              {title}
-            </a>
+            {url ? (
+              <a href={url} rel="nofollow">
+                {title}
+              </a>
+            ) : (
+              [title]
+            )}
           </h3>
         )}
         {text && (
