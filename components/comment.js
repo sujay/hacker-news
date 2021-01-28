@@ -17,7 +17,7 @@ export default function Comment({ item }) {
     <>
       {!loading ? (
         <div className="comment" key={comment.id} id={comment.id}>
-          {!comment.deleted && (
+          {comment && !comment.deleted && (
             <div className="meta">
               <>
                 <span className="user">
