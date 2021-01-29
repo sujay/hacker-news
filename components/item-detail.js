@@ -22,7 +22,7 @@ export default function ItemDetail({ item, item: { url, title, text } }) {
             <div
               dangerouslySetInnerHTML={{
                 __html: text.replace(
-                  'https:&#x2F;&#x2F;news.ycombinator.com',
+                  /https:&#x2F;&#x2F;news.ycombinator.com/g,
                   '',
                 ),
               }}

@@ -38,7 +38,7 @@ export default function Comment({ item }) {
                   className="content"
                   dangerouslySetInnerHTML={{
                     __html: comment.text.replace(
-                      'https:&#x2F;&#x2F;news.ycombinator.com',
+                      /https:&#x2F;&#x2F;news.ycombinator.com/g,
                       '',
                     ),
                   }}
