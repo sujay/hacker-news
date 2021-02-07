@@ -2,7 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import { GetServerSideProps } from 'next';
 import { formatDistanceToNowStrict } from 'date-fns';
-import DOMPurify from 'dompurify';
+import DOMPurify from 'isomorphic-dompurify';
 
 import { UserProps } from '../types/interfaces';
 
