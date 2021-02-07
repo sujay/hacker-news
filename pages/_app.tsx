@@ -1,11 +1,12 @@
 import React from 'react';
 // import App from 'next/app'
+import type { AppProps } from 'next/app';
 
 import '../public/css/sanitize.css';
 import '../public/css/nprogress.css';
 import '../public/css/style.css';
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps }: AppProps) {
   return <Component {...pageProps} />;
 }
 

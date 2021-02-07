@@ -1,8 +1,14 @@
 import React from 'react';
 import Link from 'next/link';
-import timeago from 'epoch-timeago';
+import { formatDistanceToNowStrict } from 'date-fns';
 
-export default function Meta({ item }) {
+import { ItemProps } from '../types/interfaces';
+
+interface Props {
+  item: ItemProps;
+}
+
+export default function Meta({ item }: Props) {
   return (
     <>
       <div className="meta">
@@ -20,7 +26,10 @@ export default function Meta({ item }) {
           </span>
         )}
         {item.time && (
-          <span className="time">{` posted ${timeago(item.time * 1000)}`}</span>
+          <span className="time">{` posted ${formatDistanceToNowStrict(
+            item.time * 1000,
+            { addSuffix: true, roundingMethod: 'floor' },
+          )} `}</span>
         )}
         {item.descendants > 0 && (
           <div className="comments_link">

@@ -1,11 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 
+import { ItemProps } from '../types/interfaces';
+
 import { getItem } from './fetch';
 import Meta from './meta';
 
-export default function ListItem({ item: itemId, url }) {
-  const [item, setItem] = useState([]);
+interface Props {
+  itemId: number;
+  url: boolean;
+}
+
+export default function ListItem({ itemId, url }: Props) {
+  const [item, setItem] = useState<ItemProps>();
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     getItem(itemId).then((data) => {

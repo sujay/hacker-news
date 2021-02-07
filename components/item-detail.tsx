@@ -1,27 +1,34 @@
 import React from 'react';
 
+import { ItemProps } from '../types/interfaces';
+
 import Meta from './meta';
 
-export default function ItemDetail({ item, item: { url, title, text } }) {
+interface Props {
+  item: ItemProps;
+}
+
+export default function ItemDetail({ item }: Props) {
   return (
     <>
       <div className="item">
-        {title && (
+        {item.title && (
           <h3>
-            {url ? (
-              <a href={url} rel="nofollow">
-                {title}
+            {item.url ? (
+              <a href={item.url} rel="nofollow">
+                {item.title}
               </a>
             ) : (
-              [title]
+              [item.title]
             )}
           </h3>
         )}
-        {text && (
+        {item.text && (
           <div className="content">
             <div
+              // eslint-disable-next-line react/no-danger
               dangerouslySetInnerHTML={{
-                __html: text.replace(
+                __html: item.text.replace(
                   /https:&#x2F;&#x2F;news.ycombinator.com/g,
                   '',
                 ),

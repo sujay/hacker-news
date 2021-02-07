@@ -1,11 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import timeago from 'epoch-timeago';
+import { formatDistanceToNowStrict } from 'date-fns';
+
+import { ItemProps } from '../types/interfaces';
 
 import { getItem } from './fetch';
 
-export default function Comment({ item }) {
-  const [comment, setComment] = useState([]);
+interface Props {
+  item: number;
+}
+
+export default function Comment({ item }: Props) {
+  const [comment, setComment] = useState<ItemProps>();
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     getItem(item).then((result) => {
@@ -18,7 +24,7 @@ export default function Comment({ item }) {
       {!loading ? (
         <>
           {comment && !comment.deleted && (
-            <div className="comment" key={comment.id} id={comment.id}>
+            <div className="comment" key={comment.id}>
               <div className="meta">
                 <span className="user">
                   <Link
@@ -29,13 +35,19 @@ export default function Comment({ item }) {
                 </span>
                 <span> said </span>
                 {comment.time && (
-                  <span className="time">{timeago(comment.time * 1000)}</span>
+                  <span className="time">
+                    {formatDistanceToNowStrict(comment.time * 1000, {
+                      addSuffix: true,
+                      roundingMethod: 'floor',
+                    })}
+                  </span>
                 )}
                 :
               </div>
               {comment.text && !comment.deleted && (
                 <div
                   className="content"
+                  // eslint-disable-next-line react/no-danger
                   dangerouslySetInnerHTML={{
                     __html: comment.text.replace(
                       /https:&#x2F;&#x2F;news.ycombinator.com/g,
