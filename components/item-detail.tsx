@@ -1,4 +1,5 @@
 import React from 'react';
+import DOMPurify from 'dompurify';
 
 import { ItemProps } from '../types/interfaces';
 
@@ -28,9 +29,11 @@ export default function ItemDetail({ item }: Props) {
             <div
               // eslint-disable-next-line react/no-danger
               dangerouslySetInnerHTML={{
-                __html: item.text.replace(
-                  /https:&#x2F;&#x2F;news.ycombinator.com/g,
-                  '',
+                __html: DOMPurify.sanitize(
+                  item.text.replace(
+                    /https:&#x2F;&#x2F;news.ycombinator.com/g,
+                    '',
+                  ),
                 ),
               }}
             />

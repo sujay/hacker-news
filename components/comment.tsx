@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { formatDistanceToNowStrict } from 'date-fns';
+import DOMPurify from 'dompurify';
 
 import { ItemProps } from '../types/interfaces';
 
@@ -49,9 +50,11 @@ export default function Comment({ item }: Props) {
                   className="content"
                   // eslint-disable-next-line react/no-danger
                   dangerouslySetInnerHTML={{
-                    __html: comment.text.replace(
-                      /https:&#x2F;&#x2F;news.ycombinator.com/g,
-                      '',
+                    __html: DOMPurify.sanitize(
+                      comment.text.replace(
+                        /https:&#x2F;&#x2F;news.ycombinator.com/g,
+                        '',
+                      ),
                     ),
                   }}
                 />

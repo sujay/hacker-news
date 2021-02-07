@@ -2,6 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import { GetServerSideProps } from 'next';
 import { formatDistanceToNowStrict } from 'date-fns';
+import DOMPurify from 'dompurify';
 
 import { UserProps } from '../types/interfaces';
 
@@ -52,7 +53,9 @@ export const User = ({ user }: Props) => (
             <span
               className="content about_text"
               // eslint-disable-next-line react/no-danger
-              dangerouslySetInnerHTML={{ __html: user.about }}
+              dangerouslySetInnerHTML={{
+                __html: DOMPurify.sanitize(user.about),
+              }}
             />
           </div>
         )}
