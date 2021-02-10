@@ -4,6 +4,8 @@ import Link from 'next/link';
 import { ItemProps } from '../types/interfaces';
 
 import { getItem } from '../helpers/fetch';
+
+import Domain from './domain';
 import Meta from './meta';
 
 interface Props {
@@ -28,14 +30,17 @@ export default function ListItem({ itemId, url }: Props) {
             <li key={item.id}>
               <h6>
                 {item.url && url ? (
-                  <a href={item.url} rel="nofollow">
-                    {item.title}
-                  </a>
+                  <>
+                    <a href={item.url} rel="nofollow">
+                      {item.title}
+                    </a>
+                  </>
                 ) : (
                   <Link href={{ pathname: '/item', query: { id: item.id } }}>
                     <a>{item.title}</a>
                   </Link>
                 )}
+                {item.url && <Domain itemUrl={item.url} />}
               </h6>
               <Meta item={item} />
             </li>

@@ -3,6 +3,7 @@ import DOMPurify from 'isomorphic-dompurify';
 
 import { ItemProps } from '../types/interfaces';
 
+import Domain from './domain';
 import Meta from './meta';
 
 interface Props {
@@ -16,9 +17,12 @@ export default function ItemDetail({ item }: Props) {
         {item.title && (
           <h3>
             {item.url ? (
-              <a href={item.url} rel="nofollow">
-                {item.title}
-              </a>
+              <>
+                <a href={item.url} rel="nofollow">
+                  {item.title}
+                </a>
+                <Domain itemUrl={item.url} />
+              </>
             ) : (
               [item.title]
             )}
