@@ -6,7 +6,7 @@ import DOMPurify from 'isomorphic-dompurify';
 
 import { UserProps } from '../types/interfaces';
 
-import { getUser } from '../components/fetch';
+import { getUser } from '../helpers/fetch';
 import Layout from '../components/layout';
 import Header from '../components/header';
 

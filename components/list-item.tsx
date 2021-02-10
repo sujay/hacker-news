@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 import { ItemProps } from '../types/interfaces';
 
-import { getItem } from './fetch';
+import { getItem } from '../helpers/fetch';
 import Meta from './meta';
 
 interface Props {

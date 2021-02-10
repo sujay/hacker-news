@@ -4,7 +4,7 @@ import { GetServerSideProps } from 'next';
 
 import { ItemProps } from '../types/interfaces';
 
-import { getItem } from '../components/fetch';
+import { getItem } from '../helpers/fetch';
 import Layout from '../components/layout';
 import ItemDetail from '../components/item-detail';
 import Comment from '../components/comment';

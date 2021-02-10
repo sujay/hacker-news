@@ -5,7 +5,7 @@ import DOMPurify from 'isomorphic-dompurify';
 
 import { ItemProps } from '../types/interfaces';
 
-import { getItem } from './fetch';
+import { getItem } from '../helpers/fetch';
 
 interface Props {
   item: number;

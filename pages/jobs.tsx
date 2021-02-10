@@ -3,7 +3,7 @@ import { GetServerSideProps } from 'next';
 
 import { ListProps } from '../types/interfaces';
 
-import { getList } from '../components/fetch';
+import { getList } from '../helpers/fetch';
 import Layout from '../components/layout';
 import Header from '../components/header';
 import ListDetail from '../components/list-detail';
