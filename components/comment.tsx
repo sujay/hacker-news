@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { formatDistanceToNowStrict } from 'date-fns';
 import DOMPurify from 'isomorphic-dompurify';
 
 import { ItemProps } from '../types/interfaces';
-
 import { getItem } from '../helpers/fetch';
+
+import Time from './time';
 
 interface Props {
   item: number;
@@ -37,10 +37,7 @@ export default function Comment({ item }: Props) {
                 <span> said </span>
                 {comment.time && (
                   <span className="time">
-                    {formatDistanceToNowStrict(comment.time * 1000, {
-                      addSuffix: true,
-                      roundingMethod: 'floor',
-                    })}
+                    <Time time={comment.time} />
                   </span>
                 )}
                 :

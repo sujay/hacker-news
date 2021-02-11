@@ -1,8 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
-import { formatDistanceToNowStrict } from 'date-fns';
 
 import { ItemProps } from '../types/interfaces';
+
+import Time from './time';
 
 interface Props {
   item: ItemProps;
@@ -26,10 +27,10 @@ export default function Meta({ item }: Props) {
           </span>
         )}
         {item.time && (
-          <span className="time">{` posted ${formatDistanceToNowStrict(
-            item.time * 1000,
-            { addSuffix: true, roundingMethod: 'floor' },
-          )} `}</span>
+          <span className="time">
+            {' posted '}
+            <Time time={item.time} />
+          </span>
         )}
         {item.descendants > 0 && (
           <div className="comments_link">

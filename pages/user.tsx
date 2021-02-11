@@ -1,14 +1,14 @@
 import React from 'react';
 import Head from 'next/head';
 import { GetServerSideProps } from 'next';
-import { formatDistanceToNowStrict } from 'date-fns';
 import DOMPurify from 'isomorphic-dompurify';
 
 import { UserProps } from '../types/interfaces';
-
 import { getUser } from '../helpers/fetch';
+
 import Layout from '../components/layout';
 import Header from '../components/header';
+import Time from '../components/time';
 
 interface Props {
   user: UserProps;
@@ -28,10 +28,7 @@ export const User = ({ user }: Props) => (
           <div className="meta">
             <span className="label">Registered:</span>
             <span className="content">
-              {formatDistanceToNowStrict(user.created * 1000, {
-                addSuffix: true,
-                roundingMethod: 'floor',
-              })}
+              <Time time={user.created} />
             </span>
           </div>
         )}
