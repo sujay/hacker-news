@@ -11,7 +11,7 @@ import ListDetail from '../components/list-detail';
 export const Ask = ({ list }: ListProps) => (
   <Layout>
     <Header>Ask</Header>
-    {list.length > 0 ? (
+    {list && list.length > 0 ? (
       <ListDetail items={list.slice(0, 30)} url={false} />
     ) : (
       <ul>

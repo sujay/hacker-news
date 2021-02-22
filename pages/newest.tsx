@@ -11,7 +11,7 @@ import ListDetail from '../components/list-detail';
 export const Newest = ({ list }: ListProps) => (
   <Layout>
     <Header>Newest</Header>
-    {list.length > 0 ? (
+    {list && list.length > 0 ? (
       <ListDetail items={list.slice(0, 30)} url={false} />
     ) : (
       <ul>

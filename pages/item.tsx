@@ -10,7 +10,7 @@ import ItemDetail from '../components/item-detail';
 import Comment from '../components/comment';
 
 interface Props {
-  item: ItemProps;
+  item?: ItemProps | null;
 }
 
 export const Item = ({ item }: Props) => (
@@ -21,7 +21,7 @@ export const Item = ({ item }: Props) => (
       </title>
       <meta name="robots" content="noindex" />
     </Head>
-    {item ? (
+    {item && item.id ? (
       <>
         <ItemDetail item={item} />
         {item.descendants > 0 && (
@@ -71,7 +71,6 @@ export const Item = ({ item }: Props) => (
 export const getServerSideProps: GetServerSideProps = async ({
   query: { id },
 }) => {
-  // @ts-ignore
   const item = await getItem(id);
   return {
     props: {

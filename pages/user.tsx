@@ -11,7 +11,7 @@ import Header from '../components/header';
 import Time from '../components/time';
 
 interface Props {
-  user: UserProps;
+  user?: UserProps | null;
 }
 
 export const User = ({ user }: Props) => (

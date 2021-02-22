@@ -1,5 +1,5 @@
 export interface ListProps {
-  list: (number)[];
+  list?: (number)[] | null;
 }
 export interface ItemProps {
   by: string;
