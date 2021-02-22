@@ -96,7 +96,12 @@ export const User = ({ user }: Props) => (
 export const getServerSideProps: GetServerSideProps = async ({
   query: { name },
 }) => {
-  const user = await getUser(name);
+  let user;
+  if (typeof name === 'string') {
+    user = await getUser(name);
+  } else {
+    user = null;
+  }
   return {
     props: {
       user,
