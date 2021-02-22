@@ -17,11 +17,13 @@ interface Props {
 export const User = ({ user }: Props) => (
   <Layout>
     <Head>
-      <title>{user.id ? `Hacker News - ${user.id}` : 'Hacker News'}</title>
+      <title>
+        {user && user.id ? `Hacker News - ${user.id}` : 'Hacker News'}
+      </title>
       <meta name="robots" content="noindex" />
     </Head>
     <Header>User</Header>
-    {user.id ? (
+    {user && user.id ? (
       <div className="user">
         <h3>{user.id}</h3>
         {user.created && (
