@@ -71,12 +71,7 @@ export const Item = ({ item }: Props) => (
 export const getServerSideProps: GetServerSideProps = async ({
   query: { id },
 }) => {
-  let item;
-  if (typeof id === 'number') {
-    item = await getItem(id);
-  } else {
-    item = null;
-  }
+  const item = await getItem(Number(id));
   return {
     props: {
       item,
