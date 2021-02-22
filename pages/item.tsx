@@ -17,11 +17,11 @@ export const Item = ({ item }: Props) => (
   <Layout>
     <Head>
       <title>
-        {item.title ? `Hacker News - ${item.title}` : 'Hacker News'}
+        {item && item.title ? `Hacker News - ${item.title}` : 'Hacker News'}
       </title>
       <meta name="robots" content="noindex" />
     </Head>
-    {item.id ? (
+    {item ? (
       <>
         <ItemDetail item={item} />
         {item.descendants > 0 && (
