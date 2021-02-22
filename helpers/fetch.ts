@@ -8,7 +8,7 @@ export const getList = async (list: string) => {
   return json;
 };
 
-export const getItem = async (item: number) => {
+export const getItem = async (item: string | string[] | undefined) => {
   const endpoint = `${endpointPrefix}item/${item}${endpointSuffix}`;
   const res = await fetch(endpoint);
   const json = await res.json();
