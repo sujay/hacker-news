@@ -2,7 +2,7 @@ const endpointPrefix = 'https://hacker-news.firebaseio.com/v0/';
 const endpointSuffix = '.json';
 
 export const getList = async (list: string) => {
-  if(list) {
+  if (list) {
     const endpoint = `${endpointPrefix}${list}${endpointSuffix}`;
     const res = await fetch(endpoint);
     const json = await res.json();
@@ -12,7 +12,7 @@ export const getList = async (list: string) => {
 };
 
 export const getItem = async (item: number) => {
-  if(item) {
+  if (item) {
     const endpoint = `${endpointPrefix}item/${item}${endpointSuffix}`;
     const res = await fetch(endpoint);
     const json = await res.json();
@@ -22,7 +22,7 @@ export const getItem = async (item: number) => {
 };
 
 export const getUser = async (user: string) => {
-  if(user) {
+  if (user) {
     const endpoint = `${endpointPrefix}user/${user}${endpointSuffix}`;
     const res = await fetch(endpoint);
     const json = await res.json();

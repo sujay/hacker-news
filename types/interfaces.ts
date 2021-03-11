@@ -1,12 +1,12 @@
 export interface ListProps {
-  list?: (number)[] | null;
+  list?: number[] | null;
 }
 export interface ItemProps {
   by: string;
   descendants: number;
   deleted: boolean;
   id: number;
-  kids?: (number)[] | null;
+  kids?: number[] | null;
   score: number;
   time: number;
   title: string;
@@ -19,5 +19,5 @@ export interface UserProps {
   created: number;
   id: string;
   karma: number;
-  submitted?: (number)[] | null;
+  submitted?: number[] | null;
 }
