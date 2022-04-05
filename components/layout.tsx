@@ -29,6 +29,7 @@ class Layout extends Component {
     return (
       <>
         <Head>
+          <html lang="en" />
           <title>Hacker News</title>
           <meta
             name="description"
