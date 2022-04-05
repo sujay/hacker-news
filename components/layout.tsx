@@ -1,19 +1,9 @@
 import React, { Component } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import Router from 'next/router';
-
-import NProgress from 'nprogress';
 import ReactGA from 'react-ga';
 
 import Nav from './nav';
-
-ReactGA.initialize('UA-77573-28');
-
-NProgress.configure({ showSpinner: false, trickleSpeed: 100, speed: 150 });
-Router.events.on('routeChangeStart', () => NProgress.start());
-Router.events.on('routeChangeComplete', () => NProgress.done());
-Router.events.on('routeChangeError', () => NProgress.done());
 
 const iconApple = require('../public/img/apple-touch-icon.png').default;
 const icon32 = require('../public/img/favicon-32x32.png').default;
