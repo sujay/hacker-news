@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import ReactGA from 'react-ga';
 
 import Nav from './nav';
 
@@ -10,10 +9,6 @@ const icon32 = require('../public/img/favicon-32x32.png').default;
 const icon16 = require('../public/img/favicon-16x16.png').default;
 
 class Layout extends Component {
-  componentDidMount() {
-    ReactGA.pageview(window.location.pathname + window.location.search);
-  }
-
   render() {
     const { children } = this.props;
     return (
