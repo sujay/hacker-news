@@ -6,7 +6,6 @@ import DOMPurify from 'isomorphic-dompurify';
 import { UserProps } from '../types/interfaces';
 import { getUser } from '../helpers/fetch';
 
-import Layout from '../components/layout';
 import Header from '../components/header';
 import Time from '../components/time';
 
@@ -15,7 +14,7 @@ interface Props {
 }
 
 export const User = ({ user }: Props) => (
-  <Layout>
+  <>
     <Head>
       <title>
         {user && user.id ? `Hacker News - ${user.id}` : 'Hacker News'}
@@ -90,7 +89,7 @@ export const User = ({ user }: Props) => (
         }
       `}
     </style>
-  </Layout>
+  </>
 );
 
 export const getServerSideProps: GetServerSideProps = async ({

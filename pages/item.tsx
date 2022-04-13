@@ -5,7 +5,6 @@ import { GetServerSideProps } from 'next';
 import { ItemProps } from '../types/interfaces';
 
 import { getItem } from '../helpers/fetch';
-import Layout from '../components/layout';
 import ItemDetail from '../components/item-detail';
 import Comment from '../components/comment';
 
@@ -14,7 +13,7 @@ interface Props {
 }
 
 export const Item = ({ item }: Props) => (
-  <Layout>
+  <>
     <Head>
       <title>
         {item && item.title ? `Hacker News - ${item.title}` : 'Hacker News'}
@@ -65,7 +64,7 @@ export const Item = ({ item }: Props) => (
         }
       `}
     </style>
-  </Layout>
+  </>
 );
 
 export const getServerSideProps: GetServerSideProps = async ({

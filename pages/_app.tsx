@@ -5,6 +5,8 @@ import type { AppProps } from 'next/app';
 import NProgress from 'nprogress';
 import TagManager from 'react-gtm-module';
 
+import Layout from '../components/layout';
+
 import '../public/css/sanitize.css';
 import '../public/css/nprogress.css';
 import '../public/css/style.css';
@@ -27,7 +29,11 @@ function MyApp({ Component, pageProps }: AppProps) {
     }
   }, []);
   // eslint-disable-next-line react/jsx-props-no-spreading
-  return <Component {...pageProps} />;
+  return (
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
+  );
 }
 
 // Only uncomment this method if you have blocking data requirements for
