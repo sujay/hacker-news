@@ -8,7 +8,6 @@ export default function Header({ children }: any) {
         <title>{`Hacker News - ${children}`}</title>
       </Head>
       <h2>{children}</h2>
-
       <style jsx>
         {`
           h2 {
