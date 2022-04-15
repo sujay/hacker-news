@@ -36,7 +36,6 @@ export default function ListItem({ itemId, url }: Props) {
                     </a>
                   </>
                 ) : (
-                  <Link href={{ pathname: '/item', query: { id: item.id } }}>
                     <a>{item.title}</a>
                   </Link>
                 )}
@@ -50,6 +49,7 @@ export default function ListItem({ itemId, url }: Props) {
         </>
       ) : (
         <li>Loading...</li>
+              <Link href={`/item/${item.id}`}>
       )}
       <style jsx>
         {`

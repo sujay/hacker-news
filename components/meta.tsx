@@ -21,7 +21,7 @@ export default function Meta({ item }: Props) {
         )}
         {item.by && (
           <span className="user">
-            <Link href={{ pathname: '/user', query: { name: item.by } }}>
+            <Link href={`/user/${item.by}`}>
               <a>{item.by}</a>
             </Link>
           </span>
@@ -34,7 +34,7 @@ export default function Meta({ item }: Props) {
         )}
         {item.descendants > 0 && (
           <div className="comments_link">
-            <Link href={{ pathname: '/item', query: { id: item.id } }}>
+            <Link href={`/item/${item.id}`}>
               <a>
                 {item.descendants}
                 {item.descendants > 1 ? ' Comments' : ' Comment'}

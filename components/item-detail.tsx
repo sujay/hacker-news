@@ -35,7 +35,7 @@ export default function ItemDetail({ item }: Props) {
               dangerouslySetInnerHTML={{
                 __html: DOMPurify.sanitize(
                   item.text.replace(
-                    /https:&#x2F;&#x2F;news.ycombinator.com/g,
+                    /https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item\?id=/g,
                     '',
                   ),
                 ),

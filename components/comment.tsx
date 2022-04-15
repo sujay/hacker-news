@@ -28,9 +28,7 @@ export default function Comment({ item }: Props) {
             <div className="comment" key={comment.id}>
               <div className="meta">
                 <span className="user">
-                  <Link
-                    href={{ pathname: '/user', query: { name: comment.by } }}
-                  >
+                  <Link href={`/user/${comment.by}`}>
                     <a>{comment.by}</a>
                   </Link>
                 </span>
@@ -49,7 +47,7 @@ export default function Comment({ item }: Props) {
                   dangerouslySetInnerHTML={{
                     __html: DOMPurify.sanitize(
                       comment.text.replace(
-                        /https:&#x2F;&#x2F;news.ycombinator.com/g,
+                        /https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item\?id=/g,
                         '',
                       ),
                     ),
