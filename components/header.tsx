@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 
-export default function Header({ children }: any) {
+export default function Header({ children }: React.PropsWithChildren<{}>) {
   return (
     <>
       <Head>

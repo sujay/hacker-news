@@ -6,9 +6,10 @@ import useSWR, { SWRConfig } from 'swr';
 import { getItem } from '../../helpers/fetch';
 import ItemDetail from '../../components/item-detail';
 import Comment from '../../components/comment';
+import { ItemProps } from '../../types/interfaces';
 
 interface Props {
-  fallback: any;
+  fallback: { [key: string]: ItemProps };
 }
 
 interface Params {

@@ -11,7 +11,7 @@ import Time from '../../components/time';
 import { UserProps } from '../../types/interfaces';
 
 interface Props {
-  fallback: any;
+  fallback: { [key: string]: UserProps };
 }
 
 interface Params {
