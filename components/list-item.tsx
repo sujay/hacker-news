@@ -11,6 +11,7 @@ import Meta from './meta';
 interface Props {
   itemId: number;
   url: boolean;
+  page: string;
 }
 
   const [item, setItem] = useState<ItemProps>();
