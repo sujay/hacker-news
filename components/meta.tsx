@@ -7,9 +7,10 @@ import Time from './time';
 
 interface Props {
   item: ItemProps;
+  page: string;
 }
 
-export default function Meta({ item }: Props) {
+export default function Meta({ item, page }: Props) {
   return (
     <>
       <div className="meta">
@@ -32,7 +33,7 @@ export default function Meta({ item }: Props) {
             <Time time={item.time} />
           </span>
         )}
-        {item.descendants > 0 && (
+        {item.descendants > 0 && page !== 'item' && (
           <div className="comments_link">
             <Link href={`/item/${item.id}`}>
               <a>

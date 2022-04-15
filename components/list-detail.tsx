@@ -12,7 +12,7 @@ export default function ListDetail({ items, url }: Props) {
     <>
       <ul>
         {items.map((itemId: number) => (
-          <ListItem itemId={itemId} key={itemId} url={url} />
+          <ListItem itemId={itemId} key={itemId} url={url} page="list" />
         ))}
       </ul>
     </>

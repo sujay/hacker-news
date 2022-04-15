@@ -8,9 +8,10 @@ import Meta from './meta';
 
 interface Props {
   item: ItemProps;
+  page: string;
 }
 
-export default function ItemDetail({ item }: Props) {
+export default function ItemDetail({ item, page }: Props) {
   return (
     <>
       <div className="item">
@@ -43,7 +44,7 @@ export default function ItemDetail({ item }: Props) {
             />
           </div>
         )}
-        <Meta item={item} />
+        <Meta item={item} page={page} />
       </div>
       <style jsx>
         {`

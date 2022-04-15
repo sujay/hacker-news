@@ -13,7 +13,6 @@ interface Props {
   url: boolean;
 }
 
-export default function ListItem({ itemId, url }: Props) {
   const [item, setItem] = useState<ItemProps>();
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -22,6 +21,7 @@ export default function ListItem({ itemId, url }: Props) {
       setLoading(false);
     });
   }, []);
+export default function ListItem({ itemId, url, page }: Props) {
   return (
     <>
       {!loading ? (
@@ -41,7 +41,6 @@ export default function ListItem({ itemId, url }: Props) {
                 )}
                 {item.url && <Domain itemUrl={item.url} />}
               </h6>
-              <Meta item={item} />
             </li>
           ) : (
             <li>Error loading this post.</li>
@@ -50,6 +49,7 @@ export default function ListItem({ itemId, url }: Props) {
       ) : (
         <li>Loading...</li>
               <Link href={`/item/${item.id}`}>
+          <Meta item={item} page={page} />
       )}
       <style jsx>
         {`
