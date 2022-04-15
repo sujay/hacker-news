@@ -1,39 +1,52 @@
 import React from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 export default function Nav() {
+  const router = useRouter();
+
   return (
     <>
       <nav>
         <ul>
           <li>
             <Link href="/">
-              <a>Top</a>
+              <a className={router.pathname === '/' ? 'active' : ''}>Top</a>
             </Link>
           </li>
           <li>
             <Link href="/best">
-              <a>Best</a>
+              <a className={router.pathname === '/best' ? 'active' : ''}>
+                Best
+              </a>
             </Link>
           </li>
           <li>
             <Link href="/newest">
-              <a>New</a>
+              <a className={router.pathname === '/newest' ? 'active' : ''}>
+                New
+              </a>
             </Link>
           </li>
           <li>
             <Link href="/show">
-              <a>ShowHN</a>
+              <a className={router.pathname === '/show' ? 'active' : ''}>
+                ShowHN
+              </a>
             </Link>
           </li>
           <li>
             <Link href="/ask">
-              <a>AskHN</a>
+              <a className={router.pathname === '/ask' ? 'active' : ''}>
+                AskHN
+              </a>
             </Link>
           </li>
           <li>
             <Link href="/jobs">
-              <a>Jobs</a>
+              <a className={router.pathname === '/jobs' ? 'active' : ''}>
+                Jobs
+              </a>
             </Link>
           </li>
         </ul>
@@ -53,7 +66,8 @@ export default function Nav() {
             color: #fff;
             padding: 10px;
           }
-          a:hover {
+          a:hover,
+          .active {
             text-decoration: none;
             color: #fff;
             background-color: #111;
