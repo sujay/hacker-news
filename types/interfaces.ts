@@ -5,6 +5,7 @@ export interface ItemProps {
   by: string;
   descendants: number;
   deleted: boolean;
+  dead: boolean;
   id: number;
   kids?: number[] | null;
   score: number;

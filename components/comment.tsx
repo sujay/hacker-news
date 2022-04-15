@@ -24,7 +24,7 @@ export default function Comment({ item }: Props) {
     <>
       {!loading ? (
         <>
-          {comment && !comment.deleted && (
+          {!comment.deleted && !comment.dead && (
             <div className="comment" key={comment.id}>
               <div className="meta">
                 <span className="user">
@@ -40,7 +40,7 @@ export default function Comment({ item }: Props) {
                 )}
                 :
               </div>
-              {comment.text && !comment.deleted && (
+              {comment.text && (
                 <div
                   className="content"
                   // eslint-disable-next-line react/no-danger
