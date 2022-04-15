@@ -21,6 +21,7 @@ export default function Layout({ children }: React.PropsWithChildren<{}>) {
         <link rel="apple-touch-icon" sizes="180x180" href={iconApple} />
         <link rel="icon" type="image/png" sizes="32x32" href={icon32} />
         <link rel="icon" type="image/png" sizes="16x16" href={icon16} />
+        <link rel="preconnect" href="https://hacker-news.firebaseio.com" />
       </Head>
 
       <div id="container">
