@@ -9,12 +9,10 @@ interface Props {
 
 export default function ListDetail({ items, url }: Props) {
   return (
-    <>
-      <ul>
-        {items.map((itemId: number) => (
-          <ListItem itemId={itemId} key={itemId} url={url} page="list" />
-        ))}
-      </ul>
-    </>
+    <ul>
+      {items.map((itemId: number) => (
+        <ListItem itemId={itemId} key={itemId} url={url} page="list" />
+      ))}
+    </ul>
   );
 }

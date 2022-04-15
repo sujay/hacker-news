@@ -11,21 +11,21 @@ interface Props {
 function Index() {
   const { data: list, error } = useSWR('topstories', getList);
 
-  return (
-    <>
-      {error ? (
-        <ul>
-          <li className="load">Error loading posts.</li>
-        </ul>
-      ) : !list ? (
-        <ul>
-          <li className="load">Loading...</li>
-        </ul>
-      ) : (
-        <ListDetail items={list.slice(0, 30)} url={false} />
-      )}
-    </>
-  );
+  if (error) {
+    return (
+      <ul>
+        <li className="load">Error loading posts.</li>
+      </ul>
+    );
+  }
+  if (!list) {
+    return (
+      <ul>
+        <li className="load">Error loading posts.</li>
+      </ul>
+    );
+  }
+  return <ListDetail items={list.slice(0, 30)} url={false} />;
 }
 
 export default function Page({ fallback }: Props) {

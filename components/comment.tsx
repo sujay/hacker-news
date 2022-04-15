@@ -28,46 +28,40 @@ export default function Comment({ item }: Props) {
             <span>Loading...</span>
           </div>
         </div>
-      ) : (
-        <>
-          {!comment.deleted && !comment.dead && (
-            <div className="comment" key={comment.id}>
-              <div className="meta">
-                <span className="user">
-                  <Link href={`/user/${comment.by}`}>
-                    <a>{comment.by}</a>
-                  </Link>
-                </span>
-                <span> said </span>
-                {comment.time && (
-                  <span className="time">
-                    <Time time={comment.time} />
-                  </span>
-                )}
-                :
-              </div>
-              {comment.text && (
-                <div
-                  className="content"
-                  // eslint-disable-next-line react/no-danger
-                  dangerouslySetInnerHTML={{
-                    __html: DOMPurify.sanitize(
-                      comment.text.replace(
-                        /https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item\?id=/g,
-                        '',
-                      ),
-                    ),
-                  }}
-                />
-              )}
-              {comment.kids &&
-                comment.kids.map((kid: number) => (
-                  <Comment item={kid} key={kid} />
-                ))}
-            </div>
+      ) : !comment.deleted && !comment.dead ? (
+        <div className="comment" key={comment.id}>
+          <div className="meta">
+            <span className="user">
+              <Link href={`/user/${comment.by}`}>
+                <a>{comment.by}</a>
+              </Link>
+            </span>
+            <span> said </span>
+            {comment.time && (
+              <span className="time">
+                <Time time={comment.time} />
+              </span>
+            )}
+            :
+          </div>
+          {comment.text && (
+            <div
+              className="content"
+              // eslint-disable-next-line react/no-danger
+              dangerouslySetInnerHTML={{
+                __html: DOMPurify.sanitize(
+                  comment.text.replace(
+                    /https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item\?id=/g,
+                    '',
+                  ),
+                ),
+              }}
+            />
           )}
-        </>
-      )}
+          {comment.kids &&
+            comment.kids.map((kid: number) => <Comment item={kid} key={kid} />)}
+        </div>
+      ) : null}
       <style jsx>
         {`
           .comment {
