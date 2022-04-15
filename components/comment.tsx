@@ -12,7 +12,7 @@ interface Props {
 }
 
 export default function Comment({ item }: Props) {
-  const { data: comment, error } = useSWR('' + item, getItem);
+  const { data: comment, error } = useSWR(`${item}`, getItem);
 
   return (
     <>

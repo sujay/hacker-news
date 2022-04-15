@@ -23,7 +23,7 @@ interface Params {
 function User() {
   const router = useRouter();
   const { name } = router.query;
-  const { data: user, error } = useSWR('' + name, getUser);
+  const { data: user, error } = useSWR(`${name}`, getUser);
 
   return (
     <>

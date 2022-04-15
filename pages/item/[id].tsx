@@ -21,7 +21,7 @@ interface Params {
 function Item() {
   const router = useRouter();
   const { id } = router.query;
-  const { data: item, error } = useSWR('' + id, getItem);
+  const { data: item, error } = useSWR(`${id}`, getItem);
 
   return (
     <>

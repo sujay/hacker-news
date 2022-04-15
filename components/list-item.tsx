@@ -14,7 +14,7 @@ interface Props {
 }
 
 export default function ListItem({ itemId, url, page }: Props) {
-  const { data: item, error } = useSWR('' + itemId, getItem);
+  const { data: item, error } = useSWR(`${itemId}`, getItem);
 
   return (
     <>
