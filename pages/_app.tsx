@@ -28,10 +28,12 @@ function MyApp({ Component, pageProps }: AppProps) {
       TagManager.initialize(tagManagerArgs);
     }
   }, []);
-  // eslint-disable-next-line react/jsx-props-no-spreading
   return (
     <Layout>
-      <Component {...pageProps} />
+      <Component
+        // eslint-disable-next-line react/jsx-props-no-spreading
+        {...pageProps}
+      />
     </Layout>
   );
 }
