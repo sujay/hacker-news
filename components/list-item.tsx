@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
-
-import { ItemProps } from '../types/interfaces';
+import useSWR from 'swr';
 
 import { getItem } from '../helpers/fetch';
 
@@ -14,43 +13,31 @@ interface Props {
   page: string;
 }
 
-  const [item, setItem] = useState<ItemProps>();
-  const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    getItem(itemId).then((data) => {
-      setItem(data);
-      setLoading(false);
-    });
-  }, []);
 export default function ListItem({ itemId, url, page }: Props) {
+  const { data: item, error } = useSWR('' + itemId, getItem);
+
   return (
     <>
-      {!loading ? (
-        <>
-          {item ? (
-            <li key={item.id}>
-              <h6>
-                {item.url && url ? (
-                  <>
-                    <a href={item.url} rel="nofollow">
-                      {item.title}
-                    </a>
-                  </>
-                ) : (
-                    <a>{item.title}</a>
-                  </Link>
-                )}
-                {item.url && <Domain itemUrl={item.url} />}
-              </h6>
-            </li>
-          ) : (
-            <li>Error loading this post.</li>
-          )}
-        </>
-      ) : (
+      {error ? (
+        <li>Error loading post.</li>
+      ) : !item ? (
         <li>Loading...</li>
+      ) : (
+        <li key={item.id}>
+          <h6>
+            {item.url && url ? (
+              <a href={item.url} rel="nofollow">
+                {item.title}
+              </a>
+            ) : (
               <Link href={`/item/${item.id}`}>
+                <a>{item.title}</a>
+              </Link>
+            )}
+            {item.url && <Domain itemUrl={item.url} />}
+          </h6>
           <Meta item={item} page={page} />
+        </li>
       )}
       <style jsx>
         {`

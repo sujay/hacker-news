@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
+import useSWR from 'swr';
 import DOMPurify from 'isomorphic-dompurify';
 
-import { ItemProps } from '../types/interfaces';
 import { getItem } from '../helpers/fetch';
 
 import Time from './time';
@@ -12,17 +12,23 @@ interface Props {
 }
 
 export default function Comment({ item }: Props) {
-  const [comment, setComment] = useState<ItemProps>();
-  const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    getItem(item).then((result) => {
-      setComment(result);
-      setLoading(false);
-    });
-  }, []);
+  const { data: comment, error } = useSWR('' + item, getItem);
+
   return (
     <>
-      {!loading ? (
+      {error ? (
+        <div className="comment">
+          <div className="loading">
+            <span>Error loading comment.</span>
+          </div>
+        </div>
+      ) : !comment ? (
+        <div className="comment">
+          <div className="loading">
+            <span>Loading...</span>
+          </div>
+        </div>
+      ) : (
         <>
           {!comment.deleted && !comment.dead && (
             <div className="comment" key={comment.id}>
@@ -55,16 +61,12 @@ export default function Comment({ item }: Props) {
                 />
               )}
               {comment.kids &&
-                comment.kids.map((kid) => <Comment item={kid} key={kid} />)}
+                comment.kids.map((kid: number) => (
+                  <Comment item={kid} key={kid} />
+                ))}
             </div>
           )}
         </>
-      ) : (
-        <div className="comment">
-          <div className="loading">
-            <span>Comment loading...</span>
-          </div>
-        </div>
       )}
       <style jsx>
         {`

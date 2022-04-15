@@ -1,32 +1,51 @@
 import React from 'react';
-import { GetServerSideProps } from 'next';
-
-import { ListProps } from '../types/interfaces';
+import useSWR, { SWRConfig } from 'swr';
 
 import { getList } from '../helpers/fetch';
 import Header from '../components/header';
 import ListDetail from '../components/list-detail';
 
-export const Show = ({ list }: ListProps) => (
-  <>
-    <Header>Show</Header>
-    {list && list.length > 0 ? (
-      <ListDetail items={list.slice(0, 30)} url={false} />
-    ) : (
-      <ul>
-        <li className="load">Error loading posts.</li>
-      </ul>
-    )}
-  </>
-);
+interface Props {
+  fallback: number[];
+}
 
-export const getServerSideProps: GetServerSideProps = async () => {
+function Show() {
+  const { data: list, error } = useSWR('showstories', getList);
+
+  return (
+    <>
+      <Header>Show</Header>
+      {error ? (
+        <ul>
+          <li className="load">Error loading posts.</li>
+        </ul>
+      ) : !list ? (
+        <ul>
+          <li className="load">Loading...</li>
+        </ul>
+      ) : (
+        <ListDetail items={list.slice(0, 30)} url={false} />
+      )}
+    </>
+  );
+}
+
+export default function Page({ fallback }: Props) {
+  return (
+    <SWRConfig value={{ fallback }}>
+      <Show />
+    </SWRConfig>
+  );
+}
+
+export async function getStaticProps() {
   const list = await getList('showstories');
   return {
     props: {
-      list,
+      fallback: {
+        showstories: list,
+      },
     },
+    revalidate: 60,
   };
-};
-
-export default Show;
+}
