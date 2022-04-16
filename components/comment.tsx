@@ -32,7 +32,7 @@ export default function Comment({ item }: Props) {
         <div className="comment" key={comment.id}>
           <div className="meta">
             <span className="user">
-              <Link href={`/user/${comment.by}`}>
+              <Link href={`/user/${comment.by}`} prefetch={false}>
                 <a>{comment.by}</a>
               </Link>
             </span>

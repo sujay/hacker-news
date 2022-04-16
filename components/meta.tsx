@@ -22,7 +22,7 @@ export default function Meta({ item, page }: Props) {
         )}
         {item.by && (
           <span className="user">
-            <Link href={`/user/${item.by}`}>
+            <Link href={`/user/${item.by}`} prefetch={false}>
               <a>{item.by}</a>
             </Link>
           </span>
@@ -35,7 +35,7 @@ export default function Meta({ item, page }: Props) {
         )}
         {item.descendants > 0 && page !== 'item' && (
           <div className="comments_link">
-            <Link href={`/item/${item.id}`}>
+            <Link href={`/item/${item.id}`} prefetch={false}>
               <a>
                 {item.descendants}
                 {item.descendants > 1 ? ' Comments' : ' Comment'}
