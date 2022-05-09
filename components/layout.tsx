@@ -18,6 +18,7 @@ export default function Layout({ children }: React.PropsWithChildren<{}>) {
           content="A Hacker News clone built with React and Next.js. Hacker News is a social news website focusing on computer science and entrepreneurship."
         />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta name="theme-color" content="#fc6621" />
         <link rel="apple-touch-icon" sizes="180x180" href={iconApple} />
         <link rel="icon" type="image/png" sizes="32x32" href={icon32} />
         <link rel="icon" type="image/png" sizes="16x16" href={icon16} />
