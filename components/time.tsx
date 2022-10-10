@@ -1,16 +1,13 @@
 import React from 'react';
-import { formatDistanceToNowStrict } from 'date-fns';
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
+
+dayjs.extend(relativeTime);
 
 interface Props {
   time: number;
 }
 
 export default function Time({ time }: Props) {
-  return (
-    <>
-      {formatDistanceToNowStrict(time * 1000, {
-        addSuffix: true,
-      })}
-    </>
-  );
+  return <>{dayjs(time * 1000).fromNow()}</>;
 }
