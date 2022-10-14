@@ -27,6 +27,14 @@
     "react/jsx-filename-extension": [
       1,
       { "extensions": [".js", ".jsx", ".tsx"] }
+    ],
+    "react/no-unknown-property": [
+      2,
+      {
+        "ignore": [
+          "jsx"
+        ]
+      }
     ]
   },
   "settings": {
