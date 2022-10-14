@@ -32,7 +32,6 @@ function Item() {
             : 'Hacker News - Post'}
         </title>
         <meta name="robots" content="noindex" />
-        <body className="item" />
       </Head>
       {error || item === null ? (
         <div className="load">Error loading post.</div>
