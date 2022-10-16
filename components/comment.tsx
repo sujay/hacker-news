@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import useSWR from 'swr';
 import DOMPurify from 'isomorphic-dompurify';
@@ -12,6 +12,12 @@ interface Props {
 }
 
 export default function Comment({ item }: Props) {
+  const [collapsed, setCollapsed] = useState(false);
+
+  const toggleCollapse = () => {
+    setCollapsed(!collapsed);
+  };
+
   const { data: comment, error } = useSWR(`${item}`, getItem, {
     revalidateIfStale: false,
     revalidateOnFocus: false,
@@ -35,35 +41,48 @@ export default function Comment({ item }: Props) {
       ) : !comment.deleted && !comment.dead ? (
         <div className="comment" key={comment.id}>
           <div className="meta">
-            <span className="user">
-              <Link href={`/user/${comment.by}`} prefetch={false}>
-                <a>{comment.by}</a>
-              </Link>
-            </span>
-            <span> said </span>
-            {comment.time && (
-              <span className="time">
-                <Time time={comment.time} />
+            <div className="details">
+              <span className="user">
+                <Link href={`/user/${comment.by}`} prefetch={false}>
+                  <a>{comment.by}</a>
+                </Link>
               </span>
-            )}
-            :
+              <span> said </span>
+              {comment.time && (
+                <span className="time">
+                  <Time time={comment.time} />
+                </span>
+              )}
+              :
+            </div>
+            <div className="collapse">
+              <button type="button" onClick={toggleCollapse}>
+                {collapsed ? `+` : `-`}
+              </button>
+            </div>
           </div>
-          {comment.text && (
-            <div
-              className="content"
-              // eslint-disable-next-line react/no-danger
-              dangerouslySetInnerHTML={{
-                __html: DOMPurify.sanitize(
-                  comment.text.replace(
-                    /https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item\?id=/g,
-                    '',
-                  ),
-                ),
-              }}
-            />
+          {!collapsed && (
+            <div className="tree">
+              {comment.text && (
+                <div
+                  className="content"
+                  // eslint-disable-next-line react/no-danger
+                  dangerouslySetInnerHTML={{
+                    __html: DOMPurify.sanitize(
+                      comment.text.replace(
+                        /https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item\?id=/g,
+                        '',
+                      ),
+                    ),
+                  }}
+                />
+              )}
+              {comment.kids &&
+                comment.kids.map((kid: number) => (
+                  <Comment item={kid} key={kid} />
+                ))}
+            </div>
           )}
-          {comment.kids &&
-            comment.kids.map((kid: number) => <Comment item={kid} key={kid} />)}
         </div>
       ) : null}
       <style jsx>
@@ -83,6 +102,15 @@ export default function Comment({ item }: Props) {
             padding: 15px;
             font-size: 13px;
             color: #666;
+            display: flex;
+          }
+          .comment .collapse {
+            flex: 1 0;
+            text-align: right;
+          }
+          .comment .collapse button {
+            cursor: pointer;
+            border: none;
           }
           .comment .loading {
             padding: 15px;
