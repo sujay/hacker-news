@@ -111,6 +111,8 @@ export default function Comment({ item }: Props) {
           .comment .collapse button {
             cursor: pointer;
             border: none;
+            background-color: transparent;
+            color: #000;
           }
           .comment .loading {
             padding: 15px;
