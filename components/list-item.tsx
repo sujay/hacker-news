@@ -31,7 +31,7 @@ export default function ListItem({ itemId, url, page }: Props) {
               </a>
             ) : (
               <Link href={`/item/${item.id}`} prefetch={false}>
-                <a>{item.title}</a>
+                {item.title}
               </Link>
             )}
             {item.url && <Domain itemUrl={item.url} />}

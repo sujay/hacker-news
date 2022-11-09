@@ -10,43 +10,48 @@ export default function Nav() {
       <nav>
         <ul>
           <li>
-            <Link href="/">
-              <a className={router.pathname === '/' ? 'active' : ''}>Top</a>
+            <Link href="/" className={router.pathname === '/' ? 'active' : ''}>
+              Top
             </Link>
           </li>
           <li>
-            <Link href="/best">
-              <a className={router.pathname === '/best' ? 'active' : ''}>
-                Best
-              </a>
+            <Link
+              href="/best"
+              className={router.pathname === '/best' ? 'active' : ''}
+            >
+              Best
             </Link>
           </li>
           <li>
-            <Link href="/newest">
-              <a className={router.pathname === '/newest' ? 'active' : ''}>
-                New
-              </a>
+            <Link
+              href="/newest"
+              className={router.pathname === '/newest' ? 'active' : ''}
+            >
+              New
             </Link>
           </li>
           <li>
-            <Link href="/show">
-              <a className={router.pathname === '/show' ? 'active' : ''}>
-                ShowHN
-              </a>
+            <Link
+              href="/show"
+              className={router.pathname === '/show' ? 'active' : ''}
+            >
+              ShowHN
             </Link>
           </li>
           <li>
-            <Link href="/ask">
-              <a className={router.pathname === '/ask' ? 'active' : ''}>
-                AskHN
-              </a>
+            <Link
+              href="/ask"
+              className={router.pathname === '/ask' ? 'active' : ''}
+            >
+              AskHN
             </Link>
           </li>
           <li>
-            <Link href="/jobs">
-              <a className={router.pathname === '/jobs' ? 'active' : ''}>
-                Jobs
-              </a>
+            <Link
+              href="/jobs"
+              className={router.pathname === '/jobs' ? 'active' : ''}
+            >
+              Jobs
             </Link>
           </li>
         </ul>
@@ -61,17 +66,6 @@ export default function Nav() {
           li {
             display: inline-block;
           }
-          a {
-            display: block;
-            color: #fff;
-            padding: 10px;
-          }
-          a:hover,
-          .active {
-            text-decoration: none;
-            color: #fff;
-            background-color: #111;
-          }
           @media only screen and (max-width: 400px) {
             nav {
               font-size: 13px;
@@ -84,6 +78,21 @@ export default function Nav() {
             a {
               padding: 7px;
             }
+          }
+        `}
+      </style>
+      <style jsx global>
+        {`
+          nav a {
+            display: block;
+            color: #fff;
+            padding: 10px;
+          }
+          nav a:hover,
+          nav .active {
+            text-decoration: none;
+            color: #fff;
+            background-color: #111;
           }
         `}
       </style>

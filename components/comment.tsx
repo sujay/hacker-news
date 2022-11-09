@@ -44,7 +44,7 @@ export default function Comment({ item }: Props) {
             <div className="details">
               <span className="user">
                 <Link href={`/user/${comment.by}`} prefetch={false}>
-                  <a>{comment.by}</a>
+                  {comment.by}
                 </Link>
               </span>
               <span> said </span>
@@ -120,9 +120,6 @@ export default function Comment({ item }: Props) {
           .comment .user {
             color: #000;
           }
-          .comment .user a {
-            font-weight: normal;
-          }
           .comment .content {
             line-height: 1.6em;
             margin: 15px;
@@ -130,6 +127,13 @@ export default function Comment({ item }: Props) {
           }
           pre {
             font-size: 11px;
+          }
+        `}
+      </style>
+      <style jsx global>
+        {`
+          .comment .user a {
+            font-weight: normal;
           }
         `}
       </style>

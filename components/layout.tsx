@@ -28,10 +28,11 @@ export default function Layout({ children }: React.PropsWithChildren<{}>) {
       <div id="container">
         <header>
           <h1>
-            <Link href="/">
-              <a title="Hacker News is a social news website focusing on computer science and entrepreneurship.">
-                Hacker News
-              </a>
+            <Link
+              href="/"
+              title="Hacker News is a social news website focusing on computer science and entrepreneurship."
+            >
+              Hacker News
             </Link>
           </h1>
         </header>
@@ -102,14 +103,6 @@ export default function Layout({ children }: React.PropsWithChildren<{}>) {
             position: relative;
             left: -3px;
           }
-          h1 a {
-            color: #fff;
-            text-decoration: none;
-          }
-          h1 a:hover {
-            color: #fff;
-            text-decoration: none;
-          }
           footer {
             font-size: 13px;
             color: #bbb;
@@ -127,6 +120,18 @@ export default function Layout({ children }: React.PropsWithChildren<{}>) {
             h1 {
               font-size: 40px;
             }
+          }
+        `}
+      </style>
+      <style jsx global>
+        {`
+          h1 a {
+            color: #fff;
+            text-decoration: none;
+          }
+          h1 a:hover {
+            color: #fff;
+            text-decoration: none;
           }
         `}
       </style>

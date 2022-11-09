@@ -23,7 +23,7 @@ export default function Meta({ item, page }: Props) {
         {item.by && (
           <span className="user">
             <Link href={`/user/${item.by}`} prefetch={false}>
-              <a>{item.by}</a>
+              {item.by}
             </Link>
           </span>
         )}
@@ -36,10 +36,8 @@ export default function Meta({ item, page }: Props) {
         {item.descendants > 0 && page !== 'item' && (
           <div className="comments_link">
             <Link href={`/item/${item.id}`} prefetch={false}>
-              <a>
-                {item.descendants}
-                {item.descendants > 1 ? ' Comments' : ' Comment'}
-              </a>
+              {item.descendants}
+              {item.descendants > 1 ? ' Comments' : ' Comment'}
             </Link>
           </div>
         )}
@@ -54,9 +52,6 @@ export default function Meta({ item, page }: Props) {
           .comments_link {
             text-transform: lowercase;
           }
-          .user a {
-            font-weight: normal;
-          }
           .pipe {
             display: inline-block;
             position: relative;
@@ -64,6 +59,13 @@ export default function Meta({ item, page }: Props) {
             height: 9px;
             margin: 0 8px;
             border-right: solid 1px #ddd;
+          }
+        `}
+      </style>
+      <style jsx global>
+        {`
+          .user a {
+            font-weight: normal;
           }
         `}
       </style>
