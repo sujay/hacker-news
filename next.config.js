@@ -1,6 +1,6 @@
 module.exports = {
-  future: {
-    webpack5: true,
+  experimental: {
+    scrollRestoration: true,
   },
   poweredByHeader: false,
   webpack: (config) => {
