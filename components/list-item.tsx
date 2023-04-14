@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
-import useSWR from 'swr';
+
+import styles from './list-item.module.css';
 
 import { getItem } from '../helpers/fetch';
 
@@ -13,46 +14,28 @@ interface Props {
   page: string;
 }
 
-export default function ListItem({ itemId, url, page }: Props) {
-  const { data: item, error } = useSWR(`${itemId}`, getItem);
+export default async function ListItem({ itemId, url, page }: Props) {
+  const getItemData = getItem(itemId);
+  const [item] = await Promise.all([getItemData]);
 
+  if (!item) {
+    return <li className={styles.li}>Loading...</li>;
+  }
   return (
-    <>
-      {error ? (
-        <li>Error loading post.</li>
-      ) : !item ? (
-        <li>Loading...</li>
-      ) : (
-        <li key={item.id}>
-          <h6>
-            {item.url && url ? (
-              <a href={item.url} rel="nofollow">
-                {item.title}
-              </a>
-            ) : (
-              <Link href={`/item/${item.id}`} prefetch={false}>
-                {item.title}
-              </Link>
-            )}
-            {item.url && <Domain itemUrl={item.url} />}
-          </h6>
-          <Meta item={item} page={page} />
-        </li>
-      )}
-      <style jsx>
-        {`
-          li {
-            padding: 20px;
-            list-style-type: none;
-            border-bottom: solid 1px #eee;
-          }
-          h6 {
-            font-size: 20px;
-            margin: 0;
-            margin-bottom: 2px;
-          }
-        `}
-      </style>
-    </>
+    <li key={item.id} className={styles.li}>
+      <h6 className={styles.h6}>
+        {item.url && url ? (
+          <a href={item.url} rel="nofollow">
+            {item.title}
+          </a>
+        ) : (
+          <Link href={`/item/${item.id}`} prefetch={false}>
+            {item.title}
+          </Link>
+        )}
+        {item.url && <Domain itemUrl={item.url} />}
+      </h6>
+      <Meta item={item} page={page} />
+    </li>
   );
 }

@@ -1,101 +1,63 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
+
+import styles from './nav.module.css';
 
 export default function Nav() {
-  const router = useRouter();
+  const pathname = usePathname();
 
   return (
-    <>
-      <nav>
-        <ul>
-          <li>
-            <Link href="/" className={router.pathname === '/' ? 'active' : ''}>
-              Top
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/best"
-              className={router.pathname === '/best' ? 'active' : ''}
-            >
-              Best
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/newest"
-              className={router.pathname === '/newest' ? 'active' : ''}
-            >
-              New
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/show"
-              className={router.pathname === '/show' ? 'active' : ''}
-            >
-              ShowHN
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/ask"
-              className={router.pathname === '/ask' ? 'active' : ''}
-            >
-              AskHN
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/jobs"
-              className={router.pathname === '/jobs' ? 'active' : ''}
-            >
-              Jobs
-            </Link>
-          </li>
-        </ul>
-      </nav>
-      <style jsx>
-        {`
-          nav {
-            font-size: 14px;
-            background-color: #333;
-            padding: 0 10px;
-          }
-          li {
-            display: inline-block;
-          }
-          @media only screen and (max-width: 400px) {
-            nav {
-              font-size: 13px;
-            }
-          }
-          @media only screen and (max-width: 320px) {
-            nav {
-              font-size: 12px;
-            }
-            a {
-              padding: 7px;
-            }
-          }
-        `}
-      </style>
-      <style jsx global>
-        {`
-          nav a {
-            display: block;
-            color: #fff;
-            padding: 10px;
-          }
-          nav a:hover,
-          nav .active {
-            text-decoration: none;
-            color: #fff;
-            background-color: #111;
-          }
-        `}
-      </style>
-    </>
+    <nav className={styles.nav}>
+      <ul>
+        <li>
+          <Link href="/" className={pathname === '/' ? styles.active : ''}>
+            Top
+          </Link>
+        </li>
+        <li>
+          <Link
+            href="/best"
+            className={pathname === '/best' ? styles.active : ''}
+          >
+            Best
+          </Link>
+        </li>
+        <li>
+          <Link
+            href="/newest"
+            className={pathname === '/newest' ? styles.active : ''}
+          >
+            New
+          </Link>
+        </li>
+        <li>
+          <Link
+            href="/show"
+            className={pathname === '/show' ? styles.active : ''}
+          >
+            ShowHN
+          </Link>
+        </li>
+        <li>
+          <Link
+            href="/ask"
+            className={pathname === '/ask' ? styles.active : ''}
+          >
+            AskHN
+          </Link>
+        </li>
+        <li>
+          <Link
+            href="/jobs"
+            className={pathname === '/jobs' ? styles.active : ''}
+          >
+            Jobs
+          </Link>
+        </li>
+      </ul>
+    </nav>
   );
 }
