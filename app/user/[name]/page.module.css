@@ -1,0 +1,24 @@
+.user {
+  padding: 20px;
+}
+.h3 {
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+.meta {
+  font-size: 14px;
+  display: flex;
+  flex-direction: row;
+}
+.label {
+  color: #666;
+  display: inline-flex;
+  flex: 0 0 90px;
+}
+.content {
+  width: auto;
+  flex: 0 1 auto;
+  word-wrap: break-word;
+}
