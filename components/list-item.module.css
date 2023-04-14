@@ -1,0 +1,10 @@
+.li {
+  padding: 20px;
+  list-style-type: none;
+  border-bottom: solid 1px #eee;
+}
+.h6 {
+  font-size: 20px;
+  margin: 0;
+  margin-bottom: 2px;
+}

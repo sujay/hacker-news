@@ -1,0 +1,32 @@
+.nav {
+  font-size: 14px;
+  background-color: #333;
+  padding: 0 10px;
+}
+.nav a {
+  display: block;
+  color: #fff;
+  padding: 10px;
+}
+.nav a:hover,
+.active {
+  text-decoration: none;
+  color: #fff;
+  background-color: #111;
+}
+.nav li {
+  display: inline-block;
+}
+@media only screen and (max-width: 400px) {
+  .nav {
+    font-size: 13px;
+  }
+}
+@media only screen and (max-width: 320px) {
+  .nav {
+    font-size: 12px;
+  }
+  .nav a {
+    padding: 7px;
+  }
+}

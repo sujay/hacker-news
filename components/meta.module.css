@@ -1,0 +1,19 @@
+.meta {
+  font-size: 13px;
+  line-height: 1.8em;
+  color: #666;
+}
+.comments_link {
+  text-transform: lowercase;
+}
+.pipe {
+  display: inline-block;
+  position: relative;
+  top: 1px;
+  height: 9px;
+  margin: 0 8px;
+  border-right: solid 1px #ddd;
+}
+.user a {
+  font-weight: normal;
+}

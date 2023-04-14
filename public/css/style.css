@@ -43,14 +43,3 @@ code {
     monospace, sans-serif;
   white-space: pre-wrap;
 }
-.load {
-  text-align: center;
-  padding: 40px;
-}
-#nprogress .bar {
-  background: #09cafd;
-  height: 3px;
-}
-nprogress .peg {
-  box-shadow: 0 0 10px #09cafd, 0 0 5px #09cafd;
-}
