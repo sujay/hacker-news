@@ -6,7 +6,7 @@ import styles from './layout.module.css';
 
 import Nav from '../components/nav';
 
-export default function Layout({ children }: React.PropsWithChildren<{}>) {
+export default function Layout({ children }: React.PropsWithChildren) {
   return (
     <html lang="en">
       <body>
