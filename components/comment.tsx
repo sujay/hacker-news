@@ -1,5 +1,8 @@
+'use client';
+
 import React, { Suspense, useState } from 'react';
 import Link from 'next/link';
+import sanitizeHtml from 'sanitize-html';
 
 import styles from './comment.module.css';
 
@@ -55,12 +58,18 @@ export default async function Comment({ item }: Props) {
       {!collapsed && (
         <div className="tree">
           {comment.text && (
-            <div className={styles.content}>
-              {comment.text.replace(
-                /https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item\?id=/g,
-                '',
-              )}
-            </div>
+            <div
+              className={styles.content}
+              // eslint-disable-next-line react/no-danger
+              dangerouslySetInnerHTML={{
+                __html: sanitizeHtml(
+                  comment.text.replace(
+                    /https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item\?id=/g,
+                    '',
+                  ),
+                ),
+              }}
+            />
           )}
           {comment.kids &&
             comment.kids.map((kid: number) => (

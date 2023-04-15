@@ -1,4 +1,5 @@
 import React from 'react';
+import sanitizeHtml from 'sanitize-html';
 
 import styles from './item-detail.module.css';
 
@@ -31,12 +32,17 @@ export default function ItemDetail({ item, page }: Props) {
       )}
       {item.text && (
         <div className={styles.content}>
-          <div>
-            {item.text.replace(
-              /https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item\?id=/g,
-              '',
-            )}
-          </div>
+          <div
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={{
+              __html: sanitizeHtml(
+                item.text.replace(
+                  /https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item\?id=/g,
+                  '',
+                ),
+              ),
+            }}
+          />
         </div>
       )}
       <Meta item={item} page={page} />

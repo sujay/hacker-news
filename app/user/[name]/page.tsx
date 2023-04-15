@@ -3,8 +3,7 @@
 import React from 'react';
 import { useParams } from 'next/navigation';
 import Head from 'next/head';
-// import DOMPurify from 'dompurify';
-// import { JSDOM } from 'jsdom';
+import sanitizeHtml from 'sanitize-html';
 
 import styles from './page.module.css';
 import styles2 from '../../../components/list-item.module.css';
@@ -56,9 +55,10 @@ export default async function User() {
               <span
                 className="content about_text"
                 // eslint-disable-next-line react/no-danger
-              >
-                {user.about}
-              </span>
+                dangerouslySetInnerHTML={{
+                  __html: sanitizeHtml(user.about),
+                }}
+              />
             </div>
           )}
         </div>
