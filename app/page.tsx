@@ -2,6 +2,8 @@ import React from 'react';
 import { Metadata } from 'next';
 
 import { getList } from '../helpers/fetch';
+
+import Header from '../components/header';
 import ListDetail from '../components/list-detail';
 
 export const metadata: Metadata = {
@@ -21,5 +23,10 @@ export default async function Index() {
       </ul>
     );
   }
-  return <ListDetail items={list.slice(0, 30)} url={false} />;
+  return (
+    <>
+      <Header>Top Stories</Header>
+      <ListDetail items={list.slice(0, 30)} url={false} />
+    </>
+  );
 }

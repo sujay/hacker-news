@@ -3,14 +3,14 @@ import React from 'react';
 import Header from '../../../components/header';
 
 export const metadata = {
-  title: 'Hacker News - User',
+  title: 'Hacker News - Story',
 };
 
-export default async function User({ children }: React.PropsWithChildren) {
+export default function Layout({ children }: React.PropsWithChildren) {
   return (
     <>
       <meta name="robots" content="noindex" />
-      <Header>User</Header>
+      <Header>Story</Header>
       {children}
     </>
   );

@@ -8,6 +8,7 @@ import styles2 from '../../../components/list-item.module.css';
 import styles3 from '../../../components/comment.module.css';
 
 import { getItem } from '../../../helpers/fetch';
+
 import ItemDetail from '../../../components/item-detail';
 import Comment from '../../../components/comment';
 
@@ -23,7 +24,6 @@ export default async function Item() {
           ? `Hacker News - ${item.title}`
           : 'Hacker News - Post'}
       </title>
-      <meta name="robots" content="noindex" />
       {item ? (
         <>
           <ItemDetail item={item} page="item" />
