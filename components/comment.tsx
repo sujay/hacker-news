@@ -72,9 +72,10 @@ export default async function Comment({ item }: Props) {
                     </div>
                   </div>
                 }
+                key={kid}
               >
                 {/* @ts-expect-error Server Component */}
-                <Comment item={kid} key={kid} />
+                <Comment item={kid} />
               </Suspense>
             ))}
         </div>

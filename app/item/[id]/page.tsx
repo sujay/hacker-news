@@ -46,9 +46,10 @@ export default async function Item() {
                         </div>
                       </div>
                     }
+                    key={comment}
                   >
                     {/* @ts-expect-error Server Component */}
-                    <Comment item={comment} key={comment} />
+                    <Comment item={comment} />
                   </Suspense>
                 ))}
             </div>
