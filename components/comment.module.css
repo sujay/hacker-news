@@ -1,0 +1,41 @@
+.comment {
+  font-size: 13px;
+  padding: 0px;
+  border: solid 1px #eee;
+}
+.comment .comment {
+  margin-left: 15px;
+  margin-bottom: -1px;
+  margin-right: -1px;
+}
+.comment .user a {
+  font-weight: normal;
+}
+.comment .meta {
+  background-color: #eee;
+  padding: 15px;
+  font-size: 13px;
+  color: #666;
+  display: flex;
+}
+.comment .collapse {
+  flex: 1 0;
+  text-align: right;
+}
+.comment .collapse .button {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  color: #000;
+}
+.comment .loading {
+  padding: 15px;
+}
+.comment .user {
+  color: #000;
+}
+.comment .content {
+  line-height: 1.6em;
+  margin: 15px;
+  word-wrap: break-word;
+}

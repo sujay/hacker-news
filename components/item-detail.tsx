@@ -1,5 +1,6 @@
 import React from 'react';
-import DOMPurify from 'isomorphic-dompurify';
+
+import styles from './item-detail.module.css';
 
 import { ItemProps } from '../types/interfaces';
 
@@ -13,64 +14,32 @@ interface Props {
 
 export default function ItemDetail({ item, page }: Props) {
   return (
-    <>
-      <div className="item">
-        {item.title && (
-          <h3>
-            {item.url ? (
-              <>
-                <a href={item.url} rel="nofollow">
-                  {item.title}
-                </a>
-                <Domain itemUrl={item.url} />
-              </>
-            ) : (
-              [item.title]
+    <div className={styles.item}>
+      {item.title && (
+        <h3 className={styles.h3}>
+          {item.url ? (
+            <>
+              <a href={item.url} rel="nofollow">
+                {item.title}
+              </a>
+              <Domain itemUrl={item.url} />
+            </>
+          ) : (
+            [item.title]
+          )}
+        </h3>
+      )}
+      {item.text && (
+        <div className={styles.content}>
+          <div>
+            {item.text.replace(
+              /https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item\?id=/g,
+              '',
             )}
-          </h3>
-        )}
-        {item.text && (
-          <div className="content">
-            <div
-              // eslint-disable-next-line react/no-danger
-              dangerouslySetInnerHTML={{
-                __html: DOMPurify.sanitize(
-                  item.text.replace(
-                    /https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item\?id=/g,
-                    '',
-                  ),
-                ),
-              }}
-            />
           </div>
-        )}
-        <Meta item={item} page={page} />
-      </div>
-      <style jsx>
-        {`
-          .item {
-            padding: 20px;
-            border-bottom: solid 1px #eee;
-          }
-          .content {
-            font-size: 14px;
-            margin-bottom: 15px;
-          }
-          h3 {
-            font-size: 24px;
-            margin-top: 0;
-            margin-bottom: 15px;
-          }
-          a {
-            color: #000;
-            text-decoration: none;
-          }
-          a:hover {
-            color: #000;
-            text-decoration: underline;
-          }
-        `}
-      </style>
-    </>
+        </div>
+      )}
+      <Meta item={item} page={page} />
+    </div>
   );
 }
