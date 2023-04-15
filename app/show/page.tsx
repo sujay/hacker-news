@@ -8,16 +8,16 @@ import ListDetail from '../../components/list-detail';
 import styles2 from '../../components/list-item.module.css';
 
 export const metadata: Metadata = {
-  title: 'Hacker News - Best',
+  title: 'Hacker News - Show',
 };
 
-export default async function Best() {
-  const getListData = getList('beststories');
+export default async function Show() {
+  const getListData = getList('showstories');
   const [list] = await Promise.all([getListData]);
 
   return (
     <>
-      <Header>Best</Header>
+      <Header>Show</Header>
       {list ? (
         <ListDetail items={list.slice(0, 30)} url={false} />
       ) : (
