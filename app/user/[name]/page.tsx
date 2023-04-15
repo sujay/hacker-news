@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { useParams } from 'next/navigation';
-import Head from 'next/head';
 import sanitizeHtml from 'sanitize-html';
 
 import styles from './page.module.css';
@@ -19,11 +18,9 @@ export default async function User() {
 
   return (
     <>
-      <Head>
-        <title>
-          {user && user.id ? `Hacker News - ${user.id}` : 'Hacker News - User'}
-        </title>
-      </Head>
+      <title>
+        {user && user.id ? `Hacker News - ${user.id}` : 'Hacker News - User'}
+      </title>
       {user ? (
         <div className={styles.user}>
           <h3 className={styles.h3}>{user.id}</h3>

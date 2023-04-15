@@ -1,15 +1,10 @@
 import React from 'react';
-import { Metadata } from 'next';
 
 import { getList } from '../../helpers/fetch';
 import Header from '../../components/header';
 import ListDetail from '../../components/list-detail';
 
 import styles2 from '../../components/list-item.module.css';
-
-export const metadata: Metadata = {
-  title: 'Hacker News - Newest',
-};
 
 export default async function Newest() {
   const getListData = getList('newstories');

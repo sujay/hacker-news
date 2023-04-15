@@ -1,7 +1,6 @@
 'use client';
 
 import React, { Suspense } from 'react';
-import Head from 'next/head';
 import { useParams } from 'next/navigation';
 
 import styles from './page.module.css';
@@ -19,14 +18,12 @@ export default async function Item() {
 
   return (
     <>
-      <Head>
-        <title>
-          {item && item.title
-            ? `Hacker News - ${item.title}`
-            : 'Hacker News - Post'}
-        </title>
-        <meta name="robots" content="noindex" />
-      </Head>
+      <title>
+        {item && item.title
+          ? `Hacker News - ${item.title}`
+          : 'Hacker News - Post'}
+      </title>
+      <meta name="robots" content="noindex" />
       {item ? (
         <>
           <ItemDetail item={item} page="item" />
