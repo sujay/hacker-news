@@ -1,7 +1,4 @@
-'use client';
-
 import React from 'react';
-import { useParams } from 'next/navigation';
 import sanitizeHtml from 'sanitize-html';
 
 import styles from './page.module.css';
@@ -11,8 +8,7 @@ import { getUser } from '../../../helpers/fetch';
 
 import Time from '../../../components/time';
 
-export default async function User() {
-  const params = useParams();
+export default async function User({ params }: { params: { name: string } }) {
   const getUserData = getUser(`${params!.name}`);
   const [user] = await Promise.all([getUserData]);
 
