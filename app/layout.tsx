@@ -9,6 +9,9 @@ import Nav from '../components/nav';
 export default function Layout({ children }: React.PropsWithChildren) {
   return (
     <html lang="en">
+      <head>
+        <title>Hacker News</title>
+      </head>
       <body>
         <div id={styles.container}>
           <header className={styles.header}>

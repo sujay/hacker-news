@@ -20,7 +20,12 @@ export async function generateMetadata({
   params: { id: string };
 }): Promise<Metadata> {
   const item = await getItemWrapper(+params.id);
-  return { title: `Hacker News - ${item.title}` };
+  return {
+    title: `Hacker News - ${item.title}`,
+    robots: {
+      index: false,
+    },
+  };
 }
 
 export default async function Item({ params }: { params: { id: string } }) {
