@@ -8,13 +8,15 @@ import { getItem } from '../helpers/fetch';
 import Domain from './domain';
 import Meta from './meta';
 
-interface Props {
+export default async function ListItem({
+  itemId,
+  url,
+  page,
+}: {
   itemId: number;
   url: boolean;
   page: string;
-}
-
-export default async function ListItem({ itemId, url, page }: Props) {
+}) {
   const getItemData = getItem(itemId);
   const [item] = await Promise.all([getItemData]);
 

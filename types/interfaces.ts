@@ -15,6 +15,13 @@ export interface ItemProps {
   url: string;
   text?: string;
 }
+export interface CommentProps {
+  id: number;
+  by: string;
+  time: number;
+  text: string;
+  kids?: number[] | null;
+}
 export interface UserProps {
   about: string;
   created: number;

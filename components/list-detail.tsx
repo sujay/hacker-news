@@ -3,12 +3,13 @@ import React, { Suspense } from 'react';
 import ListItem from './list-item';
 import Loading from '../app/loading';
 
-interface Props {
+export default function ListDetail({
+  items,
+  url,
+}: {
   items: number[];
   url: boolean;
-}
-
-export default function ListDetail({ items, url }: Props) {
+}) {
   return (
     <ul>
       {items.map((itemId: number) => (

@@ -7,12 +7,13 @@ import { ItemProps } from '../types/interfaces';
 
 import Time from './time';
 
-interface Props {
+export default function Meta({
+  item,
+  page,
+}: {
   item: ItemProps;
   page: string;
-}
-
-export default function Meta({ item, page }: Props) {
+}) {
   return (
     <div className={styles.meta}>
       {item.score && item.score > 1 && (

@@ -9,11 +9,8 @@ import { getItem } from '../helpers/fetch';
 import Time from './time';
 import Collapse from './collapse';
 
-interface Props {
-  item: number;
-}
 
-export default async function Comment({ item }: Props) {
+export default async function Comment({ item }: { item: number }) {
   if (!item) return null;
 
   const collapsed = false;

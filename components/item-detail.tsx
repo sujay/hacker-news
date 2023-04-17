@@ -8,12 +8,13 @@ import { ItemProps } from '../types/interfaces';
 import Domain from './domain';
 import Meta from './meta';
 
-interface Props {
+export default function ItemDetail({
+  item,
+  page,
+}: {
   item: ItemProps;
   page: string;
-}
-
-export default function ItemDetail({ item, page }: Props) {
+}) {
   return (
     <div className={styles.item}>
       {item.title && (

@@ -4,10 +4,6 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 
 dayjs.extend(relativeTime);
 
-interface Props {
-  time: number;
-}
-
-export default function Time({ time }: Props) {
+export default function Time({ time }: { time: number }) {
   return <>{dayjs(time * 1000).fromNow()}</>;
 }
