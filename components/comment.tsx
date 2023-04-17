@@ -1,6 +1,4 @@
-'use client';
-
-import React, { Suspense, useState } from 'react';
+import React, { Suspense } from 'react';
 import Link from 'next/link';
 import sanitizeHtml from 'sanitize-html';
 
@@ -9,17 +7,16 @@ import styles from './comment.module.css';
 import { getItem } from '../helpers/fetch';
 
 import Time from './time';
+import Collapse from './collapse';
 
 interface Props {
   item: number;
 }
 
 export default async function Comment({ item }: Props) {
-  const [collapsed, setCollapsed] = useState(false);
+  if (!item) return null;
 
-  const toggleCollapse = () => {
-    setCollapsed(!collapsed);
-  };
+  const collapsed = false;
 
   const getCommentData = getItem(+item);
   const [comment] = await Promise.all([getCommentData]);
@@ -45,15 +42,7 @@ export default async function Comment({ item }: Props) {
           )}
           :
         </div>
-        <div className={styles.collapse}>
-          <button
-            type="button"
-            className={styles.button}
-            onClick={toggleCollapse}
-          >
-            {collapsed ? `+` : `-`}
-          </button>
-        </div>
+        <Collapse />
       </div>
       {!collapsed && (
         <div className="tree">
