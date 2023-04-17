@@ -13,9 +13,9 @@ export default function ListDetail({
   return (
     <ul>
       {items.map((itemId: number) => (
-        <Suspense fallback={<Loading />}>
+        <Suspense fallback={<Loading />} key={itemId}>
           {/* @ts-expect-error Server Component */}
-          <ListItem itemId={itemId} key={itemId} url={url} page="list" />
+          <ListItem itemId={itemId} url={url} page="list" />
         </Suspense>
       ))}
     </ul>
