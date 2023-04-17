@@ -1,19 +1,11 @@
-import React, { Suspense } from 'react';
-import Link from 'next/link';
-import sanitizeHtml from 'sanitize-html';
-
-import styles from './comment.module.css';
+import React from 'react';
 
 import { getItem } from '../helpers/fetch';
 
-import Time from './time';
-import Collapse from './collapse';
-
+import CommentBody from './comment-body';
 
 export default async function Comment({ item }: { item: number }) {
   if (!item) return null;
-
-  const collapsed = false;
 
   const getCommentData = getItem(+item);
   const [comment] = await Promise.all([getCommentData]);
@@ -23,58 +15,12 @@ export default async function Comment({ item }: { item: number }) {
   }
 
   return (
-    <div className={styles.comment} key={comment.id}>
-      <div className={styles.meta}>
-        <div className="details">
-          <span className={styles.user}>
-            <Link href={`/user/${comment.by}`} prefetch={false}>
-              {comment.by}
-            </Link>
-          </span>
-          <span> said </span>
-          {comment.time && (
-            <span className="time">
-              <Time time={comment.time} />
-            </span>
-          )}
-          :
-        </div>
-        <Collapse />
-      </div>
-      {!collapsed && (
-        <div className="tree">
-          {comment.text && (
-            <div
-              className={styles.content}
-              // eslint-disable-next-line react/no-danger
-              dangerouslySetInnerHTML={{
-                __html: sanitizeHtml(
-                  comment.text.replace(
-                    /https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item\?id=/g,
-                    '',
-                  ),
-                ),
-              }}
-            />
-          )}
-          {comment.kids &&
-            comment.kids.map((kid: number) => (
-              <Suspense
-                fallback={
-                  <div className={styles.comment}>
-                    <div className={styles.loading}>
-                      <span>Loading...</span>
-                    </div>
-                  </div>
-                }
-                key={kid}
-              >
-                {/* @ts-expect-error Server Component */}
-                <Comment item={kid} />
-              </Suspense>
-            ))}
-        </div>
-      )}
-    </div>
+    <CommentBody comment={comment}>
+      {comment.kids &&
+        comment.kids.map((kid: number) => (
+          /* @ts-expect-error Server Component */
+          <Comment item={kid} key={kid} />
+        ))}
+    </CommentBody>
   );
 }

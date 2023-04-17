@@ -1,19 +1,17 @@
-'use client';
-
-import React, { useState } from 'react';
+import React, { MouseEventHandler } from 'react';
 
 import styles from './comment.module.css';
 
-export default function Collapse() {
-  const [collapsed, setCollapsed] = useState(false);
-
-  const toggleCollapse = () => {
-    setCollapsed(!collapsed);
-  };
-
+export default function Collapse({
+  onToggle,
+  collapsed,
+}: {
+  onToggle: MouseEventHandler;
+  collapsed: boolean;
+}) {
   return (
     <div className={styles.collapse}>
-      <button type="button" className={styles.button} onClick={toggleCollapse}>
+      <button type="button" className={styles.button} onClick={onToggle}>
         {collapsed ? `+` : `−`}
       </button>
     </div>
