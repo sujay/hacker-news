@@ -41,22 +41,21 @@ export default async function Item({ params }: { params: { id: string } }) {
             {item.descendants}
             {item.descendants > 1 ? ' Comments:' : ' Comment:'}
           </h5>
-          {item.kids &&
-            item.kids.map((comment: number) => (
-              <Suspense
-                fallback={
-                  <div className={styles3.comment}>
-                    <div className={styles3.loading}>
-                      <span>Loading...</span>
-                    </div>
-                  </div>
-                }
-                key={comment}
-              >
-                {/* @ts-expect-error Server Component */}
-                <Comment item={comment} />
-              </Suspense>
-            ))}
+          <Suspense
+            fallback={
+              <div className={styles3.comment}>
+                <div className={styles3.loading}>
+                  <span>Loading...</span>
+                </div>
+              </div>
+            }
+          >
+            {item.kids &&
+              item.kids.map((comment: number) => (
+                /* @ts-expect-error Server Component */
+                <Comment item={comment} key={comment} />
+              ))}
+          </Suspense>
         </div>
       )}
     </>
