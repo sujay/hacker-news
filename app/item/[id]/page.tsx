@@ -1,7 +1,4 @@
-'use client';
-
 import React, { Suspense } from 'react';
-import { useParams } from 'next/navigation';
 
 import styles from './page.module.css';
 import styles2 from '../../../components/list-item.module.css';
@@ -12,8 +9,7 @@ import { getItem } from '../../../helpers/fetch';
 import ItemDetail from '../../../components/item-detail';
 import Comment from '../../../components/comment';
 
-export default async function Item() {
-  const params = useParams();
+export default async function Item({ params }) {
   const getItemData = getItem(+params!.id);
   const [item] = await Promise.all([getItemData]);
 
