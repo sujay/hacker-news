@@ -31,9 +31,7 @@ export default async function ListItem({
             {item.title}
           </a>
         ) : (
-          <Link href={`/item/${item.id}`} prefetch={false}>
-            {item.title}
-          </Link>
+          <Link href={`/item/${item.id}`}>{item.title}</Link>
         )}
         {item.url && <Domain itemUrl={item.url} />}
       </h6>

@@ -24,9 +24,7 @@ export default function Meta({
       )}
       {item.by && (
         <span className={styles.user}>
-          <Link href={`/user/${item.by}`} prefetch={false}>
-            {item.by}
-          </Link>
+          <Link href={`/user/${item.by}`}>{item.by}</Link>
         </span>
       )}
       {item.time && (
@@ -37,7 +35,7 @@ export default function Meta({
       )}
       {item.descendants > 0 && page !== 'item' && (
         <div className={styles.comments_link}>
-          <Link href={`/item/${item.id}`} prefetch={false}>
+          <Link href={`/item/${item.id}`}>
             {item.descendants}
             {item.descendants > 1 ? ' Comments' : ' Comment'}
           </Link>
