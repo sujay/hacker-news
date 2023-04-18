@@ -3,7 +3,7 @@ import React, { Suspense } from 'react';
 import ListItem from './list-item';
 import Loading from '../app/loading';
 
-export default function ListDetail({
+export default function List({
   items,
   url,
 }: {
