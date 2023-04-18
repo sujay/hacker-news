@@ -20,10 +20,7 @@ export default async function ListItem({
   const getItemData = getItem(itemId);
   const [item] = await Promise.all([getItemData]);
 
-  if (!item) {
-    return <li className={styles.li}>Loading...</li>;
-  }
-  return (
+  return item ? (
     <li key={item.id} className={styles.li}>
       <h6 className={styles.h6}>
         {item.url && url ? (
@@ -37,5 +34,7 @@ export default async function ListItem({
       </h6>
       <Meta item={item} page={page} />
     </li>
+  ) : (
+    <li className={styles.li}>Error loading story.</li>
   );
 }
