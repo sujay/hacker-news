@@ -26,7 +26,9 @@ export default function CommentBody({
       <div className={styles.meta}>
         <div className="details">
           <span className={styles.user}>
-            <Link href={`/user/${comment.by}`}>{comment.by}</Link>
+            <Link href={`/user/${comment.by}`} prefetch={false}>
+              {comment.by}
+            </Link>
           </span>
           <span> said </span>
           {comment.time && (
