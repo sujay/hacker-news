@@ -15,14 +15,16 @@ export default async function Show() {
   const getListData = getList('showstories');
   const [list] = await Promise.all([getListData]);
 
-  return list ? (
+  return (
     <>
       <Header>Show Hacker News</Header>
-      <ListDetail items={list.slice(0, 30)} url={false} />
+      {list ? (
+        <ListDetail items={list.slice(0, 30)} url={false} />
+      ) : (
+        <ul>
+          <li className={styles2.li}>Error loading projects.</li>
+        </ul>
+      )}
     </>
-  ) : (
-    <ul>
-      <li className={styles2.li}>Error loading item.</li>
-    </ul>
   );
 }

@@ -60,6 +60,6 @@ export default async function Item({ params }: { params: { id: string } }) {
       )}
     </>
   ) : (
-    <li className={styles2.li}>Error loading item.</li>
+    <li className={styles2.li}>Error loading story.</li>
   );
 }

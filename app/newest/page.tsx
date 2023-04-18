@@ -15,14 +15,16 @@ export default async function Newest() {
   const getListData = getList('newstories');
   const [list] = await Promise.all([getListData]);
 
-  return list ? (
+  return (
     <>
       <Header>Newest Stories</Header>
-      <ListDetail items={list.slice(0, 30)} url={false} />
+      {list ? (
+        <ListDetail items={list.slice(0, 30)} url={false} />
+      ) : (
+        <ul>
+          <li className={styles2.li}>Error loading stories.</li>
+        </ul>
+      )}
     </>
-  ) : (
-    <ul>
-      <li className={styles2.li}>Error loading item.</li>
-    </ul>
   );
 }
