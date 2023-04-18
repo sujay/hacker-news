@@ -20,7 +20,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const user = await getUserWrapper(params.name);
   return {
-    title: `Hacker News - ${user.id}`,
+    title: user.id,
     robots: {
       index: false,
     },

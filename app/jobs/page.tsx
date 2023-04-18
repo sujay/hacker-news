@@ -8,7 +8,7 @@ import ListDetail from '../../components/list-detail';
 import styles2 from '../../components/list-item.module.css';
 
 export const metadata = {
-  title: 'Hacker News - Jobs',
+  title: 'Jobs',
 };
 
 export default async function Job() {

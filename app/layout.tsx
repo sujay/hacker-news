@@ -11,6 +11,12 @@ if (!process.env.NEXT_PUBLIC_GTM_ID) {
   process.env.NEXT_PUBLIC_GTM_ID = '';
 }
 
+export const metadata = {
+  title: {
+    template: 'Hacker News - %s',
+  },
+};
+
 export default function Layout({ children }: React.PropsWithChildren) {
   return (
     <html lang="en">
