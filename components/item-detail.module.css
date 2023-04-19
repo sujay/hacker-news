@@ -19,3 +19,11 @@
   color: #000;
   text-decoration: underline;
 }
+.icon {
+  position: relative;
+  display: inline-block;
+  border-radius: 3px;
+  margin-right: 8px;
+  vertical-align: middle;
+  bottom: 3px;
+}
