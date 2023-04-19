@@ -22,7 +22,7 @@ export default async function ListItem({
 
   return item ? (
     <li key={item.id} className={styles.li}>
-      <h6 className={styles.h6}>
+      <h3 className={styles.h3}>
         {item.url && url ? (
           <a href={item.url} rel="nofollow">
             {item.title}
@@ -31,7 +31,7 @@ export default async function ListItem({
           <Link href={`/item/${item.id}`}>{item.title}</Link>
         )}
         {item.url && <Domain itemUrl={item.url} />}
-      </h6>
+      </h3>
       <Meta item={item} page={page} />
     </li>
   ) : (

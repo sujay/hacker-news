@@ -37,10 +37,10 @@ export default async function Item({ params }: { params: { id: string } }) {
       <ItemDetail item={item} page="item" />
       {item.descendants > 0 && (
         <div className={styles.comments}>
-          <h5 className={styles.h5}>
+          <h4 className={styles.h4}>
             {item.descendants}
             {item.descendants > 1 ? ' Comments:' : ' Comment:'}
-          </h5>
+          </h4>
           <Suspense
             fallback={
               <div className={styles3.comment}>
