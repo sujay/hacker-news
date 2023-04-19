@@ -7,6 +7,7 @@ import styles3 from '../../../components/comment.module.css';
 
 import { getItem } from '../../../helpers/fetch';
 
+import Header from '../../../components/header';
 import ItemDetail from '../../../components/item-detail';
 import Comment from '../../../components/comment';
 
@@ -21,7 +22,9 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const item = await getItemWrapper(+params.id);
   return {
-    title: item.title,
+    title: item.title
+      ? item.title
+      : item.type.charAt(0).toUpperCase() + item.type.slice(1),
     robots: {
       index: false,
     },
@@ -34,6 +37,7 @@ export default async function Item({ params }: { params: { id: string } }) {
 
   return item ? (
     <>
+      <Header>{item.type}</Header>
       <ItemDetail item={item} page="item" />
       {item.descendants > 0 && (
         <div className={styles.comments}>

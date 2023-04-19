@@ -5,4 +5,5 @@
   margin: 0;
   padding: 20px;
   font-weight: bold;
+  text-transform: capitalize;
 }
