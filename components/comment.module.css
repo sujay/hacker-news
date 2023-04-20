@@ -39,3 +39,10 @@
   margin: 15px;
   word-wrap: break-word;
 }
+.comment .content a {
+  font-weight: normal;
+  text-decoration: underline;
+}
+.comment .content a:hover {
+  text-decoration: none;
+}
