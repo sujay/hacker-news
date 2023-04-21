@@ -1,12 +1,7 @@
-#container {
+.container {
   width: 95%;
   max-width: 800px;
   margin: auto;
-}
-#main {
-  background-color: #fff;
-  border-radius: 5px;
-  overflow: hidden;
 }
 .header {
   background-color: #fc6621;
@@ -25,17 +20,22 @@
   color: #fff;
   text-decoration: none;
 }
-#footer {
+.main {
+  background-color: #fff;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.footer {
   font-size: 13px;
   color: #bbb;
   padding: 30px 0;
   text-align: center;
   line-height: 1.6em;
 }
-#footer a {
+.footer a {
   color: #fff;
 }
-#footer a:hover {
+.footer a:hover {
   color: #fff;
 }
 @media only screen and (max-width: 320px) {

@@ -30,7 +30,7 @@ export default function Layout({ children }: React.PropsWithChildren) {
       `}
       </Script>
       <body>
-        <div id={styles.container}>
+        <div className={styles.container}>
           <header className={styles.header}>
             <h1 className={styles.h1}>
               <Link
@@ -42,8 +42,8 @@ export default function Layout({ children }: React.PropsWithChildren) {
             </h1>
           </header>
           <Nav />
-          <div id={styles.main}>{children}</div>
-          <footer id={styles.footer}>
+          <div className={styles.main}>{children}</div>
+          <footer className={styles.footer}>
             <div>
               Content &copy;
               {` ${new Date().getFullYear()} `}
