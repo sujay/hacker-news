@@ -4,11 +4,4 @@ module.exports = {
     appDir: true,
   },
   poweredByHeader: false,
-  images: {
-    remotePatterns: [
-      {
-        hostname: 'icon.horse',
-      },
-    ],
-  },
 };

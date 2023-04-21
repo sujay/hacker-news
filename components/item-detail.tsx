@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
 import sanitizeHtml from 'sanitize-html';
 
 import styles from './item-detail.module.css';
@@ -22,14 +21,6 @@ export default function ItemDetail({
         <h3 className={styles.h3}>
           {item.url ? (
             <>
-              <Image
-                src={`https://icon.horse/icon/?uri=${item.url}`}
-                width={24}
-                height={24}
-                alt="Domain Icon"
-                className={styles.icon}
-                unoptimized
-              />
               <a href={item.url} rel="nofollow">
                 {item.title}
               </a>
