@@ -2,10 +2,6 @@
   padding: 20px;
   border-bottom: solid 1px #eee;
 }
-.content {
-  font-size: 14px;
-  margin-bottom: 15px;
-}
 .h3 {
   font-size: 24px;
   margin-top: 0;
@@ -26,4 +22,15 @@
   margin-right: 8px;
   vertical-align: middle;
   bottom: 3px;
+}
+.content {
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+.content a {
+  font-weight: normal;
+  text-decoration: underline;
+}
+.content a:hover {
+  text-decoration: none;
 }
