@@ -17,7 +17,7 @@ export default function Meta({
   return (
     <div className={styles.meta}>
       {item.score && item.score > 1 && (
-        <span className="points">{`${item.score} points`}</span>
+        <span className={styles.points}>{`${item.score} points`}</span>
       )}
       {item.by && (
         <span className={styles.user}>

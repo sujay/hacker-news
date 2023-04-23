@@ -6,7 +6,7 @@
 .comments_link {
   text-transform: lowercase;
 }
-.user:before {
+.points:after {
   content: '';
   text-indent: -999em;
   display: inline-block;
