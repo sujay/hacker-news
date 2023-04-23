@@ -15,6 +15,7 @@ export const metadata = {
   title: {
     template: 'Hacker News - %s',
   },
+  themeColor: '#fc6621',
 };
 
 export default function Layout({ children }: React.PropsWithChildren) {
