@@ -10,6 +10,7 @@
 .item a {
   color: #000;
   text-decoration: none;
+  margin-right: 6px;
 }
 .item a:hover {
   color: #000;
