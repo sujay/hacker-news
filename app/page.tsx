@@ -8,7 +8,6 @@ import List from '../components/list';
 import styles2 from '../components/list-item.module.css';
 
 export const metadata = {
-  title: 'Hacker News',
   description:
     'A Hacker News clone built with React and Next.js. Hacker News is a social news website focusing on computer science and entrepreneurship.',
 };

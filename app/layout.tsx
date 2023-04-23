@@ -14,6 +14,7 @@ if (!process.env.NEXT_PUBLIC_GTM_ID) {
 export const metadata = {
   title: {
     template: 'Hacker News - %s',
+    default: 'Hacker News',
   },
   themeColor: '#fc6621',
 };
