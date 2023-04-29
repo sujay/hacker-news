@@ -3,7 +3,7 @@ import sanitizeHtml from 'sanitize-html';
 import type { Metadata } from 'next';
 
 import styles from './page.module.css';
-import styles2 from '../../../components/list-item.module.css';
+import listStyles from '../../../components/list-item.module.css';
 
 import { getUser } from '../../../helpers/fetch';
 
@@ -70,6 +70,6 @@ export default async function User({ params }: { params: { name: string } }) {
       )}
     </div>
   ) : (
-    <li className={styles2.li}>Error loading user.</li>
+    <li className={listStyles.li}>Error loading user.</li>
   );
 }

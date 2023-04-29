@@ -5,7 +5,7 @@ import { getList } from '../helpers/fetch';
 import Header from '../components/header';
 import List from '../components/list';
 
-import styles2 from '../components/list-item.module.css';
+import listStyles from '../components/list-item.module.css';
 
 export const metadata = {
   description:
@@ -23,7 +23,7 @@ export default async function Index() {
         <List items={list.slice(0, 30)} url={false} />
       ) : (
         <ul>
-          <li className={styles2.li}>Error loading stories.</li>
+          <li className={listStyles.li}>Error loading stories.</li>
         </ul>
       )}
     </>

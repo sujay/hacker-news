@@ -2,8 +2,8 @@ import React, { Suspense } from 'react';
 import type { Metadata } from 'next';
 
 import styles from './page.module.css';
-import styles2 from '../../../components/list-item.module.css';
-import styles3 from '../../../components/comment.module.css';
+import listStyles from '../../../components/list-item.module.css';
+import commentStyles from '../../../components/comment.module.css';
 
 import { getItem } from '../../../helpers/fetch';
 
@@ -47,8 +47,8 @@ export default async function Item({ params }: { params: { id: string } }) {
           </h4>
           <Suspense
             fallback={
-              <div className={styles3.comment}>
-                <div className={styles3.loading}>
+              <div className={commentStyles.comment}>
+                <div className={commentStyles.loading}>
                   <span>Loading...</span>
                 </div>
               </div>
@@ -64,6 +64,6 @@ export default async function Item({ params }: { params: { id: string } }) {
       )}
     </>
   ) : (
-    <li className={styles2.li}>Error loading story.</li>
+    <li className={listStyles.li}>Error loading story.</li>
   );
 }
