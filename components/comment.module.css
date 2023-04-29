@@ -27,6 +27,8 @@
   border: none;
   background-color: transparent;
   color: #000;
+  width: 100%;
+  text-align: right;
 }
 .loading {
   padding: 15px;
