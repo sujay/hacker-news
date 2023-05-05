@@ -24,10 +24,10 @@ export const getList = (list: string) =>
 
 export const getItem = async (itemId: number) =>
   fetchData(`${endpointPrefix}item/${itemId}${endpointSuffix}`, {
-    cache: 'no-store',
+    cache: 'no-cache',
   });
 
 export const getUser = async (user: string) =>
   fetchData(`${endpointPrefix}user/${user}${endpointSuffix}`, {
-    cache: 'no-store',
+    cache: 'no-cache',
   });
