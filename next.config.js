@@ -1,24 +1,8 @@
-module.exports = {
-  poweredByHeader: false,
-};
-
-// Inected Content via Sentry Wizard Below
-
 const { withSentryConfig } = require('@sentry/nextjs');
 
-module.exports = withSentryConfig(
-  module.exports,
-  {
-    // For all available options, see:
-    // https://github.com/getsentry/sentry-webpack-plugin#options
-
-    // Suppresses source map uploading logs during build
-    silent: true,
-
-    org: process.env.NEXT_PUBLIC_SENTRY_ORG,
-    project: process.env.NEXT_PUBLIC_SENTRY_PROJECT,
-  },
-  {
+const nextConfig = {
+  poweredByHeader: false,
+  sentry: {
     // For all available options, see:
     // https://docs.sentry.io/platforms/javascript/guides/nextjs/manual-setup/
 
@@ -26,7 +10,7 @@ module.exports = withSentryConfig(
     widenClientFileUpload: true,
 
     // Transpiles SDK to be compatible with IE11 (increases bundle size)
-    transpileClientSDK: true,
+    transpileClientSDK: false,
 
     // Routes browser requests to Sentry through a Next.js rewrite to circumvent ad-blockers (increases server load)
     tunnelRoute: '/monitoring',
@@ -37,4 +21,17 @@ module.exports = withSentryConfig(
     // Automatically tree-shake Sentry logger statements to reduce bundle size
     disableLogger: true,
   },
-);
+};
+
+const sentryWebpackPluginOptions = {
+  // For all available options, see:
+  // https://github.com/getsentry/sentry-webpack-plugin#options
+
+  // Suppresses source map uploading logs during build
+  silent: true,
+
+  org: process.env.NEXT_PUBLIC_SENTRY_ORG,
+  project: process.env.NEXT_PUBLIC_SENTRY_PROJECT,
+};
+
+module.exports = withSentryConfig(nextConfig, sentryWebpackPluginOptions);
