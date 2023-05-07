@@ -1,5 +1,4 @@
 import React, { Suspense } from 'react';
-import type { Metadata } from 'next';
 
 import styles from './page.module.css';
 import listStyles from '../../../components/list-item.module.css';
@@ -15,11 +14,7 @@ async function getItemWrapper(id: number) {
   return getItem(id);
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { id: string };
-}): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: { id: string } }) {
   const item = await getItemWrapper(+params.id);
   return {
     title: item.title

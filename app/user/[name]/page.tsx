@@ -1,6 +1,5 @@
 import React from 'react';
 import sanitizeHtml from 'sanitize-html';
-import type { Metadata } from 'next';
 
 import styles from './page.module.css';
 import listStyles from '../../../components/list-item.module.css';
@@ -17,7 +16,7 @@ export async function generateMetadata({
   params,
 }: {
   params: { name: string };
-}): Promise<Metadata> {
+}) {
   const user = await getUserWrapper(params.name);
   return {
     title: user.id,
