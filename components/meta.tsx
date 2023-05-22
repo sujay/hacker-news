@@ -3,9 +3,9 @@ import Link from 'next/link';
 
 import styles from './meta.module.css';
 
-import { ItemProps } from '../types/interfaces';
-
 import Time from './time';
+
+import { ItemProps } from '../types/interfaces';
 
 export default function Meta({
   item,

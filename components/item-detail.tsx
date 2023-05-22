@@ -3,10 +3,10 @@ import sanitizeHtml from 'sanitize-html';
 
 import styles from './item-detail.module.css';
 
-import { ItemProps } from '../types/interfaces';
-
 import Domain from './domain';
 import Meta from './meta';
+
+import { ItemProps } from '../types/interfaces';
 
 export default function ItemDetail({
   item,
