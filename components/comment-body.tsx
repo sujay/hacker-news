@@ -15,8 +15,7 @@ export default function CommentBody({
   children,
   comment,
 }: {
-  // eslint-disable-next-line no-undef
-  children: JSX.Element[];
+  children: React.ReactNode | null | undefined;
   comment: CommentProps;
 }) {
   const [collapsed, setCollapsed] = useState(false);
