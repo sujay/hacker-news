@@ -5,11 +5,13 @@ import metaStyles from './meta.module.css';
 
 import ListItem from './list-item';
 
+import { ListProps } from '../types/interfaces';
+
 export default function List({
   items,
   url,
 }: {
-  items: number[];
+  items: ListProps;
   url: boolean;
 }) {
   return (
