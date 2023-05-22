@@ -1,6 +1,5 @@
-export interface ListProps {
-  list?: number[] | null;
-}
+export type ListProps = number[];
+
 export interface ItemProps {
   by: string;
   descendants: number;
@@ -15,13 +14,17 @@ export interface ItemProps {
   url: string;
   text?: string;
 }
+
 export interface CommentProps {
   id: number;
+  deleted: boolean;
+  dead: boolean;
   by: string;
   time: number;
   text: string;
   kids?: number[] | null;
 }
+
 export interface UserProps {
   about: string;
   created: number;
