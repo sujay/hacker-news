@@ -10,12 +10,10 @@ import Header from '../../../components/header';
 import ItemDetail from '../../../components/item-detail';
 import Comment from '../../../components/comment';
 
-async function getItemWrapper(id: number) {
-  return getItem(id);
-}
+import { ItemProps } from '../../../types/interfaces';
 
 export async function generateMetadata({ params }: { params: { id: string } }) {
-  const item = await getItemWrapper(+params.id);
+  const item = (await getItem(+params.id)) as ItemProps;
   return {
     title: item.title
       ? item.title
@@ -27,8 +25,7 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
 }
 
 export default async function Item({ params }: { params: { id: string } }) {
-  const getItemData = getItemWrapper(+params!.id);
-  const [item] = await Promise.all([getItemData]);
+  const item = (await getItem(+params!.id)) as ItemProps;
 
   return item ? (
     <>

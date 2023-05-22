@@ -7,13 +7,14 @@ import List from '../../components/list';
 
 import listStyles from '../../components/list-item.module.css';
 
+import { ListProps } from '../../types/interfaces';
+
 export const metadata = {
   title: 'Best',
 };
 
 export default async function Best() {
-  const getListData = getList('beststories');
-  const [list] = await Promise.all([getListData]);
+  const list = (await getList('beststories')) as ListProps;
 
   return (
     <>

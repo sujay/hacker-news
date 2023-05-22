@@ -8,6 +8,8 @@ import { getItem } from '../helpers/fetch';
 import Domain from './domain';
 import Meta from './meta';
 
+import { ItemProps } from '../types/interfaces';
+
 export default async function ListItem({
   itemId,
   url,
@@ -17,8 +19,7 @@ export default async function ListItem({
   url: boolean;
   page: string;
 }) {
-  const getItemData = getItem(itemId);
-  const [item] = await Promise.all([getItemData]);
+  const item = (await getItem(itemId)) as ItemProps;
 
   return item ? (
     <li key={item.id} className={styles.li}>

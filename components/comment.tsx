@@ -4,11 +4,12 @@ import { getItem } from '../helpers/fetch';
 
 import CommentBody from './comment-body';
 
+import { CommentProps } from '../types/interfaces';
+
 export default async function Comment({ item }: { item: number }) {
   if (!item) return null;
 
-  const getCommentData = getItem(+item);
-  const [comment] = await Promise.all([getCommentData]);
+  const comment = (await getItem(+item)) as CommentProps;
 
   if (!comment || comment.deleted || comment.dead) {
     return null;

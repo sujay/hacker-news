@@ -8,16 +8,14 @@ import { getUser } from '../../../helpers/fetch';
 
 import Time from '../../../components/time';
 
-async function getUserWrapper(name: string) {
-  return getUser(name);
-}
+import { UserProps } from '../../../types/interfaces';
 
 export async function generateMetadata({
   params,
 }: {
   params: { name: string };
 }) {
-  const user = await getUserWrapper(params.name);
+  const user = (await getUser(params.name)) as UserProps;
   return {
     title: user.id,
     robots: {
@@ -27,8 +25,7 @@ export async function generateMetadata({
 }
 
 export default async function User({ params }: { params: { name: string } }) {
-  const getUserData = getUserWrapper(`${params!.name}`);
-  const [user] = await Promise.all([getUserData]);
+  const user = (await getUser(`${params!.name}`)) as UserProps;
 
   return user ? (
     <div className={styles.user}>
