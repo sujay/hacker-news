@@ -21,6 +21,10 @@ export default async function ListItem({
 }) {
   const item = (await getItem(itemId)) as ItemProps;
 
+  if (item.deleted || item.dead) {
+    return null;
+  }
+
   return item ? (
     <li key={item.id} className={styles.li}>
       <h3 className={styles.h3}>
