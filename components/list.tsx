@@ -29,7 +29,6 @@ export default function List({
           }
           key={itemId}
         >
-          {/* @ts-expect-error Server Component */}
           <ListItem itemId={itemId} url={url} page="list" />
         </Suspense>
       ))}

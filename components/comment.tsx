@@ -18,10 +18,7 @@ export default async function Comment({ item }: { item: number }) {
   return (
     <CommentBody comment={comment}>
       {comment.kids &&
-        comment.kids.map((kid: number) => (
-          /* @ts-expect-error Server Component */
-          <Comment item={kid} key={kid} />
-        ))}
+        comment.kids.map((kid: number) => <Comment item={kid} key={kid} />)}
     </CommentBody>
   );
 }

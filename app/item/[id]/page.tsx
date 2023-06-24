@@ -50,7 +50,6 @@ export default async function Item({ params }: { params: { id: string } }) {
               >
                 {item.kids &&
                   item.kids.map((comment: number) => (
-                    /* @ts-expect-error Server Component */
                     <Comment item={comment} key={comment} />
                   ))}
               </Suspense>
