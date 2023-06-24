@@ -21,9 +21,7 @@ export default function Meta({
       )}
       {item.by && (
         <span className={styles.user}>
-          <Link href={`/user/${item.by}`} prefetch={false}>
-            {item.by}
-          </Link>
+          <Link href={`/user/${item.by}`}>{item.by}</Link>
         </span>
       )}
       {item.time && (
