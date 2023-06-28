@@ -1,9 +1,10 @@
-import React from 'react';
+'use client';
+
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 
 dayjs.extend(relativeTime);
 
 export default function Time({ time }: { time: number }) {
-  return <>{dayjs(time * 1000).fromNow()}</>;
+  return dayjs.unix(time).fromNow();
 }
