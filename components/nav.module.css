@@ -17,9 +17,22 @@
 .nav li {
   display: inline-block;
 }
+.search {
+  width: 14px;
+  height: 14px;
+  position: relative;
+  top: -1px;
+  left: -1px;
+}
 @media only screen and (max-width: 400px) {
   .nav {
     font-size: 13px;
+  }
+  .search {
+    width: 13px;
+    height: 13px;
+    position: relative;
+    top: -2px;
   }
 }
 @media only screen and (max-width: 320px) {
