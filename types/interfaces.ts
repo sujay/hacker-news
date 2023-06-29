@@ -20,9 +20,12 @@ export interface CommentProps {
   deleted: boolean;
   dead: boolean;
   by: string;
+  user: string;
   time: number;
   text: string;
+  content: string;
   kids?: number[] | null;
+  comments?: CommentProps[] | null;
 }
 
 export interface UserProps {

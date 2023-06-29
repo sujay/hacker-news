@@ -1,20 +1,17 @@
-const endpointPrefix = 'https://hacker-news.firebaseio.com/v0/';
-const endpointSuffix = '.json';
+const fetchData = async (type: string) =>
+  fetch(`https://hacker-news.firebaseio.com/v0/${type}.json`, {
+    cache: 'no-store',
+  }).then((response) => response.json());
 
-const fetchData = (endpoint: string, cache: Object) =>
-  fetch(endpoint, cache).then((response) => response.json());
+export const getList = async (list: string) => fetchData(list);
 
-export const getList = (list: string) =>
-  fetchData(`${endpointPrefix}${list}${endpointSuffix}`, {
-    next: { revalidate: 60 },
-  });
+export const getItem = async (itemId: number) => fetchData(`item/${itemId}`);
 
-export const getItem = async (itemId: number) =>
-  fetchData(`${endpointPrefix}item/${itemId}${endpointSuffix}`, {
-    cache: 'no-cache',
-  });
+export const getUser = async (user: string) => fetchData(`user/${user}`);
 
-export const getUser = async (user: string) =>
-  fetchData(`${endpointPrefix}user/${user}${endpointSuffix}`, {
-    cache: 'no-cache',
-  });
+export const getComments = async (itemId: number) =>
+  fetch(`https://api.hackerwebapp.com/item/${itemId}`, {
+    cache: 'no-store',
+  })
+    .then((response) => response.json())
+    .then((data) => data.comments);

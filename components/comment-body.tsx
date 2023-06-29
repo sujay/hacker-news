@@ -1,6 +1,6 @@
 'use client';
 
-import React, { Suspense, useState } from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import sanitizeHtml from 'sanitize-html';
 
@@ -25,7 +25,7 @@ export default function CommentBody({
       <div className={styles.meta}>
         <div className="details">
           <span className={styles.user}>
-            <Link href={`/user/${comment.by}`}>{comment.by}</Link>
+            <Link href={`/user/${comment.user}`}>{comment.user}</Link>
           </span>
           <span> said </span>
           {comment.time && (
@@ -44,13 +44,13 @@ export default function CommentBody({
       </div>
       {!collapsed && (
         <div className="tree">
-          {comment.text && (
+          {comment.content && (
             <div
               className={styles.content}
               // eslint-disable-next-line react/no-danger
               dangerouslySetInnerHTML={{
                 __html: sanitizeHtml(
-                  comment.text.replace(
+                  comment.content.replace(
                     /https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item\?id=/g,
                     '',
                   ),
@@ -58,17 +58,7 @@ export default function CommentBody({
               }}
             />
           )}
-          <Suspense
-            fallback={
-              <div className={styles.comment}>
-                <div className={styles.loading}>
-                  <span>Loading...</span>
-                </div>
-              </div>
-            }
-          >
-            {children}
-          </Suspense>
+          {children}
         </div>
       )}
     </div>

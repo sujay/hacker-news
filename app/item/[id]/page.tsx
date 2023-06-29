@@ -8,7 +8,7 @@ import { getItem } from '../../../helpers/fetch';
 
 import Header from '../../../components/header';
 import ItemDetail from '../../../components/item-detail';
-import Comment from '../../../components/comment';
+import Comments from '../../../components/comments';
 
 import { ItemProps } from '../../../types/interfaces';
 
@@ -48,10 +48,7 @@ export default async function Item({ params }: { params: { id: string } }) {
                   </div>
                 }
               >
-                {item.kids &&
-                  item.kids.map((comment: number) => (
-                    <Comment item={comment} key={comment} />
-                  ))}
+                <Comments itemId={item.id} key={item.id} />
               </Suspense>
             </div>
           )}

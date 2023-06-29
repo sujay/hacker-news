@@ -1,24 +1,20 @@
 import React from 'react';
 
-import { getItem } from '../helpers/fetch';
-
 import CommentBody from './comment-body';
 
 import { CommentProps } from '../types/interfaces';
 
-export default async function Comment({ item }: { item: number }) {
-  if (!item) return null;
-
-  const comment = (await getItem(+item)) as CommentProps;
-
+export default async function Comment({ comment }: { comment: CommentProps }) {
   if (!comment || comment.deleted || comment.dead) {
     return null;
   }
 
   return (
     <CommentBody comment={comment}>
-      {comment.kids &&
-        comment.kids.map((kid: number) => <Comment item={kid} key={kid} />)}
+      {comment.comments &&
+        comment.comments.map((commentChild: CommentProps) => (
+          <Comment comment={commentChild} key={commentChild.id} />
+        ))}
     </CommentBody>
   );
 }
