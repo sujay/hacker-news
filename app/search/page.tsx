@@ -8,7 +8,6 @@ import styles from './page.module.css';
 import listStyles from '../../components/list-item.module.css';
 import metaStyles from '../../components/meta.module.css';
 
-import Header from '../../components/header';
 import Time from '../../components/time';
 
 interface SearchResult {
@@ -58,7 +57,6 @@ export default function Search() {
 
   return (
     <>
-      <Header>Search</Header>
       <div className={styles.searchbox}>
         <form onSubmit={handleSubmit}>
           <input type="text" value={query} onChange={handleChange} />
