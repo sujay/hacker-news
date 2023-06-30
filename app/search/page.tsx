@@ -32,7 +32,7 @@ export default function Search() {
     setQuery(event.target.value);
   };
 
-  const searchInit = useCallback(async () => {
+  const searchInit = async () => {
     setIsLoading(true);
     const response = await fetch(
       `https://hn.algolia.com/api/v1/search?query=${query}&tags=story`,
@@ -40,7 +40,7 @@ export default function Search() {
     const data = await response.json();
     setResults(data.hits);
     setIsLoading(false);
-  }, [query]);
+  };
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
@@ -53,7 +53,13 @@ export default function Search() {
       setQuery(search);
       searchInit();
     }
-  }, [search, searchInit]);
+  }, [search]);
+
+  useEffect(() => {
+    if (search) {
+      searchInit();
+    }
+  }, []);
 
   return (
     <>
