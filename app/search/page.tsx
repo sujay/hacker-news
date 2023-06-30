@@ -1,7 +1,8 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import Link from 'next/link';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
 import styles from './page.module.css';
 import listStyles from '../../components/list-item.module.css';
@@ -19,7 +20,12 @@ interface SearchResult {
 }
 
 export default function Search() {
-  const [query, setQuery] = useState('');
+  const searchParams = useSearchParams();
+  const search = searchParams.get('q');
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const [query, setQuery] = useState(search || '');
   const [results, setResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -27,8 +33,7 @@ export default function Search() {
     setQuery(event.target.value);
   };
 
-  const handleSubmit = async (event: React.FormEvent) => {
-    event.preventDefault();
+  const searchInit = useCallback(async () => {
     setIsLoading(true);
     const response = await fetch(
       `https://hn.algolia.com/api/v1/search?query=${query}&tags=story`,
@@ -36,7 +41,20 @@ export default function Search() {
     const data = await response.json();
     setResults(data.hits);
     setIsLoading(false);
+  }, [query]);
+
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+    searchInit();
+    router.push(`${pathname}?q=${query}`);
   };
+
+  useEffect(() => {
+    if (search) {
+      setQuery(search);
+      searchInit();
+    }
+  }, [search, searchInit]);
 
   return (
     <>
