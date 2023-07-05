@@ -27,12 +27,14 @@ export default function Search() {
   const [query, setQuery] = useState(search || '');
   const [results, setResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [firstLoad, setFirstLoad] = useState(true);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(event.target.value);
   };
 
   const searchInit = async () => {
+    setFirstLoad(false);
     setIsLoading(true);
     const response = await fetch(
       `https://hn.algolia.com/api/v1/search?query=${query}&tags=story`,
@@ -75,7 +77,8 @@ export default function Search() {
           <ul>
             <li className={listStyles.li}>Loading...</li>
           </ul>
-        ) : results.length > 0 ? (
+        ) : // eslint-disable-next-line no-nested-ternary
+        results.length > 0 ? (
           <ul>
             {results.map((item: SearchResult) => (
               <li key={item.objectID} className={listStyles.li}>
@@ -106,9 +109,13 @@ export default function Search() {
               </li>
             ))}
           </ul>
-        ) : (
+        ) : !firstLoad ? (
           <ul>
             <li className={listStyles.li}>No results found.</li>
+          </ul>
+        ) : (
+          <ul>
+            <li className={listStyles.li}>Enter search term.</li>
           </ul>
         )
       }
