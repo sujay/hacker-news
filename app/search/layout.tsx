@@ -4,6 +4,9 @@ import Header from '../../components/header';
 
 export const metadata = {
   title: 'Search',
+  alternates: {
+    canonical: '/search',
+  },
 };
 
 export default async function SearchPage({
