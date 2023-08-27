@@ -16,7 +16,6 @@ export const metadata = {
     template: 'Hacker News - %s',
     default: 'Hacker News',
   },
-  themeColor: '#fc6621',
 };
 
 export default function Layout({ children }: React.PropsWithChildren) {
@@ -31,6 +30,7 @@ export default function Layout({ children }: React.PropsWithChildren) {
         })(window,document,'script','dataLayer','${process.env.NEXT_PUBLIC_GTM_ID}');
       `}
       </Script>
+      <meta name="theme-color" content="#fc6621" />
       <body>
         <div className={styles.container}>
           <header className={styles.header}>
