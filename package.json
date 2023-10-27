@@ -7,7 +7,8 @@
   "dependencies": {
     "@sentry/nextjs": "^7.49.0",
     "dayjs": "^1.11.5",
-    "next": "^13.4.0",
+    "geist": "^1.0.0",
+    "next": "^14.0.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "sanitize-html": "^2.10.0"
@@ -18,7 +19,7 @@
     "@types/sanitize-html": "^2.9.0",
     "eslint": "^8.13.0",
     "eslint-config-airbnb": "^19.0.4",
-    "eslint-config-next": "^13.4.1",
+    "eslint-config-next": "^14.0.0",
     "eslint-config-prettier": "^9.0.0",
     "typescript": "^5.0.4"
   },
