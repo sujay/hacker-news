@@ -1,7 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
 import Script from 'next/script';
-import { GeistSans } from 'geist/font';
 
 import './global.css';
 import styles from './layout.module.css';
@@ -21,7 +20,7 @@ export const metadata = {
 
 export default function Layout({ children }: React.PropsWithChildren) {
   return (
-    <html lang="en" className={GeistSans.className}>
+    <html lang="en">
       <Script id="gtag" strategy="afterInteractive">
         {`
         (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
