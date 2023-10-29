@@ -3,24 +3,20 @@ import Link from 'next/link';
 
 import styles from './list-item.module.css';
 
-import { getItem } from '../helpers/fetch';
-
 import Domain from './domain';
 import Meta from './meta';
 
 import { ItemProps } from '../types/interfaces';
 
 export default async function ListItem({
-  itemId,
+  item,
   url,
   page,
 }: {
-  itemId: number;
+  item: ItemProps;
   url: boolean;
   page: string;
 }) {
-  const item = (await getItem(itemId)) as ItemProps;
-
   if (item.deleted || item.dead) {
     return null;
   }

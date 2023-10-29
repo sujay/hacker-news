@@ -1,31 +1,30 @@
 export type ListProps = number[];
 
-export interface ItemProps {
+export interface CommentProps {
   by: string;
-  descendants: number;
-  deleted: boolean;
+  comments?: CommentProps[] | null;
+  content: string;
   dead: boolean;
+  deleted: boolean;
   id: number;
-  kids?: number[] | null;
-  score: number;
+  text: string;
+  time: number;
+  user: string;
+}
+
+export interface ItemProps {
+  comments_count: number;
+  comments?: CommentProps[] | null;
+  content?: string;
+  dead: boolean;
+  deleted: boolean;
+  id: number;
+  points: number;
   time: number;
   title: string;
   type: string;
   url: string;
-  text?: string;
-}
-
-export interface CommentProps {
-  id: number;
-  deleted: boolean;
-  dead: boolean;
-  by: string;
   user: string;
-  time: number;
-  text: string;
-  content: string;
-  kids?: number[] | null;
-  comments?: CommentProps[] | null;
 }
 
 export interface UserProps {

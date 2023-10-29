@@ -16,12 +16,12 @@ export default function Meta({
 }) {
   return (
     <div className={styles.meta}>
-      {item.score && item.score > 1 && (
-        <span className={styles.points}>{`${item.score} points`}</span>
+      {item.points && item.points > 1 && (
+        <span className={styles.points}>{`${item.points} points`}</span>
       )}
-      {item.by && (
+      {item.user && (
         <span className={styles.user}>
-          <Link href={`/user/${item.by}`}>{item.by}</Link>
+          <Link href={`/user/${item.user}`}>{item.user}</Link>
         </span>
       )}
       {item.time && (
@@ -30,11 +30,11 @@ export default function Meta({
           <Time time={item.time} />
         </span>
       )}
-      {item.descendants > 0 && page !== 'item' && (
+      {item.comments_count > 0 && page !== 'item' && (
         <div className={styles.comments_link}>
           <Link href={`/item/${item.id}`}>
-            {item.descendants}
-            {item.descendants > 1 ? ' Comments' : ' Comment'}
+            {item.comments_count}
+            {item.comments_count > 1 ? ' Comments' : ' Comment'}
           </Link>
         </div>
       )}

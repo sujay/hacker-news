@@ -12,6 +12,7 @@ export default async function Comment({ comment }: { comment: CommentProps }) {
   return (
     <CommentBody comment={comment}>
       {comment.comments &&
+        comment.comments.length > 0 &&
         comment.comments.map((commentChild: CommentProps) => (
           <Comment comment={commentChild} key={commentChild.id} />
         ))}

@@ -31,13 +31,13 @@ export default function ItemDetail({
           )}
         </h3>
       )}
-      {item.text && (
+      {item.content && (
         <div className={styles.content}>
           <div
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{
               __html: sanitizeHtml(
-                item.text.replace(
+                item.content.replace(
                   /https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item\?id=/g,
                   '',
                 ),

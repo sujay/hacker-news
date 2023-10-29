@@ -1,8 +1,7 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 
 import styles from './page.module.css';
 import listStyles from '../../../components/list-item.module.css';
-import commentStyles from '../../../components/comment.module.css';
 
 import { getItem } from '../../../helpers/fetch';
 
@@ -13,11 +12,23 @@ import Comments from '../../../components/comments';
 import { ItemProps } from '../../../types/interfaces';
 
 export async function generateMetadata({ params }: { params: { id: string } }) {
-  const item = (await getItem(+params.id)) as ItemProps;
+  let item;
+
+  if (!Number.isNaN(+params!.id)) {
+    item = (await getItem(+params!.id)) as ItemProps;
+    if (item.id) {
+      return {
+        title: item.title
+          ? item.title
+          : item.type.charAt(0).toUpperCase() + item.type.slice(1),
+        robots: {
+          index: false,
+        },
+      };
+    }
+  }
+
   return {
-    title: item.title
-      ? item.title
-      : item.type.charAt(0).toUpperCase() + item.type.slice(1),
     robots: {
       index: false,
     },
@@ -25,31 +36,25 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
 }
 
 export default async function Item({ params }: { params: { id: string } }) {
-  const item = (await getItem(+params!.id)) as ItemProps;
+  let item;
 
-  return item ? (
+  if (!Number.isNaN(+params!.id)) {
+    item = (await getItem(+params!.id)) as ItemProps;
+  }
+
+  return item?.id ? (
     <>
-      <Header>{item.type}</Header>
+      <Header>{item.type === 'link' ? 'story' : item.type}</Header>
       {!item.dead && !item.deleted ? (
         <>
           <ItemDetail item={item} page="item" />
-          {item.descendants > 0 && (
+          {item.comments_count > 0 && (
             <div className={styles.comments}>
               <h4 className={styles.h4}>
-                {item.descendants}
-                {item.descendants > 1 ? ' Comments:' : ' Comment:'}
+                {item.comments_count}
+                {item.comments_count > 1 ? ' Comments:' : ' Comment:'}
               </h4>
-              <Suspense
-                fallback={
-                  <div className={commentStyles.comment}>
-                    <div className={commentStyles.loading}>
-                      <span>Loading...</span>
-                    </div>
-                  </div>
-                }
-              >
-                <Comments itemId={item.id} key={item.id} />
-              </Suspense>
+              <Comments comments={item.comments} />
             </div>
           )}
         </>
@@ -61,6 +66,9 @@ export default async function Item({ params }: { params: { id: string } }) {
       )}
     </>
   ) : (
-    <li className={listStyles.li}>Error loading story.</li>
+    <>
+      <Header>Error</Header>
+      <li className={listStyles.li}>Item not found.</li>
+    </>
   );
 }
