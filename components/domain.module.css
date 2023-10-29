@@ -2,4 +2,8 @@
   font-size: 0.75em;
   color: #666;
   white-space: nowrap;
+  font-weight: normal;
+}
+.domain:hover {
+  text-decoration: none;
 }

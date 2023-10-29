@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 import styles from './domain.module.css';
 
@@ -8,6 +9,10 @@ export default function Domain({ itemUrl }: { itemUrl: string }) {
   const domain = extractDomain(itemUrl);
 
   if (domain) {
-    return <span className={styles.domain}>{`(${domain})`}</span>;
+    return (
+      <Link href={`/search?q=${domain}`} className={styles.domain}>
+        {`(${domain})`}
+      </Link>
+    );
   }
 }
