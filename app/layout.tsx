@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-page-custom-font */
 import React from 'react';
 import Link from 'next/link';
 import Script from 'next/script';
@@ -21,16 +22,24 @@ export const metadata = {
 export default function Layout({ children }: React.PropsWithChildren) {
   return (
     <html lang="en">
-      <Script id="gtag" strategy="afterInteractive">
-        {`
+      <head>
+        <Script id="gtag" strategy="afterInteractive">
+          {`
         (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
         })(window,document,'script','dataLayer','${process.env.NEXT_PUBLIC_GTM_ID}');
       `}
-      </Script>
-      <meta name="theme-color" content="#fc6621" />
+        </Script>
+        <meta name="theme-color" content="#fc6621" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital@0;1&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body>
         <div className={styles.container}>
           <header className={styles.header}>

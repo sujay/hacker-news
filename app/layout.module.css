@@ -1,6 +1,6 @@
 .container {
   width: 95%;
-  max-width: 800px;
+  max-width: 960px;
   margin: auto;
 }
 .header {
@@ -16,7 +16,8 @@
   position: relative;
   left: -3px;
 }
-.h1 a, .h1 a:hover {
+.h1 a,
+.h1 a:hover {
   color: #fff;
   text-decoration: none;
 }
@@ -26,7 +27,7 @@
   overflow: hidden;
 }
 .footer {
-  font-size: 13px;
+  font-size: 14px;
   color: #bbb;
   padding: 30px 0;
   text-align: center;

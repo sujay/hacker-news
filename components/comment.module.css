@@ -1,5 +1,4 @@
 .comment {
-  font-size: 13px;
   padding: 0px;
   border: solid 1px #eee;
 }
@@ -14,7 +13,7 @@
 .meta {
   background-color: #eee;
   padding: 15px;
-  font-size: 13px;
+  font-size: 14px;
   color: #666;
   display: flex;
 }
@@ -37,6 +36,7 @@
   color: #000;
 }
 .content {
+  font-size: 15px;
   line-height: 1.6em;
   margin: 15px;
   word-wrap: break-word;
