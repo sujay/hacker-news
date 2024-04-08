@@ -16,7 +16,7 @@ export async function generateMetadata({
 }: {
   params: { name: string };
 }) {
-  const user = (await getUser(params.name)) as UserProps;
+  const user = (await getUser(`${params!.name}`)) as UserProps;
   return {
     title: user.id,
     robots: {
