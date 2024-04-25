@@ -5,6 +5,7 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
+    "@next/third-parties": "^14.2.3",
     "@sentry/nextjs": "^7.49.0",
     "dayjs": "^1.11.5",
     "next": "^14.0.1",
