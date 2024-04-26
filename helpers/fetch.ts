@@ -1,7 +1,7 @@
 async function fetchData(route: string) {
   try {
     const res = await fetch(route, {
-      cache: 'no-store',
+      next: { revalidate: 3600 },
     });
     if (!res.ok) {
       throw new Error('Failed to fetch data!');
