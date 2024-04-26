@@ -3,6 +3,7 @@ import React from 'react';
 import Link from 'next/link';
 import { GoogleTagManager } from '@next/third-parties/google';
 
+import './reset.css';
 import './global.css';
 import styles from './layout.module.css';
 
