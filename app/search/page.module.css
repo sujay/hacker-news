@@ -1,17 +1,14 @@
 .searchbox {
   padding: 20px;
   border-bottom: solid 1px #ddd;
-}
-.searchbox form {
   width: 100%;
-  display: flex;
 }
 .searchbox input {
-  flex: 1;
+  width: 100%;
   font-size: 16px;
   border: solid 1px #ccc;
-  border-right: none;
   padding: 10px 10px;
+  border-radius: 5px;
 }
 .searchbox button {
   font-size: 16px;

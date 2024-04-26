@@ -11,7 +11,8 @@
     "next": "^14.3.0-canary.26",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "sanitize-html": "^2.10.0"
+    "sanitize-html": "^2.10.0",
+    "use-debounce": "^10.0.0"
   },
   "devDependencies": {
     "@types/node": "^20.1.0",
