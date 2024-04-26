@@ -19,11 +19,7 @@ export default function Meta({
       {item.points && item.points > 1 && (
         <span className={styles.points}>{`${item.points} points`}</span>
       )}
-      {item.user && (
-        <span className={styles.user}>
-          <Link href={`/user/${item.user}`}>{item.user}</Link>
-        </span>
-      )}
+      {item.user && <span className={styles.user}>{item.user}</span>}
       {item.time && (
         <span className="time">
           {' posted '}

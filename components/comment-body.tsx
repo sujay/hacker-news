@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import Link from 'next/link';
 import sanitizeHtml from 'sanitize-html';
 
 import styles from './comment.module.css';
@@ -24,9 +23,7 @@ export default function CommentBody({
     <div className={styles.comment} key={comment.id}>
       <div className={styles.meta}>
         <div className="details">
-          <span className={styles.user}>
-            <Link href={`/user/${comment.user}`}>{comment.user}</Link>
-          </span>
+          <span className={styles.user}>{comment.user}</span>
           <span> said </span>
           {comment.time && (
             <span className="time">
