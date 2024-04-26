@@ -7,7 +7,7 @@ import Header from '../components/header';
 export default function Loading() {
   return (
     <>
-      <Header>Loading...</Header>
+      <Header>...</Header>
       <ul>
         <li className={styles.li}>...</li>
       </ul>
