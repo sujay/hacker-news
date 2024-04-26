@@ -31,7 +31,7 @@ a:hover {
 }
 pre,
 code {
-  font-size: 11px;
+  font-size: 0.95em;
   font-family: var(--font-geist-mono), Input Mono, Consolas, Menlo, Monaco,
     Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono,
     Courier New, monospace, sans-serif;
