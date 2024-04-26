@@ -61,6 +61,7 @@ export default function Nav() {
           <Link
             href="/search"
             className={pathname === '/search' ? styles.active : ''}
+            title="Search"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
