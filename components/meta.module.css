@@ -16,6 +16,9 @@
   margin: 0 8px;
   border-right: solid 1px #ddd;
 }
+.user {
+  color: #111;
+}
 .user a {
   font-weight: normal;
 }
