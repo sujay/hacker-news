@@ -6,6 +6,8 @@ import metaStyles from '../../components/meta.module.css';
 
 import Time from '../../components/time';
 
+import { getSearch } from '../../helpers/fetch';
+
 interface SearchResult {
   objectID: number;
   points: number;
@@ -15,13 +17,7 @@ interface SearchResult {
 }
 
 export default async function SearchResults({ query }: { query: string }) {
-  const response = await fetch(
-    `https://hn.algolia.com/api/v1/search?query=${query}&tags=story`,
-    {
-      next: { revalidate: 3600 },
-    },
-  );
-  const data = await response.json();
+  const data = await getSearch(query);
   const results = data.hits;
 
   return (
