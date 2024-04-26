@@ -1,8 +1,16 @@
 import React, { Suspense } from 'react';
 
+import Header from '../../components/header';
 import SearchBox from './search';
 import SearchResults from './results';
 import Loading from '../../components/loading';
+
+export const metadata = {
+  title: 'Search',
+  alternates: {
+    canonical: '/search',
+  },
+};
 
 export default function Search({
   searchParams,
@@ -14,6 +22,7 @@ export default function Search({
   const query = searchParams?.query || '';
   return (
     <>
+      <Header>Search</Header>
       <SearchBox />
       <Suspense key={Math.random()} fallback={<Loading />}>
         <SearchResults query={query} />
