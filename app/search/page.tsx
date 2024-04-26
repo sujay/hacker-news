@@ -1,9 +1,9 @@
 import React, { Suspense } from 'react';
 
 import Header from '../../components/header';
+import Loading from '../../components/loading';
 import SearchBox from './search';
 import SearchResults from './results';
-import Loading from '../../components/loading';
 
 export const metadata = {
   title: 'Search',

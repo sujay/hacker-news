@@ -1,8 +1,8 @@
 'use client';
 
 import React from 'react';
-import { useDebouncedCallback } from 'use-debounce';
 import { useSearchParams, usePathname, useRouter } from 'next/navigation';
+import { useDebouncedCallback } from 'use-debounce';
 
 import styles from './page.module.css';
 
