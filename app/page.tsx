@@ -1,30 +1,21 @@
-import React from 'react';
-
-import { getList } from '../helpers/fetch';
+import React, { Suspense } from 'react';
 
 import Header from '../components/header';
 import List from '../components/list';
-
-import listStyles from '../components/list-item.module.css';
+import Loading from '../components/loading';
 
 export const metadata = {
   description:
     'A Hacker News clone built with React and Next.js. Hacker News is a social news website focusing on computer science and entrepreneurship.',
 };
 
-export default async function Index() {
-  const list = await getList('news');
-
+export default function Index() {
   return (
     <>
       <Header>Top Stories</Header>
-      {list ? (
-        <List items={list} url={false} />
-      ) : (
-        <ul>
-          <li className={listStyles.li}>Error loading stories.</li>
-        </ul>
-      )}
+      <Suspense fallback={<Loading />}>
+        <List type="news" url={false} />
+      </Suspense>
     </>
   );
 }
