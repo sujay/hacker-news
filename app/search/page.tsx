@@ -83,9 +83,7 @@ export default function Search() {
             {results.map((item: SearchResult) => (
               <li key={item.objectID} className={listStyles.li}>
                 <h3 className={listStyles.h3}>
-                  <Link href={`/item/${item.objectID}`} prefetch={false}>
-                    {item.title}
-                  </Link>
+                  <Link href={`/item/${item.objectID}`}>{item.title}</Link>
                 </h3>
                 <div className={metaStyles.meta}>
                   {item.points && item.points > 1 && (
@@ -101,7 +99,7 @@ export default function Search() {
                   )}
                   {item.num_comments > 0 && (
                     <div className={metaStyles.comments_link}>
-                      <Link href={`/item/${item.objectID}`} prefetch={false}>
+                      <Link href={`/item/${item.objectID}`}>
                         {item.num_comments}
                         {item.num_comments > 1 ? ' Comments' : ' Comment'}
                       </Link>
