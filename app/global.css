@@ -3,8 +3,8 @@ html {
   background-color: #333;
 }
 body {
-  font-family: 'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont,
-    'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: var(--font-geist-sans), system-ui, -apple-system,
+    BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #333;
 }
 h1,
@@ -32,7 +32,7 @@ a:hover {
 pre,
 code {
   font-size: 11px;
-  font-family: 'IBM Plex Mono', Input Mono, Consolas, Menlo, Monaco,
+  font-family: var(--font-geist-mono), Input Mono, Consolas, Menlo, Monaco,
     Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono,
     Courier New, monospace, sans-serif;
   white-space: pre-wrap;
