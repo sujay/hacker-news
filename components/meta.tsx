@@ -21,7 +21,9 @@ export default function Meta({
       )}
       {item.user && (
         <span className={styles.user}>
-          <Link href={`/user/${item.user}`}>{item.user}</Link>
+          {/* <Link href={`/user/${item.user}`} prefetch={false}> */}
+          {item.user}
+          {/* </Link> */}
         </span>
       )}
       {item.time && (
