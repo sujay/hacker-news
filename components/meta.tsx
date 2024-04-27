@@ -28,7 +28,7 @@ export default function Meta({
       )}
       {item.comments_count > 0 && page !== 'item' && (
         <div className={styles.comments_link}>
-          <Link href={`/item/${item.id}`}>
+          <Link href={`/item/${item.id}`} prefetch={false}>
             {item.comments_count}
             {item.comments_count > 1 ? ' Comments' : ' Comment'}
           </Link>
