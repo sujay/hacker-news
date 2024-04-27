@@ -1,15 +1,9 @@
 async function fetchData(route: string) {
-  try {
-    const res = await fetch(route, {
-      next: { revalidate: 3600 },
-    });
-    if (!res.ok) {
-      throw new Error('Failed to fetch data!');
-    }
-    return res.json();
-  } catch {
-    return false;
+  const res = await fetch(route);
+  if (!res.ok) {
+    throw new Error('Failed to fetch data!');
   }
+  return res.json();
 }
 
 export const getList = async (list: string) =>

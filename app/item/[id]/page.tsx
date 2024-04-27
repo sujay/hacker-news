@@ -11,6 +11,8 @@ import Comments from '../../../components/comments';
 
 import { ItemProps } from '../../../types/interfaces';
 
+export const revalidate = 3600;
+
 export async function generateMetadata({ params }: { params: { id: string } }) {
   let item;
 
