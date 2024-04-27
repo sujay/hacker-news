@@ -12,8 +12,6 @@ export const metadata = {
   },
 };
 
-export const revalidate = 86400;
-
 export default function Search({
   searchParams,
 }: {

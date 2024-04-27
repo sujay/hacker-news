@@ -8,8 +8,6 @@ export const metadata = {
   title: 'Show',
 };
 
-export const revalidate = 21600;
-
 export default async function Show() {
   return (
     <>

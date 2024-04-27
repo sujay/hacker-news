@@ -8,8 +8,6 @@ export const metadata = {
   title: 'Best',
 };
 
-export const revalidate = 43200;
-
 export default async function Best() {
   return (
     <>
