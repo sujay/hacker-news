@@ -1,4 +1,5 @@
 import React from 'react';
+import { notFound } from 'next/navigation';
 
 import styles from './page.module.css';
 import listStyles from '../../../components/list-item.module.css';
@@ -32,6 +33,7 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
   return {
     robots: {
       index: false,
+      follow: false,
     },
   };
 }
@@ -67,9 +69,6 @@ export default async function Item({ params }: { params: { id: string } }) {
       )}
     </>
   ) : (
-    <>
-      <Header>Error</Header>
-      <li className={listStyles.li}>Item not found.</li>
-    </>
+    notFound()
   );
 }
