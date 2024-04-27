@@ -26,9 +26,11 @@ export default function Search({
     <>
       <Header>Search</Header>
       <SearchBox />
-      <Suspense key={query} fallback={<Loading />}>
-        <SearchResults query={query} />
-      </Suspense>
+      {query && (
+        <Suspense key={query} fallback={<Loading />}>
+          <SearchResults query={query} />
+        </Suspense>
+      )}
     </>
   );
 }
