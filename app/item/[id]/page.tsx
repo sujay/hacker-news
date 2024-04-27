@@ -23,6 +23,7 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
           : item.type.charAt(0).toUpperCase() + item.type.slice(1),
         robots: {
           index: false,
+          follow: false,
         },
       };
     }
