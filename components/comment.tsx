@@ -4,7 +4,7 @@ import CommentBody from './comment-body';
 
 import { CommentProps } from '../types/interfaces';
 
-export default async function Comment({ comment }: { comment: CommentProps }) {
+export default function Comment({ comment }: { comment: CommentProps }) {
   if (!comment || comment.deleted || comment.dead) {
     return null;
   }

@@ -8,7 +8,7 @@ export const metadata = {
   title: 'Show',
 };
 
-export default async function Show() {
+export default function Show() {
   return (
     <>
       <Header>Show Hacker News</Header>

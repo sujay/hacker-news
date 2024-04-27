@@ -8,7 +8,7 @@ import Meta from './meta';
 
 import { ItemProps } from '../types/interfaces';
 
-export default async function ListItem({
+export default function ListItem({
   item,
   url,
   page,

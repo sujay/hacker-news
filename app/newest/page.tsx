@@ -8,7 +8,7 @@ export const metadata = {
   title: 'Newest',
 };
 
-export default async function Newest() {
+export default function Newest() {
   return (
     <>
       <Header>Newest Stories</Header>

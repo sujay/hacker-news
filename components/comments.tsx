@@ -4,7 +4,7 @@ import Comment from './comment';
 
 import { CommentProps } from '../types/interfaces';
 
-export default async function Comments({
+export default function Comments({
   comments,
 }: {
   comments: CommentProps[] | null | undefined;

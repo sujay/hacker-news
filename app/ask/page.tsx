@@ -8,7 +8,7 @@ export const metadata = {
   title: 'Ask',
 };
 
-export default async function Ask() {
+export default function Ask() {
   return (
     <>
       <Header>Ask Hacker News</Header>

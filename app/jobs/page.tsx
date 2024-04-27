@@ -8,7 +8,7 @@ export const metadata = {
   title: 'Job Listings',
 };
 
-export default async function Job() {
+export default function Job() {
   return (
     <>
       <Header>Jobs</Header>
