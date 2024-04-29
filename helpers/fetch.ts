@@ -8,7 +8,7 @@ async function fetchData(route: string, cache = {}) {
 
 export const getList = async (list: string) =>
   fetchData(`https://api.hackerwebapp.com/${list}`, {
-    next: { revalidate: 21600 },
+    next: { revalidate: 3600 },
   });
 
 export const getItem = async (itemId: number) =>
@@ -17,7 +17,9 @@ export const getItem = async (itemId: number) =>
   });
 
 export const getMeta = async (itemId: number) =>
-  fetchData(`https://hacker-news.firebaseio.com/v0/item/${itemId}.json`);
+  fetchData(`https://hacker-news.firebaseio.com/v0/item/${itemId}.json`, {
+    next: { revalidate: 3600 },
+  });
 
 export const getUser = async (user: string) =>
   fetchData(`https://hacker-news.firebaseio.com/v0/user/${user}.json`);

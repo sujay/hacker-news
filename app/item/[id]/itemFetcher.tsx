@@ -1,21 +1,17 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { notFound } from 'next/navigation';
 
 import styles from './page.module.css';
 import listStyles from '../../../components/list-item.module.css';
 
-import { getItem } from '../../../helpers/fetch';
-
 import Header from '../../../components/header';
 import Comments from '../../../components/comments';
 import ItemDetail from '../../../components/item-detail';
+import Loading from '../../../components/loading';
+import { getMeta } from '../../../helpers/fetch';
 
 export default async function ItemFetcher({ id }: { id: string }) {
-  if (Number.isNaN(+id)) {
-    notFound();
-  }
-
-  const item = await getItem(+id);
+  const item = await getMeta(+id);
 
   return item.id ? (
     <>
@@ -23,13 +19,15 @@ export default async function ItemFetcher({ id }: { id: string }) {
       {!item.dead && !item.deleted ? (
         <>
           <ItemDetail item={item} page="item" />
-          {item.comments_count > 0 && (
+          {item.descendants > 0 && (
             <div className={styles.comments}>
               <h4 className={styles.h4}>
-                {item.comments_count}
-                {item.comments_count > 1 ? ' Comments:' : ' Comment:'}
+                {item.descendants}
+                {item.descendants > 1 ? ' Comments:' : ' Comment:'}
               </h4>
-              <Comments comments={item.comments} />
+              <Suspense fallback={<Loading />}>
+                <Comments id={item.id} />
+              </Suspense>
             </div>
           )}
         </>

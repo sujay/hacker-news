@@ -1,4 +1,5 @@
 import React, { Suspense } from 'react';
+import { notFound } from 'next/navigation';
 
 import { getMeta } from '../../../helpers/fetch';
 
@@ -29,11 +30,13 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
 }
 
 export default function Item({ params }: { params: { id: string } }) {
-  const { id } = params;
+  if (Number.isNaN(+params!.id)) {
+    notFound();
+  }
 
   return (
     <Suspense fallback={<LoadingPage />}>
-      <ItemFetcher id={id} />
+      <ItemFetcher id={params.id} />
     </Suspense>
   );
 }

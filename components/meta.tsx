@@ -14,23 +14,27 @@ export default function Meta({
   item: ItemProps;
   page: string;
 }) {
+  const points = item.points || item.score;
+  const user = item.user || item.by;
+  const commentsCount = item.comments_count || item.descendants;
+
   return (
     <div className={styles.meta}>
-      {item.points && item.points > 1 && (
-        <span className={styles.points}>{`${item.points} points`}</span>
+      {points && points > 1 && (
+        <span className={styles.points}>{`${points} points`}</span>
       )}
-      {item.user && <span className={styles.user}>{item.user}</span>}
+      {user && <span className={styles.user}>{user}</span>}
       {item.time && (
         <span className="time">
           {' posted '}
           <Time time={item.time} />
         </span>
       )}
-      {item.comments_count > 0 && page !== 'item' && (
+      {commentsCount > 0 && page !== 'item' && (
         <div className={styles.comments_link}>
           <Link href={`/item/${item.id}`} prefetch={false}>
-            {item.comments_count}
-            {item.comments_count > 1 ? ' Comments' : ' Comment'}
+            {commentsCount}
+            {commentsCount > 1 ? ' Comments' : ' Comment'}
           </Link>
         </div>
       )}

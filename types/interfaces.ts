@@ -14,17 +14,21 @@ export interface CommentProps {
 
 export interface ItemProps {
   comments_count: number;
+  descendants: number;
   comments?: CommentProps[] | null;
   content?: string;
+  text?: string;
   dead: boolean;
   deleted: boolean;
   id: number;
   points: number;
+  score: number;
   time: number;
   title: string;
   type: string;
   url: string;
   user: string;
+  by: string;
 }
 
 export interface UserProps {
