@@ -10,12 +10,3 @@
   padding: 10px 10px;
   border-radius: 5px;
 }
-.searchbox button {
-  font-size: 16px;
-  background-color: #fc6621;
-  color: white;
-  font-weight: bold;
-  border: none;
-  padding: 10px 10px;
-  cursor: pointer;
-}
