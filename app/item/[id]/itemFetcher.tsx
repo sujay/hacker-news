@@ -14,7 +14,13 @@ export default async function ItemFetcher({ id }: { id: string }) {
   const item = await getMeta(+id);
 
   return item.id ? (
+  const title = `${
+    item.title || `${item.type.charAt(0).toUpperCase() + item.type.slice(1)}`
+  } - Hacker News`;
+
     <>
+      <title>{title}</title>
+      <meta name="robots" content="none" />
       <Header>{item.type === 'link' ? 'story' : item.type}</Header>
       {!item.dead && !item.deleted ? (
         <>
