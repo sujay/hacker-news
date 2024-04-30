@@ -13,11 +13,15 @@ import { getMeta } from '../../../helpers/fetch';
 export default async function ItemFetcher({ id }: { id: string }) {
   const item = await getMeta(+id);
 
-  return item.id ? (
   const title = `${
     item.title || `${item.type.charAt(0).toUpperCase() + item.type.slice(1)}`
   } - Hacker News`;
 
+  if (!item.id) {
+    notFound();
+  }
+
+  return (
     <>
       <title>{title}</title>
       <meta name="robots" content="none" />
@@ -44,7 +48,5 @@ export default async function ItemFetcher({ id }: { id: string }) {
         </li>
       )}
     </>
-  ) : (
-    notFound()
   );
 }
