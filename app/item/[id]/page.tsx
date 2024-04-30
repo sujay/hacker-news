@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 import { notFound } from 'next/navigation';
 
-import ItemFetcher from './itemFetcher';
+import ItemRender from './item';
 import LoadingPage from '../../loading';
 
 export default function Item({ params }: { params: { id: string } }) {
@@ -11,7 +11,7 @@ export default function Item({ params }: { params: { id: string } }) {
 
   return (
     <Suspense fallback={<LoadingPage />}>
-      <ItemFetcher id={params.id} />
+      <ItemRender id={params.id} />
     </Suspense>
   );
 }

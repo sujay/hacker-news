@@ -10,7 +10,7 @@ import ItemDetail from '../../../components/item-detail';
 import Loading from '../../../components/loading';
 import { getMeta } from '../../../helpers/fetch';
 
-export default async function ItemFetcher({ id }: { id: string }) {
+export default async function ItemRender({ id }: { id: string }) {
   const item = await getMeta(+id);
 
   const title = `${
