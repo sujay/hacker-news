@@ -20,7 +20,7 @@ export const metadata = {
   },
 };
 export const viewport = {
-  themeColor: '#fc6621',
+  themeColor: 'oklch(69.22% 0.2222 41.27)',
 };
 
 export default function Layout({ children }: React.PropsWithChildren) {

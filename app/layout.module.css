@@ -5,6 +5,7 @@
 }
 .header {
   background-color: #fc6621;
+  background-color: oklch(69.22% 0.2222 41.27);
   padding: 12px 20px;
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
