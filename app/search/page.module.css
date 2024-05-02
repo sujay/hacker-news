@@ -5,7 +5,7 @@
 }
 .searchbox input {
   width: 100%;
-  font-size: 16px;
+  font-size: 1rem;
   border: solid 1px #ccc;
   padding: 10px 10px;
   border-radius: 5px;
