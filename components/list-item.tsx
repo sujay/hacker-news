@@ -33,7 +33,13 @@ export default function ListItem({
         )}
         {item.url && <Domain itemUrl={item.url} />}
       </h3>
-      <Meta item={item} page={page} />
+      <Meta
+        points={points}
+        author={author}
+        time={time}
+        commentCount={commentCount}
+        page={page}
+      />
     </li>
   ) : (
     <li className={styles.li}>Error loading story.</li>

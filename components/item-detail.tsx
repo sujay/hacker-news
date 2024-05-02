@@ -46,7 +46,13 @@ export default function ItemDetail({
           />
         </div>
       )}
-      <Meta item={item} page={page} />
+      <Meta
+        points={item.score}
+        author={item.by}
+        time={item.time}
+        commentCount={item.descendants}
+        page={page}
+      />
     </div>
   );
 }

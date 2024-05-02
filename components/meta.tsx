@@ -1,42 +1,38 @@
 import React from 'react';
-import Link from 'next/link';
 
 import styles from './meta.module.css';
 
 import Time from './time';
 
-import { ItemProps } from '../types/interfaces';
-
 export default function Meta({
-  item,
+  points,
+  author,
+  time,
+  commentCount,
   page,
 }: {
-  item: ItemProps;
+  points: number;
+  author: string;
+  time: number;
+  commentCount: number;
   page: string;
 }) {
-  const points = item.points || item.score;
-  const user = item.user || item.by;
-  const commentsCount = item.comments_count || item.descendants;
-
   return (
     <div className={styles.meta}>
       {points && points > 1 && (
         <span className={styles.points}>{`${points} points`}</span>
       )}
-      {user && <span className={styles.user}>{user}</span>}
-      {item.time && (
-        <span className="time">
-          {' posted '}
-          <Time time={item.time} />
+      {author && <span className={styles.user}>{author}</span>}
+      {time && (
+        <span className={styles.time}>
+          <Time time={time} />
         </span>
       )}
-      {commentsCount > 0 && page !== 'item' && (
-        <div className={styles.comments_link}>
-          <Link href={`/item/${item.id}`}>
-            {commentsCount}
-            {commentsCount > 1 ? ' Comments' : ' Comment'}
-          </Link>
-        </div>
+      {commentCount > 0 && page !== 'item' && (
+        <span className={styles.comments}>
+          {commentCount}
+          {commentCount > 1 ? ' Comments' : ' Comment'}
+        </span>
       )}
     </div>
   );

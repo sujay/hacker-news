@@ -5,8 +5,7 @@
 .h3 {
   font-size: 1.5rem;
   line-height: 1.4em;
-  margin-top: 0;
-  margin-bottom: 15px;
+  margin: 0;
 }
 .h3 a {
   margin-right: 6px;
@@ -22,7 +21,7 @@
 .content {
   font-size: 1rem;
   line-height: 1.6em;
-  margin-bottom: 15px;
+  margin: 15px 0;
 }
 .content a {
   font-weight: normal;
