@@ -21,7 +21,19 @@ export default async function List({
       {list ? (
         list.length > 0 &&
         list.map((item: ItemProps) => (
-          <ListItem item={item} url={url} page="list" key={item.id} />
+          <ListItem
+            id={item.id}
+            title={item.title}
+            points={item.points}
+            author={item.user}
+            url={item.url}
+            time={item.time}
+            commentCount={item.comments_count}
+            dead={false}
+            deleted={false}
+            page="list"
+            key={item.id}
+          />
         ))
       ) : (
         <ul>

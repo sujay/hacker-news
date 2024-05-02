@@ -1,37 +1,34 @@
 import React from 'react';
 import Link from 'next/link';
 
+import { ListItemProps } from '../types/interfaces';
+
 import styles from './list-item.module.css';
 
 import Domain from './domain';
 import Meta from './meta';
 
-import { ItemProps } from '../types/interfaces';
-
 export default function ListItem({
-  item,
+  id,
   url,
+  dead,
+  deleted,
+  points,
+  author,
+  time,
+  commentCount,
+  title,
   page,
-}: {
-  item: ItemProps;
-  url: boolean;
-  page: string;
-}) {
-  if (item.deleted || item.dead) {
+}: ListItemProps) {
+  if (deleted || dead) {
     return null;
   }
 
-  return item ? (
-    <li key={item.id} className={styles.li}>
+  return id ? (
+    <li key={id} className={styles.li}>
       <h3 className={styles.h3}>
-        {item.url && url ? (
-          <a href={item.url} rel="nofollow">
-            {item.title}
-          </a>
-        ) : (
-          <Link href={`/item/${item.id}`}>{item.title}</Link>
-        )}
-        {item.url && <Domain itemUrl={item.url} />}
+        <Link href={`/item/${id}`}>{title}</Link>
+        {url && <Domain itemUrl={url} />}
       </h3>
       <Meta
         points={points}

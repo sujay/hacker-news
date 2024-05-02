@@ -48,3 +48,16 @@ export interface SearchResult {
   url: string;
   author: string;
 }
+
+export interface ListItemProps {
+  id: number;
+  url: string;
+  dead: boolean;
+  deleted: boolean;
+  points: number;
+  author: string;
+  time: number;
+  commentCount: number;
+  title: string;
+  page: string;
+}
