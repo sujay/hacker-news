@@ -13,7 +13,7 @@ export default function Ask() {
     <>
       <Header>Ask Hacker News</Header>
       <Suspense fallback={<Loading />}>
-        <List type="ask" url={false} />
+        <List type="ask" />
       </Suspense>
     </>
   );

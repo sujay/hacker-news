@@ -14,7 +14,7 @@ export default function Index() {
     <>
       <Header>Top Stories</Header>
       <Suspense fallback={<Loading />}>
-        <List type="news" url={false} />
+        <List type="news" />
       </Suspense>
     </>
   );

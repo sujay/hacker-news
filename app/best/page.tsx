@@ -13,7 +13,7 @@ export default function Best() {
     <>
       <Header>Best Stories</Header>
       <Suspense fallback={<Loading />}>
-        <List type="best" url={false} />
+        <List type="best" />
       </Suspense>
     </>
   );

@@ -13,7 +13,7 @@ export default function Job() {
     <>
       <Header>Jobs</Header>
       <Suspense fallback={<Loading />}>
-        <List type="jobs" url={false} />
+        <List type="jobs" />
       </Suspense>
     </>
   );

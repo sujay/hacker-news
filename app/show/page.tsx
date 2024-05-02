@@ -13,7 +13,7 @@ export default function Show() {
     <>
       <Header>Show Hacker News</Header>
       <Suspense fallback={<Loading />}>
-        <List type="show" url={false} />
+        <List type="show" />
       </Suspense>
     </>
   );

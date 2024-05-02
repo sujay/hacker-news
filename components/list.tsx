@@ -8,14 +8,9 @@ import { ItemProps } from '../types/interfaces';
 
 import { getList } from '../helpers/fetch';
 
-export default async function List({
-  type,
-  url,
-}: {
-  type: string;
-  url: boolean;
-}) {
+export default async function List({ type }: { type: string }) {
   const list = await getList(type);
+
   return (
     <ul>
       {list ? (

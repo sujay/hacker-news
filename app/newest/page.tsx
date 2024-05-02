@@ -13,7 +13,7 @@ export default function Newest() {
     <>
       <Header>Newest Stories</Header>
       <Suspense fallback={<Loading />}>
-        <List type="newest" url={false} />
+        <List type="newest" />
       </Suspense>
     </>
   );
