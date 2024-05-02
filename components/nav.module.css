@@ -1,5 +1,5 @@
 .nav {
-  font-size: 0.938rem;
+  font-size: 0.9rem;
   background-color: #333;
   padding: 0 10px;
 }
@@ -26,20 +26,12 @@
 }
 @media only screen and (max-width: 400px) {
   .nav {
-    font-size: 0.813rem;
+    font-size: 0.85rem;
   }
   .search {
     width: 13px;
     height: 13px;
     position: relative;
     top: -2px;
-  }
-}
-@media only screen and (max-width: 320px) {
-  .nav {
-    font-size: 0.75rem;
-  }
-  .nav a {
-    padding: 7px;
   }
 }

@@ -13,7 +13,7 @@
 .meta {
   background-color: #eee;
   padding: 15px;
-  font-size: 0.875rem;
+  font-size: 0.9rem;
   color: #666;
   display: flex;
 }
@@ -36,7 +36,7 @@
   color: #000;
 }
 .content {
-  font-size: 0.938rem;
+  font-size: 0.95rem;
   line-height: 1.6em;
   margin: 15px;
   word-wrap: break-word;

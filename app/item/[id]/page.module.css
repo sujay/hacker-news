@@ -1,12 +1,12 @@
 .h4 {
-  background-color: #eee;
+  font-size: 1.2rem;
   color: #111;
+  background-color: #eee;
   padding: 15px 20px;
   margin-top: -20px;
   margin-bottom: 20px;
   margin-left: -20px;
   margin-right: -20px;
-  font-size: 1.125rem;
 }
 .comments {
   padding: 20px;
