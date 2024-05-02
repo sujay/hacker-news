@@ -38,3 +38,13 @@ export interface UserProps {
   karma: number;
   submitted?: number[] | null;
 }
+
+export interface SearchResult {
+  objectID: number;
+  points: number;
+  title: string;
+  created_at_i: number;
+  num_comments: number;
+  url: string;
+  author: string;
+}
