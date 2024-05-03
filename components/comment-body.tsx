@@ -22,9 +22,8 @@ export default function CommentBody({
   return (
     <div className={styles.comment} key={comment.id}>
       <div className={styles.meta}>
-        <div className="details">
+        <div className={styles.details}>
           <span className={styles.user}>{comment.user}</span>
-          <span> said </span>
           {comment.time && (
             <span className="time">
               <Time time={comment.time} />

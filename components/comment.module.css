@@ -17,6 +17,12 @@
   color: #666;
   display: flex;
 }
+.details > span:not(:first-child)::before {
+  content: '•';
+  color: #ccc;
+  display: inline-block;
+  margin: 0 5px;
+}
 .collapse {
   flex: 1 0;
   text-align: right;
@@ -31,9 +37,6 @@
 }
 .loading {
   padding: 15px;
-}
-.user {
-  color: #000;
 }
 .content {
   font-size: 0.95rem;
