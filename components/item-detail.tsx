@@ -32,19 +32,18 @@ export default function ItemDetail({
         </h3>
       )}
       {item.text && (
-        <div className={styles.content}>
-          <div
-            // eslint-disable-next-line react/no-danger
-            dangerouslySetInnerHTML={{
-              __html: sanitizeHtml(
-                item.text.replace(
-                  /https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item\?id=/g,
-                  '',
-                ),
+        <div
+          className={styles.content}
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{
+            __html: sanitizeHtml(
+              item.text.replace(
+                /https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item\?id=/g,
+                '',
               ),
-            }}
-          />
-        </div>
+            ),
+          }}
+        />
       )}
       <Meta
         points={item.score}
