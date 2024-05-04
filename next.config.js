@@ -1,9 +1,6 @@
 const { withSentryConfig } = require('@sentry/nextjs');
 
 const nextConfig = {
-  experimental: {
-    ppr: true,
-  },
   reactStrictMode: true,
   poweredByHeader: false,
   sentry: {
