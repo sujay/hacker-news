@@ -1,0 +1,13 @@
+.li {
+  padding: 20px;
+  list-style-type: none;
+  border-bottom: solid 1px #eee;
+}
+.h3 {
+  font-size: 1.3rem;
+  line-height: 1.4em;
+  margin: 0;
+}
+.h3 a {
+  margin-right: 6px;
+}

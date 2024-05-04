@@ -1,0 +1,23 @@
+.user {
+  padding: 20px;
+}
+.h3 {
+  font-size: 1.3rem;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+.meta {
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: row;
+}
+.label {
+  color: #666;
+  display: inline-flex;
+  flex: 0 0 90px;
+}
+.content {
+  width: auto;
+  flex: 0 1 auto;
+  word-wrap: break-word;
+}

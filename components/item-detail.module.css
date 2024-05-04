@@ -1,0 +1,32 @@
+.item {
+  padding: 20px;
+  border-bottom: solid 1px #eee;
+}
+.h3 {
+  font-size: 1.5rem;
+  line-height: 1.4em;
+  margin: 0;
+}
+.h3 a {
+  margin-right: 6px;
+}
+.item a {
+  color: #000;
+  text-decoration: none;
+}
+.item a:hover {
+  color: #000;
+  text-decoration: underline;
+}
+.content {
+  font-size: 1rem;
+  line-height: 1.6em;
+  margin: 15px 0;
+}
+.content a {
+  font-weight: normal;
+  text-decoration: underline;
+}
+.content a:hover {
+  text-decoration: none;
+}

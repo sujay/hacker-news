@@ -1,58 +1,44 @@
 import React from 'react';
 import Link from 'next/link';
-import useSWR from 'swr';
 
-import { getItem } from '../helpers/fetch';
+import { ListItemProps } from '../types/interfaces';
+
+import styles from './list-item.module.css';
 
 import Domain from './domain';
 import Meta from './meta';
 
-interface Props {
-  itemId: number;
-  url: boolean;
-  page: string;
-}
+export default function ListItem({
+  id,
+  url,
+  dead,
+  deleted,
+  points,
+  author,
+  time,
+  commentCount,
+  title,
+  page,
+}: ListItemProps) {
+  if (deleted || dead) {
+    return null;
+  }
 
-export default function ListItem({ itemId, url, page }: Props) {
-  const { data: item, error } = useSWR(`${itemId}`, getItem);
-
-  return (
-    <>
-      {error ? (
-        <li>Error loading post.</li>
-      ) : !item ? (
-        <li>Loading...</li>
-      ) : (
-        <li key={item.id}>
-          <h6>
-            {item.url && url ? (
-              <a href={item.url} rel="nofollow">
-                {item.title}
-              </a>
-            ) : (
-              <Link href={`/item/${item.id}`} prefetch={false}>
-                {item.title}
-              </Link>
-            )}
-            {item.url && <Domain itemUrl={item.url} />}
-          </h6>
-          <Meta item={item} page={page} />
-        </li>
-      )}
-      <style jsx>
-        {`
-          li {
-            padding: 20px;
-            list-style-type: none;
-            border-bottom: solid 1px #eee;
-          }
-          h6 {
-            font-size: 20px;
-            margin: 0;
-            margin-bottom: 2px;
-          }
-        `}
-      </style>
-    </>
+  return id ? (
+    <li key={id} className={styles.li}>
+      <h3 className={styles.h3}>
+        <Link href={`/item/${id}`}>{title}</Link>
+        {url && <Domain itemUrl={url} />}
+      </h3>
+      <Meta
+        points={points}
+        author={author}
+        time={time}
+        commentCount={commentCount}
+        page={page}
+      />
+    </li>
+  ) : (
+    <li className={styles.li}>Error loading story.</li>
   );
 }

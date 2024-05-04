@@ -1,0 +1,53 @@
+.comment {
+  padding: 0px;
+  border: solid 1px #eee;
+}
+.comment .comment {
+  margin-left: 15px;
+  margin-bottom: -1px;
+  margin-right: -1px;
+}
+.user a {
+  font-weight: normal;
+}
+.meta {
+  background-color: #eee;
+  padding: 15px;
+  font-size: 0.9rem;
+  color: #666;
+  display: flex;
+}
+.details > span:not(:first-child)::before {
+  content: '•';
+  color: #ccc;
+  display: inline-block;
+  margin: 0 5px;
+}
+.collapse {
+  flex: 1 0;
+  text-align: right;
+}
+.button {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  color: #000;
+  width: 100%;
+  text-align: right;
+}
+.loading {
+  padding: 15px;
+}
+.content {
+  font-size: 0.95rem;
+  line-height: 1.6em;
+  margin: 15px;
+  word-wrap: break-word;
+}
+.content a {
+  font-weight: normal;
+  text-decoration: underline;
+}
+.content a:hover {
+  text-decoration: none;
+}

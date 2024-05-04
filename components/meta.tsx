@@ -1,74 +1,39 @@
 import React from 'react';
-import Link from 'next/link';
 
-import { ItemProps } from '../types/interfaces';
+import styles from './meta.module.css';
 
 import Time from './time';
 
-interface Props {
-  item: ItemProps;
+export default function Meta({
+  points,
+  author,
+  time,
+  commentCount,
+  page,
+}: {
+  points: number;
+  author: string;
+  time: number;
+  commentCount: number;
   page: string;
-}
-
-export default function Meta({ item, page }: Props) {
+}) {
   return (
-    <>
-      <div className="meta">
-        {item.score && item.score > 1 && (
-          <>
-            <span className="points">{`${item.score} points`}</span>
-            <span className="pipe" />
-          </>
-        )}
-        {item.by && (
-          <span className="user">
-            <Link href={`/user/${item.by}`} prefetch={false}>
-              {item.by}
-            </Link>
-          </span>
-        )}
-        {item.time && (
-          <span className="time">
-            {' posted '}
-            <Time time={item.time} />
-          </span>
-        )}
-        {item.descendants > 0 && page !== 'item' && (
-          <div className="comments_link">
-            <Link href={`/item/${item.id}`} prefetch={false}>
-              {item.descendants}
-              {item.descendants > 1 ? ' Comments' : ' Comment'}
-            </Link>
-          </div>
-        )}
-      </div>
-      <style jsx>
-        {`
-          .meta {
-            font-size: 13px;
-            line-height: 1.8em;
-            color: #666;
-          }
-          .comments_link {
-            text-transform: lowercase;
-          }
-          .pipe {
-            display: inline-block;
-            position: relative;
-            top: 1px;
-            height: 9px;
-            margin: 0 8px;
-            border-right: solid 1px #ddd;
-          }
-        `}
-      </style>
-      <style jsx global>
-        {`
-          .user a {
-            font-weight: normal;
-          }
-        `}
-      </style>
-    </>
+    <div className={styles.meta}>
+      {commentCount > 0 && page !== 'item' && (
+        <span className={styles.comments}>
+          {commentCount}
+          {commentCount > 1 ? ' Comments' : ' Comment'}
+        </span>
+      )}
+      {points && points > 1 && (
+        <span className={styles.points}>{`${points} points`}</span>
+      )}
+      {author && <span className={styles.user}>{author}</span>}
+      {time && (
+        <span className={styles.time}>
+          <Time time={time} />
+        </span>
+      )}
+    </div>
   );
 }

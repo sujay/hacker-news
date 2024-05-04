@@ -1,0 +1,11 @@
+.meta {
+  font-size: 0.9rem;
+  color: #666;
+  text-transform: lowercase;
+}
+.meta > span:not(:first-child)::before {
+  content: '•';
+  color: #ccc;
+  display: inline-block;
+  margin: 0 5px;
+}

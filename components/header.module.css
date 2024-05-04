@@ -1,0 +1,9 @@
+.h2 {
+  background-color: #ddd;
+  color: #000;
+  font-size: 1.7rem;
+  margin: 0;
+  padding: 20px;
+  font-weight: 700;
+  text-transform: capitalize;
+}

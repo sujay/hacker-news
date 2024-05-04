@@ -1,0 +1,38 @@
+/* hacker news app */
+html {
+  background-color: #333;
+}
+body {
+  font-family: var(--font-geist-sans), system-ui, -apple-system,
+    BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #333;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+a {
+  color: #000;
+  font-weight: 600;
+  text-decoration: none;
+}
+a:hover {
+  color: #000;
+  text-decoration: underline;
+}
+pre,
+code {
+  font-family: var(--font-geist-mono), Input Mono, Consolas, Menlo, Monaco,
+    Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono,
+    Courier New, monospace, sans-serif;
+  white-space: pre-wrap;
+}

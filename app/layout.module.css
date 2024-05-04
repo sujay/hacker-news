@@ -1,0 +1,47 @@
+.container {
+  width: 95%;
+  max-width: 960px;
+  margin: auto;
+}
+.header {
+  background-color: #fc6621;
+  background-color: oklch(69.22% 0.2222 41.27);
+  padding: 12px 20px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.h1 {
+  font-size: 3rem;
+  margin: 0;
+  position: relative;
+  left: -3px;
+}
+.h1 a,
+.h1 a:hover {
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+}
+.main {
+  background-color: #fff;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.footer {
+  font-size: 0.9rem;
+  color: #bbb;
+  padding: 30px 0;
+  text-align: center;
+  line-height: 1.6em;
+}
+.footer a {
+  color: #fff;
+}
+.footer a:hover {
+  color: #fff;
+}
+@media only screen and (max-width: 320px) {
+  .h1 {
+    font-size: 2.5rem;
+  }
+}
