@@ -19,6 +19,12 @@ export default function Meta({
 }) {
   return (
     <div className={styles.meta}>
+      {commentCount > 0 && page !== 'item' && (
+        <span className={styles.comments}>
+          {commentCount}
+          {commentCount > 1 ? ' Comments' : ' Comment'}
+        </span>
+      )}
       {points && points > 1 && (
         <span className={styles.points}>{`${points} points`}</span>
       )}
@@ -26,12 +32,6 @@ export default function Meta({
       {time && (
         <span className={styles.time}>
           <Time time={time} />
-        </span>
-      )}
-      {commentCount > 0 && page !== 'item' && (
-        <span className={styles.comments}>
-          {commentCount}
-          {commentCount > 1 ? ' Comments' : ' Comment'}
         </span>
       )}
     </div>
