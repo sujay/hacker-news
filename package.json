@@ -26,7 +26,7 @@
     "typescript": "^5.0.4"
   },
   "scripts": {
-    "dev": "next",
+    "dev": "next dev --turbo",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
