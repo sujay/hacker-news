@@ -19,14 +19,12 @@ export const metadata = {
     default: 'Hacker News',
   },
 };
-export const viewport = {
-  themeColor: 'oklch(69.22% 0.2222 41.27)',
-};
 
 export default function Layout({ children }: React.PropsWithChildren) {
   return (
     <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
       <GoogleTagManager gtmId={gid} />
+      <meta name="theme-color" content="oklch(69.22% 0.2222 41.27)" />
       <body>
         <div className={styles.container}>
           <header className={styles.header}>
