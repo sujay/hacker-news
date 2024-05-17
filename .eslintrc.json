@@ -2,13 +2,29 @@
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
-    "airbnb",
     "next/core-web-vitals",
+    "airbnb",
     "prettier"
   ],
   "plugins": ["react"],
   "rules": {
-    "import/extensions": [0],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
     "react/jsx-filename-extension": [1, { "extensions": [".jsx", ".tsx"] }]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
   }
 }
