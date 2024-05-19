@@ -22,10 +22,8 @@
     "@types/sanitize-html": "^2.9.0",
     "babel-plugin-react-compiler": "^0.0.0-experimental-c23de8d-20240515",
     "eslint": "^8.13.0",
-    "eslint-config-airbnb": "^19.0.4",
     "eslint-config-next": "^14.0.1",
     "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin-react": "^7.34.1",
     "typescript": "^5.0.4"
   },
   "scripts": {
