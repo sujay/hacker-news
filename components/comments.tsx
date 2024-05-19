@@ -11,7 +11,7 @@ export default async function Comments({ id }: { id: number }) {
 
   return (
     comments &&
-    comments.length &&
+    comments.length > 0 &&
     comments.map((comment: CommentProps) => (
       <Comment comment={comment} key={comment.id} />
     ))
