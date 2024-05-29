@@ -24,6 +24,7 @@
     "eslint": "^8.13.0",
     "eslint-config-next": "^14.0.1",
     "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-react-compiler": "^0.0.0-experimental-a97cca1-20240529",
     "typescript": "^5.0.4"
   },
   "scripts": {
