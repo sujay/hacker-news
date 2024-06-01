@@ -1,8 +1,7 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 
 import Header from '../../components/header';
 import List from '../../components/list';
-import Loading from '../../components/loading';
 
 export const metadata = {
   title: 'Newest',
@@ -12,9 +11,7 @@ export default function Newest() {
   return (
     <>
       <Header>Newest Stories</Header>
-      <Suspense fallback={<Loading />}>
-        <List type="newest" />
-      </Suspense>
+      <List type="newest" />
     </>
   );
 }
