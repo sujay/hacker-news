@@ -2,7 +2,7 @@ export type ListProps = number[];
 
 export interface CommentProps {
   by: string;
-  comments?: CommentProps[] | null;
+  comments: CommentProps[] | [];
   content: string;
   dead: boolean;
   deleted: boolean;

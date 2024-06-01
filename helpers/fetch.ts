@@ -9,10 +9,10 @@ async function fetchData(route: string) {
 }
 
 export const getList = async (list: string) =>
-  fetchData(`https://api.hackerwebapp.com/${list}`);
+  fetchData(`https://api.hackerwebapp.com/${list}`).catch(() => []);
 
 export const getItem = async (itemId: number) =>
-  fetchData(`https://api.hackerwebapp.com/item/${itemId}`);
+  fetchData(`https://api.hackerwebapp.com/item/${itemId}`).catch(() => {});
 
 export const getMeta = async (itemId: number) =>
   fetchData(`https://hacker-news.firebaseio.com/v0/item/${itemId}.json`);
