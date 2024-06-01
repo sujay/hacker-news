@@ -26,10 +26,12 @@ export default function ListItem({
 
   return id ? (
     <li key={id} className={styles.li}>
-      <h3 className={styles.h3}>
-        <Link href={`/item/${id}`}>{title}</Link>
+      <div className={styles.title}>
+        <h3 className={styles.h3}>
+          <Link href={`/item/${id}`}>{title}</Link>
+        </h3>
         {url && <Domain itemUrl={url} />}
-      </h3>
+      </div>
       <Meta
         points={points}
         author={author}

@@ -18,18 +18,18 @@ export default function ItemDetail({
   return (
     <div className={styles.item}>
       {item.title && (
-        <h3 className={styles.h3}>
-          {item.url ? (
-            <>
+        <div className={styles.title}>
+          <h3 className={styles.h3}>
+            {item.url ? (
               <a href={item.url} rel="nofollow">
                 {item.title}
               </a>
-              <Domain itemUrl={item.url} />
-            </>
-          ) : (
-            [item.title]
-          )}
-        </h3>
+            ) : (
+              [item.title]
+            )}
+          </h3>
+          <Domain itemUrl={item.url} />
+        </div>
       )}
       {item.text && (
         <div
