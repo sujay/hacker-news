@@ -1,7 +1,6 @@
 import React, { Suspense } from 'react';
 import { notFound } from 'next/navigation';
 
-import styles from './page.module.css';
 import listStyles from '../../../components/list-item.module.css';
 
 import Header from '../../../components/header';
@@ -34,15 +33,9 @@ export default async function ItemRender({
         <>
           <ItemDetail item={item} page="item" />
           {item.descendants > 0 && (
-            <div className={styles.comments}>
-              <h4 className={styles.h4}>
-                {item.descendants}
-                {item.descendants > 1 ? ' Comments:' : ' Comment:'}
-              </h4>
-              <Suspense fallback={<Loading />}>
-                <Comments id={item.id} />
-              </Suspense>
-            </div>
+            <Suspense fallback={<Loading />}>
+              <Comments id={item.id} />
+            </Suspense>
           )}
         </>
       ) : (
