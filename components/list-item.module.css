@@ -5,9 +5,13 @@
 }
 .h3 {
   font-size: 1.3rem;
-  line-height: 1.4em;
   margin: 0;
+  display: inline;
 }
 .h3 a {
   margin-right: 6px;
+}
+.title {
+  line-height: 1.85rem;
+  text-wrap: balance;
 }
