@@ -6,7 +6,7 @@ import Loading from '../components/loading';
 export default function LoadingPage() {
   return (
     <>
-      <Header>Loading...</Header>
+      <Header>&nbsp;</Header>
       <Loading />
     </>
   );
