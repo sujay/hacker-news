@@ -15,10 +15,16 @@ export const getItem = async (itemId: number) =>
   fetchData(`https://api.hackerwebapp.com/item/${itemId}`).catch(() => {});
 
 export const getMeta = async (itemId: number) =>
-  fetchData(`https://hacker-news.firebaseio.com/v0/item/${itemId}.json`);
+  fetchData(`https://hacker-news.firebaseio.com/v0/item/${itemId}.json`).catch(
+    () => {},
+  );
 
 export const getUser = async (user: string) =>
-  fetchData(`https://hacker-news.firebaseio.com/v0/user/${user}.json`);
+  fetchData(`https://hacker-news.firebaseio.com/v0/user/${user}.json`).catch(
+    () => {},
+  );
 
 export const getSearch = async (query: string) =>
-  fetchData(`https://hn.algolia.com/api/v1/search?query=${query}&tags=story`);
+  fetchData(
+    `https://hn.algolia.com/api/v1/search?query=${query}&tags=story`,
+  ).catch(() => []);
