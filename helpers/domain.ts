@@ -3,7 +3,7 @@
 export default function extractDomain(url: string) {
   let domain;
 
-  if (url.includes('//')) {
+  if (url && url.includes('//')) {
     // find & remove protocol (http, ftp, etc.) and get domain
     if (url.indexOf('//') > -1) {
       domain = url.split('/')[2];
