@@ -27,7 +27,6 @@ export default async function SearchResults({ query }: { query: string }) {
               commentCount={item.num_comments}
               dead={false}
               deleted={false}
-              page="list"
               key={item.objectID}
             />
           ))

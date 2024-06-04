@@ -26,7 +26,6 @@ export default async function List({ type }: { type: string }) {
             commentCount={item.comments_count}
             dead={false}
             deleted={false}
-            page="list"
             key={item.id}
           />
         ))

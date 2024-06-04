@@ -18,7 +18,6 @@ export default function ListItem({
   time,
   commentCount,
   title,
-  page,
 }: ListItemProps) {
   if (deleted || dead) {
     return null;
@@ -37,7 +36,6 @@ export default function ListItem({
         author={author}
         time={time}
         commentCount={commentCount}
-        page={page}
       />
     </li>
   ) : (

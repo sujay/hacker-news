@@ -59,5 +59,4 @@ export interface ListItemProps {
   time: number;
   commentCount: number;
   title: string;
-  page: string;
 }

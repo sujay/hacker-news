@@ -9,17 +9,15 @@ export default function Meta({
   author,
   time,
   commentCount,
-  page,
 }: {
   points: number;
   author: string;
   time: number;
   commentCount: number;
-  page: string;
 }) {
   return (
     <div className={styles.meta}>
-      {commentCount > 0 && page !== 'item' && (
+      {commentCount > 0 && (
         <span className={styles.comments}>
           {commentCount}
           {commentCount > 1 ? ' Comments' : ' Comment'}

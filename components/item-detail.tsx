@@ -8,13 +8,7 @@ import Meta from './meta';
 
 import { ItemProps } from '../types/interfaces';
 
-export default function ItemDetail({
-  item,
-  page,
-}: {
-  item: ItemProps;
-  page: string;
-}) {
+export default function ItemDetail({ item }: { item: ItemProps }) {
   return (
     <div className={styles.item}>
       {item.title && (
@@ -49,8 +43,8 @@ export default function ItemDetail({
         points={item.score}
         author={item.by}
         time={item.time}
-        commentCount={item.descendants}
-        page={page}
+        // disable comments count in meta on item detail page
+        commentCount={0}
       />
     </div>
   );
