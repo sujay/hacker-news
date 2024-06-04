@@ -31,7 +31,7 @@ export default async function ItemRender({
       <Header>{item.type === 'link' ? 'story' : item.type}</Header>
       {!item.dead && !item.deleted ? (
         <>
-          <ItemDetail item={item} page="item" />
+          <ItemDetail item={item} />
           {item.descendants > 0 && (
             <Suspense fallback={<Loading />}>
               <Comments id={item.id} />
