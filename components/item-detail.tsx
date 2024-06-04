@@ -22,7 +22,7 @@ export default function ItemDetail({ item }: { item: ItemProps }) {
               [item.title]
             )}
           </h3>
-          <Domain itemUrl={item.url} />
+          {item.url && <Domain itemUrl={item.url} />}
         </div>
       )}
       {item.text && (

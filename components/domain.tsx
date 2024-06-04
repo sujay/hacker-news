@@ -5,9 +5,8 @@ import styles from './domain.module.css';
 import extractDomain from '../helpers/domain';
 
 export default function Domain({ itemUrl }: { itemUrl: string }) {
-  const domain = extractDomain(itemUrl);
-
-  if (domain) {
+  if (itemUrl) {
+    const domain = extractDomain(itemUrl);
     return <span className={styles.domain}>{`(${domain})`}</span>;
   }
 }
