@@ -24,9 +24,8 @@ export default async function List({ type }: { type: string }) {
             url={item.url}
             time={item.time}
             commentCount={item.comments_count}
-            dead={false}
-            deleted={false}
-            page="list"
+            dead={item.dead}
+            deleted={item.deleted}
             key={item.id}
           />
         ))

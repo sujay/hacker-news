@@ -43,7 +43,6 @@ export default function CommentBody({
           {comment.content && (
             <div
               className={styles.content}
-              // eslint-disable-next-line react/no-danger
               dangerouslySetInnerHTML={{
                 __html: sanitizeHtml(
                   comment.content.replace(
