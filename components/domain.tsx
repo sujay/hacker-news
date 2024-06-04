@@ -7,6 +7,8 @@ import extractDomain from '../helpers/domain';
 export default function Domain({ itemUrl }: { itemUrl: string }) {
   if (itemUrl) {
     const domain = extractDomain(itemUrl);
-    return <span className={styles.domain}>{`(${domain})`}</span>;
+    if (domain) {
+      return <span className={styles.domain}>{`(${domain})`}</span>;
+    }
   }
 }
