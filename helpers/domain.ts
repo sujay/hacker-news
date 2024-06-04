@@ -1,5 +1,3 @@
-/* eslint-disable prefer-destructuring */
-
 export default function extractDomain(url: string) {
   let domain;
 

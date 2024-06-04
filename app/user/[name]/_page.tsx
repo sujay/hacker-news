@@ -60,7 +60,6 @@ export default async function User({ params }: { params: { name: string } }) {
             <span className={styles.label}>About:</span>
             <span
               className="content about_text"
-              // eslint-disable-next-line react/no-danger
               dangerouslySetInnerHTML={{
                 __html: sanitizeHtml(user.about),
               }}

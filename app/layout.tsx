@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-page-custom-font */
 import React from 'react';
 import Link from 'next/link';
 import { GoogleTagManager } from '@next/third-parties/google';
