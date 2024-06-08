@@ -13,7 +13,7 @@ export default function Comment({ comment }: { comment: CommentProps }) {
   }
 
   return (
-    <CommentBody comment={comment}>
+    <CommentBody comment={{ ...comment }}>
       {comment.content && (
         <div
           className={styles.content}
