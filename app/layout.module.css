@@ -1,7 +1,7 @@
 .container {
-  width: 95%;
   max-width: 960px;
   margin: auto;
+  padding: 0 5px;
 }
 .header {
   background-color: #fc6621;
