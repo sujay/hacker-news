@@ -3,7 +3,7 @@ import sanitizeHtml from 'sanitize-html';
 
 import styles from './comment.module.css';
 
-import CommentBody from './comment-body';
+import CommentWrap from './comment-wrap';
 
 import { CommentProps } from '../types/interfaces';
 
@@ -13,7 +13,7 @@ export default function Comment({ comment }: { comment: CommentProps }) {
   }
 
   return (
-    <CommentBody comment={{ ...comment }}>
+    <CommentWrap comment={{ ...comment }}>
       {comment.content && (
         <div
           className={styles.content}
@@ -32,6 +32,6 @@ export default function Comment({ comment }: { comment: CommentProps }) {
         comment.comments.map((commentChild: CommentProps) => (
           <Comment comment={commentChild} key={commentChild.id} />
         ))}
-    </CommentBody>
+    </CommentWrap>
   );
 }

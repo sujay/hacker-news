@@ -9,7 +9,7 @@ import Collapse from './collapse';
 
 import { CommentProps } from '../types/interfaces';
 
-export default function CommentBody({
+export default function CommentWrap({
   children,
   comment,
 }: {
