@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import sanitizeHtml from 'sanitize-html';
 
 import styles from './comment.module.css';
 
@@ -38,24 +37,7 @@ export default function CommentBody({
           }}
         />
       </div>
-      {!collapsed && (
-        <div className="tree">
-          {comment.content && (
-            <div
-              className={styles.content}
-              dangerouslySetInnerHTML={{
-                __html: sanitizeHtml(
-                  comment.content.replace(
-                    /https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item\?id=/g,
-                    '',
-                  ),
-                ),
-              }}
-            />
-          )}
-          {children}
-        </div>
-      )}
+      {!collapsed && <div className="tree">{children}</div>}
     </div>
   );
 }
