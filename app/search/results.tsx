@@ -14,26 +14,29 @@ export default async function SearchResults({ query }: { query: string }) {
 
   return (
     query && (
-      <ul>
-        {results.length > 0 ? (
-          results.map((item: SearchResult) => (
-            <ListItem
-              id={item.objectID}
-              title={item.title}
-              points={item.points}
-              author={item.author}
-              url={item.url}
-              time={item.created_at_i}
-              commentCount={item.num_comments}
-              key={item.objectID}
-            />
-          ))
-        ) : (
-          <ul>
-            <li className={listStyles.li}>No results found.</li>
-          </ul>
-        )}
-      </ul>
+      <>
+        <title>{`Hacker News - Search (${query})`}</title>
+        <ul>
+          {results.length > 0 ? (
+            results.map((item: SearchResult) => (
+              <ListItem
+                id={item.objectID}
+                title={item.title}
+                points={item.points}
+                author={item.author}
+                url={item.url}
+                time={item.created_at_i}
+                commentCount={item.num_comments}
+                key={item.objectID}
+              />
+            ))
+          ) : (
+            <ul>
+              <li className={listStyles.li}>No results found.</li>
+            </ul>
+          )}
+        </ul>
+      </>
     )
   );
 }
