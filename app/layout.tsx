@@ -60,7 +60,7 @@ export default function Layout({ children }: React.PropsWithChildren) {
               <a href="https://nextjs.org/" rel="nofollow">
                 Next.js
               </a>{' '}
-              by <a href="https://isujay.com/">Sujay Thomas</a>.
+              by <a href="https://sujayt.com/">Sujay Thomas</a>.
             </div>
             <div>
               Data via{' '}
