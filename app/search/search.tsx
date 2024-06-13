@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { useSearchParams, usePathname, useRouter } from 'next/navigation';
-import { useDebouncedCallback } from 'use-debounce';
+import { debounce } from 'tiny-throttle';
 
 import styles from './page.module.css';
 
@@ -11,7 +11,7 @@ export default function SearchBox() {
   const pathname = usePathname();
   const { replace } = useRouter();
 
-  const handleSearch = useDebouncedCallback((term: string) => {
+  const handleSearch = debounce((term: string) => {
     const params = new URLSearchParams(searchParams);
     if (term) {
       params.set('query', term);
