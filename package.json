@@ -13,7 +13,7 @@
     "react": "^19.0.0-rc-915b914b3a-20240515",
     "react-dom": "^19.0.0-rc-915b914b3a-20240515",
     "sanitize-html": "^2.10.0",
-    "use-debounce": "^10.0.0"
+    "tiny-throttle": "^1.0.4"
   },
   "devDependencies": {
     "@types/node": "^20.1.0",
