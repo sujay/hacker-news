@@ -51,7 +51,6 @@ export interface SearchResult {
 
 export interface ListItemProps {
   id: number;
-  url: string;
   dead?: boolean;
   deleted?: boolean;
   points: number;

@@ -21,7 +21,6 @@ export default async function List({ type }: { type: string }) {
             title={item.title}
             points={item.points}
             author={item.user}
-            url={item.url}
             time={item.time}
             commentCount={item.comments_count}
             dead={item.dead}

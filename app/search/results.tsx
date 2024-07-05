@@ -24,7 +24,6 @@ export default async function SearchResults({ query }: { query: string }) {
                 title={item.title}
                 points={item.points}
                 author={item.author}
-                url={item.url}
                 time={item.created_at_i}
                 commentCount={item.num_comments}
                 key={item.objectID}
