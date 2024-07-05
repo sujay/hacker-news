@@ -5,12 +5,10 @@ import { ListItemProps } from '../types/interfaces';
 
 import styles from './list-item.module.css';
 
-import Domain from './domain';
 import Meta from './meta';
 
 export default function ListItem({
   id,
-  url,
   dead,
   deleted,
   points,
@@ -29,7 +27,6 @@ export default function ListItem({
         <h3 className={styles.h3}>
           <Link href={`/item/${id}`}>{title}</Link>
         </h3>
-        {url && <Domain itemUrl={url} />}
       </div>
       <Meta
         points={points}
