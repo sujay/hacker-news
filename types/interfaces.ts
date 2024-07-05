@@ -39,7 +39,7 @@ export interface UserProps {
   submitted?: number[] | null;
 }
 
-export interface SearchResult {
+export interface SearchResultProps {
   objectID: number;
   points: number;
   title: string;

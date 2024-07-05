@@ -2,7 +2,7 @@ import React from 'react';
 
 import listStyles from '../../components/list-item.module.css';
 
-import { SearchResult } from '../../types/interfaces';
+import { SearchResultProps } from '../../types/interfaces';
 
 import { getSearch } from '../../helpers/fetch';
 
@@ -18,7 +18,7 @@ export default async function SearchResults({ query }: { query: string }) {
         <title>{`Hacker News - Search (${query})`}</title>
         <ul>
           {results.length > 0 ? (
-            results.map((item: SearchResult) => (
+            results.map((item: SearchResultProps) => (
               <ListItem
                 id={item.objectID}
                 title={item.title}
