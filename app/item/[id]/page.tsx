@@ -14,9 +14,10 @@ export default async function ItemRender({
 }: {
   params: { id: string };
 }) {
-  const item = await getMeta(+params.id);
+  const { id } = await params;
+  const item = await getMeta(+id);
 
-  if (Number.isNaN(+params!.id) || !item) {
+  if (Number.isNaN(+id) || !item) {
     return notFound();
   }
 
