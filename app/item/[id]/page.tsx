@@ -12,7 +12,7 @@ import { getMeta } from '../../../helpers/fetch';
 export default async function ItemRender({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
   const item = await getMeta(+id);

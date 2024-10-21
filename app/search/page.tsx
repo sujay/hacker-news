@@ -15,9 +15,7 @@ export const metadata = {
 export default async function Search({
   searchParams,
 }: {
-  searchParams?: {
-    query?: string;
-  };
+  searchParams?: Promise<{ query?: string | undefined }>;
 }) {
   const params = await searchParams;
   const query = params?.query || '';
