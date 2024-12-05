@@ -12,14 +12,14 @@ export const metadata = {
   },
 };
 
-export default function Search({
+export default async function Search({
   searchParams,
 }: {
-  searchParams?: {
-    query?: string;
-  };
+  searchParams?: Promise<{ query?: string | undefined }>;
 }) {
-  const query = searchParams?.query || '';
+  const params = await searchParams;
+  const query = params?.query || '';
+
   return (
     <>
       <Header>Search</Header>
