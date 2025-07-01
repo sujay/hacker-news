@@ -6,7 +6,7 @@
   "private": true,
   "dependencies": {
     "@next/third-parties": "^15.3.4",
-    "@sentry/nextjs": "^8.55.0",
+    "@sentry/nextjs": "^9.33.0",
     "dayjs": "^1.11.13",
     "geist": "^1.4.2",
     "next": "^15.3.4",
@@ -16,15 +16,15 @@
     "tiny-throttle": "^1.0.4"
   },
   "devDependencies": {
-    "@types/node": "^22.15.34",
+    "@types/node": "^24.0.8",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
     "@types/sanitize-html": "^2.16.0",
-    "babel-plugin-react-compiler": "^19.0.0-beta-ebf51a3-20250411",
+    "babel-plugin-react-compiler": "^19.1.0-rc.2",
     "eslint": "^8.57.1",
     "eslint-config-next": "^15.3.4",
     "eslint-config-prettier": "^10.1.5",
-    "eslint-plugin-react-compiler": "^19.0.0-beta-ebf51a3-20250411",
+    "eslint-plugin-react-compiler": "^19.1.0-rc.2",
     "typescript": "^5.8.3"
   },
   "scripts": {
