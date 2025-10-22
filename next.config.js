@@ -1,9 +1,7 @@
 const { withSentryConfig } = require('@sentry/nextjs');
 
 const nextConfig = {
-  experimental: {
-    reactCompiler: true,
-  },
+  reactCompiler: true,
   reactStrictMode: true,
   poweredByHeader: false,
 };
