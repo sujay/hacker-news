@@ -16,16 +16,16 @@
     "tiny-throttle": "^1.0.4"
   },
   "devDependencies": {
-    "@types/node": "^24.12.2",
-    "@types/react": "^19.2.2",
-    "@types/react-dom": "^19.2.1",
+    "@types/node": "^25.5.2",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
     "@types/sanitize-html": "^2.16.1",
     "babel-plugin-react-compiler": "^19.1.0-rc.1-rc-af1b7da-20250421",
     "eslint": "^8.57.1",
     "eslint-config-next": "^16.2.3",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-react-compiler": "^19.1.0-rc.2",
-    "typescript": "^5.9.3"
+    "typescript": "^6.0.2"
   },
   "scripts": {
     "dev": "next dev --turbopack",
