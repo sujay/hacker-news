@@ -23,8 +23,8 @@ export default function Meta({
           {commentCount > 1 ? ' Comments' : ' Comment'}
         </span>
       )}
-      {points && points > 1 && (
-        <span className={styles.points}>{`${points} points`}</span>
+      {points > 0 && (
+        <span className={styles.points}>{`${points} point${points > 1 ? 's' : ''}`}</span>
       )}
       {author && <span className={styles.user}>{author}</span>}
       {time && (
