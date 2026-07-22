@@ -22,7 +22,7 @@ export const metadata = {
 export default function Layout({ children }: React.PropsWithChildren) {
   return (
     <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
-      <GoogleTagManager gtmId={gid} />
+      {gid && <GoogleTagManager gtmId={gid} />}
       <meta name="theme-color" content="oklch(69.22% 0.2222 41.27)" />
       <body>
         <div className={styles.container}>
