@@ -32,7 +32,7 @@ export default function ItemDetail({ item }: { item: ItemProps }) {
             __html: sanitizeHtml(
               item.text.replace(
                 /https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item\?id=/g,
-                '',
+                '/item/',
               ),
             ),
           }}

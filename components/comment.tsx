@@ -21,7 +21,7 @@ export default function Comment({ comment }: { comment: CommentProps }) {
             __html: sanitizeHtml(
               comment.content.replace(
                 /https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item\?id=/g,
-                '',
+                '/item/',
               ),
             ),
           }}
