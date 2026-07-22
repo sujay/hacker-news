@@ -26,5 +26,5 @@ export const getUser = async (user: string) =>
 
 export const getSearch = async (query: string) =>
   fetchData(
-    `https://hn.algolia.com/api/v1/search?query=${query}&tags=story`,
+    `https://hn.algolia.com/api/v1/search?query=${encodeURIComponent(query)}&tags=story`,
   ).catch(() => ({ hits: [] }));
