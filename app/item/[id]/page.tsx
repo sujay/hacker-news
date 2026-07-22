@@ -15,21 +15,27 @@ export default async function ItemRender({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const item = await getMeta(+id);
 
-  if (Number.isNaN(+id) || !item) {
+  if (Number.isNaN(+id)) {
     return notFound();
   }
 
+  const item = await getMeta(+id);
+
+  if (!item) {
+    return notFound();
+  }
+
+  const type = item.type ?? 'item';
   const title = `${
-    item.title || `${item.type.charAt(0).toUpperCase() + item.type.slice(1)}`
+    item.title || `${type.charAt(0).toUpperCase() + type.slice(1)}`
   } - Hacker News`;
 
   return (
     <>
       <title>{title}</title>
       <meta name="robots" content="none" />
-      <Header>{item.type === 'link' ? 'story' : item.type}</Header>
+      <Header>{type === 'link' ? 'story' : type}</Header>
       {!item.dead && !item.deleted ? (
         <>
           <ItemDetail item={item} />
@@ -41,7 +47,7 @@ export default async function ItemRender({
         </>
       ) : (
         <li className={listStyles.li}>
-          {item.type[0].toUpperCase() + item.type.substring(1)} has been
+          {type[0].toUpperCase() + type.substring(1)} has been
           deleted.
         </li>
       )}
