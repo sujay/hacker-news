@@ -21,7 +21,7 @@ export default function ListItem({
     return null;
   }
 
-  return id ? (
+  return id != null ? (
     <li key={id} className={styles.li}>
       <div className={styles.title}>
         <h3 className={styles.h3}>
