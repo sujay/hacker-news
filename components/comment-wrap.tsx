@@ -1,11 +1,8 @@
-'use client';
-
-import React, { useState } from 'react';
+import React from 'react';
 
 import styles from './comment.module.css';
 
 import Time from './time';
-import Collapse from './collapse';
 
 import { CommentProps } from '../types/interfaces';
 
@@ -16,11 +13,9 @@ export default function CommentWrap({
   children: React.ReactNode | null | undefined;
   comment: CommentProps;
 }) {
-  const [collapsed, setCollapsed] = useState(false);
-
   return (
-    <div className={styles.comment} key={comment.id}>
-      <div className={styles.meta}>
+    <details className={styles.comment} open>
+      <summary className={styles.meta}>
         <div className={styles.details}>
           <span className={styles.user}>{comment.user}</span>
           {comment.time && (
@@ -30,14 +25,8 @@ export default function CommentWrap({
           )}
           :
         </div>
-        <Collapse
-          collapsed={collapsed}
-          onToggle={() => {
-            setCollapsed(!collapsed);
-          }}
-        />
-      </div>
-      {!collapsed && <div className="tree">{children}</div>}
-    </div>
+      </summary>
+      <div className="tree">{children}</div>
+    </details>
   );
 }

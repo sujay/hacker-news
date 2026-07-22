@@ -16,24 +16,21 @@
   font-size: 0.9rem;
   color: #666;
   display: flex;
+  list-style: none;
+  cursor: pointer;
+}
+.meta::after {
+  content: '−';
+  margin-left: auto;
+}
+.comment:not([open]) .meta::after {
+  content: '+';
 }
 .details > span:not(:first-child)::before {
   content: '•';
   color: #ccc;
   display: inline-block;
   margin: 0 5px;
-}
-.collapse {
-  flex: 1 0;
-  text-align: right;
-}
-.button {
-  cursor: pointer;
-  border: none;
-  background-color: transparent;
-  color: #000;
-  width: 100%;
-  text-align: right;
 }
 .loading {
   padding: 15px;
