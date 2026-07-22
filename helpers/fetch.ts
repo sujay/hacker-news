@@ -1,6 +1,11 @@
-async function fetchData(route: string) {
+async function fetchData(
+  route: string,
+  options?: { revalidate?: number },
+) {
   const res = await fetch(route, {
-    cache: 'no-store',
+    ...(options?.revalidate != null
+      ? { next: { revalidate: options.revalidate } }
+      : { cache: 'no-store' }),
     signal: AbortSignal.timeout(8000),
   });
   if (!res.ok) {
@@ -16,14 +21,16 @@ export const getItem = async (itemId: number) =>
   fetchData(`https://api.hackerwebapp.com/item/${itemId}`).catch(() => {});
 
 export const getMeta = async (itemId: number) =>
-  fetchData(`https://hacker-news.firebaseio.com/v0/item/${itemId}.json`).catch(
-    () => {},
-  );
+  fetchData(
+    `https://hacker-news.firebaseio.com/v0/item/${itemId}.json`,
+    { revalidate: 60 },
+  ).catch(() => ({}));
 
 export const getUser = async (user: string) =>
-  fetchData(`https://hacker-news.firebaseio.com/v0/user/${user}.json`).catch(
-    () => {},
-  );
+  fetchData(
+    `https://hacker-news.firebaseio.com/v0/user/${user}.json`,
+    { revalidate: 60 },
+  ).catch(() => ({}));
 
 export const getSearch = async (query: string) =>
   fetchData(
