@@ -10,7 +10,7 @@ import ListItem from '../../components/list-item';
 
 export default async function SearchResults({ query }: { query: string }) {
   const data = await getSearch(query);
-  const results = data.hits;
+  const results = data?.hits ?? [];
 
   return (
     query && (
