@@ -1,6 +1,7 @@
 async function fetchData(route: string) {
   const res = await fetch(route, {
     cache: 'no-store',
+    signal: AbortSignal.timeout(8000),
   });
   if (!res.ok) {
     throw new Error('Failed to fetch data!');
