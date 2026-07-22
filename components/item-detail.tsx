@@ -7,6 +7,7 @@ import Domain from './domain';
 import Meta from './meta';
 
 import { ItemProps } from '../types/interfaces';
+import { safeHref } from '../helpers/url';
 
 export default function ItemDetail({ item }: { item: ItemProps }) {
   return (
@@ -15,7 +16,11 @@ export default function ItemDetail({ item }: { item: ItemProps }) {
         <div className={styles.title}>
           <h3 className={styles.h3}>
             {item.url ? (
-              <a href={item.url} rel="nofollow">
+              <a
+                href={safeHref(item.url)}
+                target="_blank"
+                rel="nofollow noopener noreferrer"
+              >
                 {item.title}
               </a>
             ) : (
