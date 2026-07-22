@@ -32,9 +32,3 @@ export default async function Search({
     </>
   );
 }
-
-Search.defaultProps = {
-  searchParams: {
-    query: '',
-  },
-};
