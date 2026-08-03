@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import Link from 'next/link';
 import { GoogleTagManager } from '@next/third-parties/google';
 import { GeistSans } from 'geist/font/sans';
@@ -9,6 +9,8 @@ import './global.css';
 import styles from './layout.module.css';
 
 import Nav from '../components/nav';
+import NavLinks from '../components/nav-links';
+import Year from '../components/year';
 
 const gid = process.env.NEXT_PUBLIC_GTM_ID || '';
 
@@ -36,12 +38,16 @@ export default function Layout({ children }: React.PropsWithChildren) {
               </Link>
             </h1>
           </header>
-          <Nav />
+          <Suspense fallback={<NavLinks />}>
+            <Nav />
+          </Suspense>
           <div className={styles.main}>{children}</div>
           <footer className={styles.footer}>
             <div>
-              Content &copy;
-              {` ${new Date().getFullYear()} `}
+              Content &copy;{' '}
+              <Suspense fallback={null}>
+                <Year />
+              </Suspense>{' '}
               <a href="https://news.ycombinator.com/" rel="nofollow">
                 Hacker News
               </a>{' '}
