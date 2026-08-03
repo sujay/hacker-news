@@ -47,8 +47,7 @@ export default async function ItemRender({
         </>
       ) : (
         <li className={listStyles.li}>
-          {type[0].toUpperCase() + type.substring(1)} has been
-          deleted.
+          {type[0].toUpperCase() + type.substring(1)} has been deleted.
         </li>
       )}
     </>

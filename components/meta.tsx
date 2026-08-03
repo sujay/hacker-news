@@ -24,7 +24,9 @@ export default function Meta({
         </span>
       )}
       {points > 0 && (
-        <span className={styles.points}>{`${points} point${points > 1 ? 's' : ''}`}</span>
+        <span
+          className={styles.points}
+        >{`${points} point${points > 1 ? 's' : ''}`}</span>
       )}
       {author && <span className={styles.user}>{author}</span>}
       {time && (

@@ -21,19 +21,17 @@
     "@types/react-dom": "^19.2.3",
     "@types/sanitize-html": "^2.16.1",
     "babel-plugin-react-compiler": "^1.0.0",
-    "eslint": "^9.39.5",
-    "eslint-config-next": "^16.2.3",
-    "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-react-compiler": "^19.1.0-rc.2",
+    "oxfmt": "^0.62.0",
+    "oxlint": "^1.77.0",
     "typescript": "^6.0.3"
-  },
-  "overrides": {
-    "zod-validation-error": "^4.0.2"
   },
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint ."
+    "lint": "oxlint .",
+    "lint:fix": "oxlint --fix .",
+    "format": "oxfmt .",
+    "format:check": "oxfmt --check ."
   }
 }
