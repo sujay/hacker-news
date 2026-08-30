@@ -12,16 +12,22 @@ const nextConfig = {
 };
 
 module.exports = withSentryConfig(nextConfig, {
+  // Read from Vercel/CI env (`SENTRY_ORG`, `SENTRY_PROJECT`, `SENTRY_AUTH_TOKEN`).
+  // No hardcoded slugs and no local file fallback.
+  org: process.env.SENTRY_ORG,
+  project: process.env.SENTRY_PROJECT,
+  authToken: process.env.SENTRY_AUTH_TOKEN,
+
   // For all available options, see:
   // https://docs.sentry.io/platforms/javascript/guides/nextjs/manual-setup/
 
+  // Only print logs for uploading source maps in CI.
+  silent: !process.env.CI,
+
   telemetry: false,
 
-  // Upload a larger set of source maps for prettier stack traces (increases build time)
+  // Upload a larger set of source maps for prettier stack traces (increases build time).
   widenClientFileUpload: true,
-
-  // Transpiles SDK to be compatible with IE11 (increases bundle size)
-  transpileClientSDK: false,
 
   // Uncomment to route browser requests to Sentry through a Next.js rewrite to circumvent ad-blockers.
   // This can increase your server load as well as your hosting bill.
@@ -29,17 +35,10 @@ module.exports = withSentryConfig(nextConfig, {
   // side errors will fail.
   // tunnelRoute: "/monitoring",
 
-  // Keep client source maps in the build output so Sentry (and authed team members)
-  // can read real stack traces. Vercel's Protected Source Maps gates these behind
-  // Vercel Authentication, so the public still gets a 404 for them.
+  // Delete client source maps from the build output after they've been
+  // uploaded to Sentry. Sentry keeps the maps for stack trace symbolication,
+  // while the deployed bundle no longer ships `.map` files.
   sourcemaps: {
-    deleteSourcemapsAfterUpload: false,
-  },
-  // Hints for webpack: tree-shake Sentry logger statements and enable Vercel monitors
-  webpack: {
-    treeshake: {
-      removeDebugLogging: true,
-    },
-    automaticVercelMonitors: true,
+    deleteSourcemapsAfterUpload: true,
   },
 });

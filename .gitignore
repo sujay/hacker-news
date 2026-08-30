@@ -7,6 +7,11 @@ node_modules/
 
 .vercel
 
+# Environment files (keep the committed example)
+.env
+.env.*
+!.env.example
+
 # Sentry Auth Token
 .sentryclirc
 tsconfig.tsbuildinfo
