@@ -29,8 +29,12 @@ module.exports = withSentryConfig(nextConfig, {
   // side errors will fail.
   // tunnelRoute: "/monitoring",
 
-  // Hides source maps from generated client bundles
-  hideSourceMaps: true,
+  // Keep client source maps in the build output so Sentry (and authed team members)
+  // can read real stack traces. Vercel's Protected Source Maps gates these behind
+  // Vercel Authentication, so the public still gets a 404 for them.
+  sourcemaps: {
+    deleteSourcemapsAfterUpload: false,
+  },
   // Hints for webpack: tree-shake Sentry logger statements and enable Vercel monitors
   webpack: {
     treeshake: {
