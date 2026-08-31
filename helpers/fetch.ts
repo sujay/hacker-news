@@ -19,7 +19,7 @@ export const getList = async (list: string) =>
 export const getItem = async (itemId: number) =>
   fetchData(`https://api.hackerwebapp.com/item/${itemId}`, {
     revalidate: 60,
-  }).catch(() => {});
+  }).catch(() => ({}));
 
 export const getMeta = async (itemId: number) =>
   fetchData(`https://hacker-news.firebaseio.com/v0/item/${itemId}.json`, {
