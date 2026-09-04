@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 
 import Header from '../components/header';
 import List from '../components/list';
+import Loading from '../components/loading';
 
 export const metadata = {
   description:
@@ -12,7 +13,9 @@ export default function Index() {
   return (
     <>
       <Header>Top Stories</Header>
-      <List type="news" />
+      <Suspense fallback={<Loading />}>
+        <List type="news" />
+      </Suspense>
     </>
   );
 }

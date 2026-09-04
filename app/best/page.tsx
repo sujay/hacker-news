@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 
 import Header from '../../components/header';
 import List from '../../components/list';
+import Loading from '../../components/loading';
 
 export const metadata = {
   title: 'Best',
@@ -11,7 +12,9 @@ export default function Best() {
   return (
     <>
       <Header>Best Stories</Header>
-      <List type="best" />
+      <Suspense fallback={<Loading />}>
+        <List type="best" />
+      </Suspense>
     </>
   );
 }

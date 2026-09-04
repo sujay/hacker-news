@@ -21,7 +21,13 @@ export default function ListItem({
     return null;
   }
 
-  return id != null ? (
+  // Keep <ul> children shape stable (always <li>) so React resumable
+  // slots match between prerender and replay.
+  if (id == null) {
+    return <li className={styles.li}>Error loading story.</li>;
+  }
+
+  return (
     <li key={id} className={styles.li}>
       <div className={styles.title}>
         <h3 className={styles.h3}>
@@ -35,7 +41,5 @@ export default function ListItem({
         commentCount={commentCount}
       />
     </li>
-  ) : (
-    <li className={styles.li}>Error loading story.</li>
   );
 }

@@ -30,7 +30,7 @@ export default function Meta({
       )}
       {author ? <span className={styles.user}>{author}</span> : null}
       {time ? (
-        <span className={styles.time}>
+        <span className={styles.time} suppressHydrationWarning>
           <Time time={time} />
         </span>
       ) : null}

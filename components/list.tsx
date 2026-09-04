@@ -19,10 +19,14 @@ export default async function List({ type }: { type: string }) {
     );
   }
 
+  const visible = list.filter(
+    (item: ItemProps) => !item.dead && !item.deleted && item.id != null,
+  );
+
   return (
     <ul>
-      {list.length > 0 ? (
-        list.map((item: ItemProps) => (
+      {visible.length > 0 ? (
+        visible.map((item: ItemProps) => (
           <ListItem
             id={item.id}
             title={item.title}
