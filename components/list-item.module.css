@@ -2,6 +2,8 @@
   padding: 20px;
   list-style-type: none;
   border-bottom: solid 1px #eee;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 80px;
 }
 .h3 {
   font-size: 1.3rem;
