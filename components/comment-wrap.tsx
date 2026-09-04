@@ -18,11 +18,11 @@ export default function CommentWrap({
       <summary className={styles.meta}>
         <div className={styles.details}>
           <span className={styles.user}>{comment.user}</span>
-          {comment.time && (
+          {comment.time ? (
             <span className="time">
               <Time time={comment.time} />
             </span>
-          )}
+          ) : null}
           :
         </div>
       </summary>
