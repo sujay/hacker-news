@@ -9,11 +9,54 @@ import ItemDetail from '../../../components/item-detail';
 import Loading from '../../../components/loading';
 import { getMeta } from '../../../helpers/fetch';
 
-export default async function ItemRender({
+export async function generateMetadata({
   params,
 }: {
   params: Promise<{ id: string }>;
 }) {
+  const { id } = await params;
+
+  if (Number.isNaN(+id)) {
+    return { title: 'Not Found' };
+  }
+
+  const item = await getMeta(+id);
+
+  if (!item?.id && !item?.title) {
+    return { title: 'Not Found' };
+  }
+
+  const type = item.type ?? 'item';
+  const title = `${
+    item.title || `${type.charAt(0).toUpperCase() + type.slice(1)}`
+  } - Hacker News`;
+
+  return {
+    title,
+    robots: { index: false, follow: false },
+  };
+}
+
+export default function ItemRender({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  return (
+    <Suspense
+      fallback={
+        <>
+          <Header>story</Header>
+          <Loading />
+        </>
+      }
+    >
+      <ItemContent params={params} />
+    </Suspense>
+  );
+}
+
+async function ItemContent({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
 
   if (Number.isNaN(+id)) {
@@ -22,19 +65,14 @@ export default async function ItemRender({
 
   const item = await getMeta(+id);
 
-  if (!item) {
+  if (!item?.id && !item?.title) {
     return notFound();
   }
 
   const type = item.type ?? 'item';
-  const title = `${
-    item.title || `${type.charAt(0).toUpperCase() + type.slice(1)}`
-  } - Hacker News`;
 
   return (
     <>
-      <title>{title}</title>
-      <meta name="robots" content="none" />
       <Header>{type === 'link' ? 'story' : type}</Header>
       {!item.dead && !item.deleted ? (
         <>
