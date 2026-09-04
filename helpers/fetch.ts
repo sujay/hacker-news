@@ -26,11 +26,6 @@ export const getMeta = async (itemId: number) =>
     revalidate: 60,
   }).catch(() => ({}));
 
-export const getUser = async (user: string) =>
-  fetchData(`https://hacker-news.firebaseio.com/v0/user/${user}.json`, {
-    revalidate: 60,
-  }).catch(() => ({}));
-
 export const getSearch = async (query: string) =>
   fetchData(
     `https://hn.algolia.com/api/v1/search?query=${encodeURIComponent(query)}&tags=story`,

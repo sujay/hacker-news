@@ -31,14 +31,6 @@ export interface ItemProps {
   by: string;
 }
 
-export interface UserProps {
-  about: string;
-  created: number;
-  id: string;
-  karma: number;
-  submitted?: number[] | null;
-}
-
 export interface SearchResultProps {
   objectID: number;
   points: number;
