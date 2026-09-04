@@ -28,12 +28,12 @@ export default function Meta({
           className={styles.points}
         >{`${points} point${points > 1 ? 's' : ''}`}</span>
       )}
-      {author && <span className={styles.user}>{author}</span>}
-      {time && (
+      {author ? <span className={styles.user}>{author}</span> : null}
+      {time ? (
         <span className={styles.time}>
           <Time time={time} />
         </span>
-      )}
+      ) : null}
     </div>
   );
 }

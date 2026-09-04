@@ -9,10 +9,13 @@ import Meta from './meta';
 import { ItemProps } from '../types/interfaces';
 import { safeHref } from '../helpers/url';
 
+const HN_ITEM_LINK_RE =
+  /https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item\?id=/g;
+
 export default function ItemDetail({ item }: { item: ItemProps }) {
   return (
     <div className={styles.item}>
-      {item.title && (
+      {item.title ? (
         <div className={styles.title}>
           <h3 className={styles.h3}>
             {item.url ? (
@@ -27,22 +30,17 @@ export default function ItemDetail({ item }: { item: ItemProps }) {
               [item.title]
             )}
           </h3>
-          {item.url && <Domain itemUrl={item.url} />}
+          {item.url ? <Domain itemUrl={item.url} /> : null}
         </div>
-      )}
-      {item.text && (
+      ) : null}
+      {item.text ? (
         <div
           className={styles.content}
           dangerouslySetInnerHTML={{
-            __html: sanitizeHtml(
-              item.text.replace(
-                /https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item\?id=/g,
-                '/item/',
-              ),
-            ),
+            __html: sanitizeHtml(item.text.replace(HN_ITEM_LINK_RE, '/item/')),
           }}
         />
-      )}
+      ) : null}
       <Meta
         points={item.score}
         author={item.by}

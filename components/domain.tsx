@@ -11,4 +11,5 @@ export default function Domain({ itemUrl }: { itemUrl: string }) {
       return <span className={styles.domain}>{`(${domain})`}</span>;
     }
   }
+  return null;
 }
