@@ -14,7 +14,7 @@ async function fetchData(route: string, options?: { revalidate?: number }) {
 export const getList = async (list: string) =>
   fetchData(`https://api.hackerwebapp.com/${list}`, {
     revalidate: 60,
-  }).catch(() => []);
+  }).catch(() => null);
 
 export const getItem = async (itemId: number) =>
   fetchData(`https://api.hackerwebapp.com/item/${itemId}`, {
