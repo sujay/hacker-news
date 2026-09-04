@@ -12,30 +12,27 @@ export default async function SearchResults({ query }: { query: string }) {
   const data = await getSearch(query);
   const results = data?.hits ?? [];
 
+  if (!query) {
+    return null;
+  }
+
   return (
-    query && (
-      <>
-        <title>{`Hacker News - Search (${query})`}</title>
-        <ul>
-          {results.length > 0 ? (
-            results.map((item: SearchResultProps) => (
-              <ListItem
-                id={item.objectID}
-                title={item.title}
-                points={item.points}
-                author={item.author}
-                time={item.created_at_i}
-                commentCount={item.num_comments}
-                key={item.objectID}
-              />
-            ))
-          ) : (
-            <ul>
-              <li className={listStyles.li}>No results found.</li>
-            </ul>
-          )}
-        </ul>
-      </>
-    )
+    <ul>
+      {results.length > 0 ? (
+        results.map((item: SearchResultProps) => (
+          <ListItem
+            id={item.objectID}
+            title={item.title}
+            points={item.points}
+            author={item.author}
+            time={item.created_at_i}
+            commentCount={item.num_comments}
+            key={item.objectID}
+          />
+        ))
+      ) : (
+        <li className={listStyles.li}>No results found.</li>
+      )}
+    </ul>
   );
 }

@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useSearchParams, usePathname, useRouter } from 'next/navigation';
 import { debounce } from 'tiny-throttle';
 
@@ -11,15 +11,19 @@ export default function SearchBox() {
   const pathname = usePathname();
   const { replace } = useRouter();
 
-  const handleSearch = debounce((term: string) => {
-    const params = new URLSearchParams(searchParams);
-    if (term) {
-      params.set('query', term);
-    } else {
-      params.delete('query');
-    }
-    replace(`${pathname}?${params.toString()}`);
-  }, 500);
+  const handleSearch = useMemo(
+    () =>
+      debounce((term: string) => {
+        const params = new URLSearchParams(searchParams);
+        if (term) {
+          params.set('query', term);
+        } else {
+          params.delete('query');
+        }
+        replace(`${pathname}?${params.toString()}`);
+      }, 500),
+    [searchParams, pathname, replace],
+  );
 
   return (
     <div className={styles.searchbox}>
