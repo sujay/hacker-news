@@ -1,9 +1,9 @@
-async function fetchData(route: string, options?: { revalidate?: number }) {
+import { cacheLife } from 'next/cache';
+
+async function fetchJson(route: string, init?: RequestInit) {
   const res = await fetch(route, {
-    ...(options?.revalidate != null
-      ? { next: { revalidate: options.revalidate } }
-      : { cache: 'no-store' }),
     signal: AbortSignal.timeout(8000),
+    ...init,
   });
   if (!res.ok) {
     throw new Error('Failed to fetch data!');
@@ -11,23 +11,27 @@ async function fetchData(route: string, options?: { revalidate?: number }) {
   return res.json();
 }
 
-export const getList = async (list: string) =>
-  fetchData(`https://api.hackerwebapp.com/${list}`, {
-    revalidate: 60,
-  }).catch(() => null);
+export const getList = async (list: string) => {
+  'use cache';
+  cacheLife('minutes');
+  return fetchJson(`https://api.hackerwebapp.com/${list}`);
+};
 
-export const getItem = async (itemId: number) =>
-  fetchData(`https://api.hackerwebapp.com/item/${itemId}`, {
-    revalidate: 60,
-  }).catch(() => ({}));
+export const getItem = async (itemId: number) => {
+  'use cache';
+  cacheLife('minutes');
+  return fetchJson(`https://api.hackerwebapp.com/item/${itemId}`);
+};
 
-export const getMeta = async (itemId: number) =>
-  fetchData(`https://hacker-news.firebaseio.com/v0/item/${itemId}.json`, {
-    revalidate: 60,
-  }).catch(() => ({}));
+export const getMeta = async (itemId: number) => {
+  'use cache';
+  cacheLife('hours');
+  return fetchJson(`https://hacker-news.firebaseio.com/v0/item/${itemId}.json`);
+};
 
-export const getSearch = async (query: string) =>
-  fetchData(
+export const getSearch = async (query: string) => {
+  return fetchJson(
     `https://hn.algolia.com/api/v1/search?query=${encodeURIComponent(query)}&tags=story`,
-    { revalidate: 60 },
-  ).catch(() => ({ hits: [] }));
+    { cache: 'no-store' },
+  );
+};

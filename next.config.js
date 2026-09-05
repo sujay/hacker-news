@@ -4,9 +4,6 @@ const nextConfig = {
   cacheComponents: true,
   partialPrefetching: true,
   reactCompiler: true,
-  experimental: {
-    turbopackRustReactCompiler: true,
-  },
   reactStrictMode: true,
   poweredByHeader: false,
 };
