@@ -1,5 +1,6 @@
 import React, { Suspense } from 'react';
 import Link from 'next/link';
+import type { Metadata, Viewport } from 'next';
 import { GoogleTagManager } from '@next/third-parties/google';
 import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
@@ -14,18 +15,21 @@ import Year from '../components/year';
 
 const gid = process.env.NEXT_PUBLIC_GTM_ID || '';
 
-export const metadata = {
+export const metadata: Metadata = {
   title: {
     template: 'Hacker News - %s',
     default: 'Hacker News',
   },
 };
 
+export const viewport: Viewport = {
+  themeColor: 'oklch(69.22% 0.2222 41.27)',
+};
+
 export default function Layout({ children }: React.PropsWithChildren) {
   return (
     <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
       {gid && <GoogleTagManager gtmId={gid} />}
-      <meta name="theme-color" content="oklch(69.22% 0.2222 41.27)" />
       <body>
         <div className={styles.container}>
           <header className={styles.header}>

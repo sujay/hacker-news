@@ -19,7 +19,7 @@ export default function CommentWrap({
         <div className={styles.details}>
           <span className={styles.user}>{comment.user}</span>
           {comment.time ? (
-            <span className="time">
+            <span className="time" suppressHydrationWarning>
               <Time time={comment.time} />
             </span>
           ) : null}
