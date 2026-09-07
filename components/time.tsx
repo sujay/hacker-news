@@ -1,5 +1,7 @@
 'use client';
 
+import { useEffect, useState } from 'react';
+
 import {
   formatAbsoluteTime,
   formatRelativeTime,
@@ -7,11 +9,17 @@ import {
 } from '../helpers/time';
 
 export default function Time({ time }: { time: number }) {
-  // Single-pass: server and client render the same relative text, so there
-  // is no content swap after hydration. suppressHydrationWarning covers the
-  // rare case where a minute boundary falls between SSR and hydration.
-  // Exact time remains available via the title tooltip and dateTime attr.
+  // Two-pass render to avoid hydration mismatch: server and initial client
+  // render emit the same deterministic absolute UTC text, then an effect
+  // swaps in relative text after hydration. dateTime/title are deterministic.
   const absolute = formatAbsoluteTime(time);
+  const [relative, setRelative] = useState<string | null>(null);
+
+  useEffect(() => {
+    // Two-pass hydration pattern: intentional post-hydration update so
+    // server HTML matches first client render.
+    setRelative(formatRelativeTime(time));
+  }, [time]);
 
   return (
     <time
@@ -19,7 +27,7 @@ export default function Time({ time }: { time: number }) {
       title={absolute}
       suppressHydrationWarning
     >
-      {formatRelativeTime(time)}
+      {relative ?? absolute}
     </time>
   );
 }
