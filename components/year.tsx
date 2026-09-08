@@ -1,6 +1,8 @@
-import { connection } from 'next/server';
+'use cache';
+
+import { cacheLife } from 'next/cache';
 
 export default async function Year() {
-  await connection();
+  cacheLife('days');
   return new Date().getFullYear();
 }

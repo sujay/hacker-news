@@ -13,4 +13,10 @@ Sentry.init({
 
   // Setting this option to true will print useful information to the console while you're setting up Sentry.
   debug: false,
+
+  // Same recoverable React resumability fallback as in sentry.server.config.ts.
+  ignoreErrors: [
+    /Couldn't find all resumable slots/,
+    /tree doesn't match.*fallback to client rendering/,
+  ],
 });

@@ -42,16 +42,13 @@ export default function Layout({ children }: React.PropsWithChildren) {
               </Link>
             </h1>
           </header>
-          <Suspense fallback={<NavLinks />}>
+          <Suspense fallback={<NavLinks active="" />}>
             <Nav />
           </Suspense>
           <div className={styles.main}>{children}</div>
           <footer className={styles.footer}>
             <div>
-              Content &copy;{' '}
-              <Suspense fallback={null}>
-                <Year />
-              </Suspense>{' '}
+              Content &copy; <Year />{' '}
               <a href="https://news.ycombinator.com/" rel="nofollow">
                 Hacker News
               </a>{' '}
