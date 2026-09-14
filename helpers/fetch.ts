@@ -1,14 +1,51 @@
 import { cacheLife } from 'next/cache';
 
-async function fetchJson(route: string, init?: RequestInit) {
-  const res = await fetch(route, {
-    signal: AbortSignal.timeout(8000),
-    ...init,
-  });
-  if (!res.ok) {
-    throw new Error('Failed to fetch data!');
+const DEFAULT_TIMEOUT_MS = 15000;
+const MAX_RETRIES = 3;
+
+function isRetryableError(error: unknown): boolean {
+  if (error instanceof DOMException && error.name === 'AbortError') {
+    return true; // timeout
   }
-  return res.json();
+  if (error instanceof Error) {
+    const msg = error.message.toLowerCase();
+    return (
+      msg.includes('timeout') ||
+      msg.includes('connection closed') ||
+      msg.includes('fetch failed') ||
+      msg.includes('network')
+    );
+  }
+  return false;
+}
+
+function sleep(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+async function fetchJson(route: string, init?: RequestInit) {
+  let lastError: unknown;
+  for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
+    try {
+      const res = await fetch(route, {
+        signal: AbortSignal.timeout(DEFAULT_TIMEOUT_MS),
+        ...init,
+      });
+      if (!res.ok) {
+        throw new Error(`Failed to fetch data! Status: ${res.status}`);
+      }
+      return res.json();
+    } catch (error) {
+      lastError = error;
+      if (attempt < MAX_RETRIES && isRetryableError(error)) {
+        const backoff = 2 ** attempt * 500; // 500ms, 1s, 2s
+        await sleep(backoff);
+        continue;
+      }
+      throw error;
+    }
+  }
+  throw lastError;
 }
 
 export const getList = async (list: string) => {
@@ -20,18 +57,32 @@ export const getList = async (list: string) => {
 export const getItem = async (itemId: number) => {
   'use cache';
   cacheLife('minutes');
-  return fetchJson(`https://api.hackerwebapp.com/item/${itemId}`);
+  try {
+    return await fetchJson(`https://api.hackerwebapp.com/item/${itemId}`);
+  } catch {
+    return null;
+  }
 };
 
 export const getMeta = async (itemId: number) => {
   'use cache';
   cacheLife('hours');
-  return fetchJson(`https://hacker-news.firebaseio.com/v0/item/${itemId}.json`);
+  try {
+    return await fetchJson(
+      `https://hacker-news.firebaseio.com/v0/item/${itemId}.json`,
+    );
+  } catch {
+    return null;
+  }
 };
 
 export const getSearch = async (query: string) => {
-  return fetchJson(
-    `https://hn.algolia.com/api/v1/search?query=${encodeURIComponent(query)}&tags=story`,
-    { cache: 'no-store' },
-  );
+  try {
+    return await fetchJson(
+      `https://hn.algolia.com/api/v1/search?query=${encodeURIComponent(query)}&tags=story`,
+      { cache: 'no-store' },
+    );
+  } catch {
+    return null;
+  }
 };
