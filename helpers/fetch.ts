@@ -1,5 +1,3 @@
-import { cacheLife } from 'next/cache';
-
 const DEFAULT_TIMEOUT_MS = 7000;
 const MAX_RETRIES = 1;
 
@@ -43,21 +41,21 @@ async function fetchJson(route: string, init?: RequestInit) {
 }
 
 export const getList = async (list: string) => {
-  'use cache';
-  cacheLife('minutes');
-  return fetchJson(`https://api.hackerwebapp.com/${list}`);
+  return fetchJson(`https://api.hackerwebapp.com/${list}`, {
+    next: { revalidate: 60 },
+  });
 };
 
 export const getItem = async (itemId: number) => {
-  'use cache';
-  cacheLife('minutes');
-  return fetchJson(`https://api.hackerwebapp.com/item/${itemId}`);
+  return fetchJson(`https://api.hackerwebapp.com/item/${itemId}`, {
+    next: { revalidate: 60 },
+  });
 };
 
 export const getMeta = async (itemId: number) => {
-  'use cache';
-  cacheLife('hours');
-  return fetchJson(`https://hacker-news.firebaseio.com/v0/item/${itemId}.json`);
+  return fetchJson(`https://hacker-news.firebaseio.com/v0/item/${itemId}.json`, {
+    next: { revalidate: 3600 },
+  });
 };
 
 export const getSearch = async (query: string) => {

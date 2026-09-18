@@ -1,9 +1,6 @@
 const { withSentryConfig } = require('@sentry/nextjs');
 
 const nextConfig = {
-  cacheComponents: true,
-  partialPrefetching: true,
-  reactCompiler: true,
   reactStrictMode: true,
   poweredByHeader: false,
 };
