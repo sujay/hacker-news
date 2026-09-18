@@ -13,7 +13,7 @@ import Nav from '../components/nav';
 import NavLinks from '../components/nav-links';
 import Year from '../components/year';
 
-const gid = process.env.NEXT_PUBLIC_GTM_ID || '';
+const gtmId = process.env.NEXT_PUBLIC_GTM_ID || '';
 
 export const metadata: Metadata = {
   title: {
@@ -29,8 +29,8 @@ export const viewport: Viewport = {
 export default function Layout({ children }: React.PropsWithChildren) {
   return (
     <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
-      {gid && <GoogleTagManager gtmId={gid} />}
       <body>
+        {gtmId && <GoogleTagManager gtmId={gtmId} />}
         <div className={styles.container}>
           <header className={styles.header}>
             <h1 className={styles.h1}>
