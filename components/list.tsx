@@ -11,14 +11,6 @@ import { getList } from '../helpers/fetch';
 export default async function List({ type }: { type: string }) {
   const list = await getList(type);
 
-  if (!list) {
-    return (
-      <ul>
-        <li className={listStyles.li}>Error loading stories.</li>
-      </ul>
-    );
-  }
-
   const visible = list.filter(
     (item: ItemProps) => !item.dead && !item.deleted && item.id != null,
   );

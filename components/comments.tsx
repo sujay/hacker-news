@@ -9,7 +9,12 @@ import Comment from './comment';
 import { CommentProps } from '../types/interfaces';
 
 export default async function Comments({ id }: { id: number }) {
-  const data = await getItem(+id);
+  let data;
+  try {
+    data = await getItem(+id);
+  } catch {
+    return null;
+  }
 
   if (!data || !data.comments || data.comments.length === 0) {
     return null;

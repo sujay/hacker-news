@@ -1,7 +1,7 @@
 import { cacheLife } from 'next/cache';
 
-const DEFAULT_TIMEOUT_MS = 15000;
-const MAX_RETRIES = 3;
+const DEFAULT_TIMEOUT_MS = 7000;
+const MAX_RETRIES = 1;
 
 function isRetryableError(error: unknown): boolean {
   if (error instanceof DOMException && error.name === 'AbortError') {
@@ -19,10 +19,6 @@ function isRetryableError(error: unknown): boolean {
   return false;
 }
 
-function sleep(ms: number): Promise<void> {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
-
 async function fetchJson(route: string, init?: RequestInit) {
   let lastError: unknown;
   for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
@@ -38,8 +34,6 @@ async function fetchJson(route: string, init?: RequestInit) {
     } catch (error) {
       lastError = error;
       if (attempt < MAX_RETRIES && isRetryableError(error)) {
-        const backoff = 2 ** attempt * 500; // 500ms, 1s, 2s
-        await sleep(backoff);
         continue;
       }
       throw error;
@@ -57,23 +51,13 @@ export const getList = async (list: string) => {
 export const getItem = async (itemId: number) => {
   'use cache';
   cacheLife('minutes');
-  try {
-    return await fetchJson(`https://api.hackerwebapp.com/item/${itemId}`);
-  } catch {
-    return null;
-  }
+  return fetchJson(`https://api.hackerwebapp.com/item/${itemId}`);
 };
 
 export const getMeta = async (itemId: number) => {
   'use cache';
   cacheLife('hours');
-  try {
-    return await fetchJson(
-      `https://hacker-news.firebaseio.com/v0/item/${itemId}.json`,
-    );
-  } catch {
-    return null;
-  }
+  return fetchJson(`https://hacker-news.firebaseio.com/v0/item/${itemId}.json`);
 };
 
 export const getSearch = async (query: string) => {
