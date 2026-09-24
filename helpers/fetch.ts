@@ -42,19 +42,19 @@ async function fetchJson(route: string, init?: RequestInit) {
 
 export const getList = async (list: string) => {
   return fetchJson(`https://api.hackerwebapp.com/${list}`, {
-    next: { revalidate: 60 },
+    cache: 'no-store',
   });
 };
 
 export const getItem = async (itemId: number) => {
   return fetchJson(`https://api.hackerwebapp.com/item/${itemId}`, {
-    next: { revalidate: 60 },
+    cache: 'no-store',
   });
 };
 
 export const getMeta = async (itemId: number) => {
   return fetchJson(`https://hacker-news.firebaseio.com/v0/item/${itemId}.json`, {
-    next: { revalidate: 3600 },
+    cache: 'no-store',
   });
 };
 
