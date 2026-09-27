@@ -1,8 +1,14 @@
-const { withSentryConfig } = require('@sentry/nextjs');
+const { withSentryConfig } = require('@sentry/nextjs/config');
 
 const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
+  // Next.js 16 uses Turbopack for production builds. Generate native Debug
+  // IDs in every JavaScript bundle and source map so Sentry can symbolicate
+  // every stack frame, including server and edge chunks.
+  turbopack: {
+    debugIds: true,
+  },
 };
 
 module.exports = withSentryConfig(nextConfig, {
