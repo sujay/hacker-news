@@ -5,7 +5,7 @@
   "description": "A Hacker News clone built with React and Next.js.",
   "author": "Sujay Thomas",
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "oxlint .",
@@ -16,9 +16,9 @@
   "dependencies": {
     "@next/third-parties": "^16.3.1",
     "geist": "^1.7.0",
-    "next": "^16.3.1",
-    "react": "^19.2.8",
-    "react-dom": "^19.2.8",
+    "next": "^16.4.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
     "sanitize-html": "^2.17.7",
     "tiny-throttle": "^2.0.0"
   },
