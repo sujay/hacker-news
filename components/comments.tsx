@@ -6,8 +6,6 @@ import { getItem } from '../helpers/fetch';
 
 import Comment from './comment';
 
-import { CommentProps } from '../types/interfaces';
-
 export default async function Comments({ id }: { id: number }) {
   let data;
   try {
@@ -21,15 +19,16 @@ export default async function Comments({ id }: { id: number }) {
   }
 
   const { comments, comments_count } = data;
+  const count = comments_count ?? 0;
 
   return (
     <div className={styles.comments}>
       <h4 className={styles.h4}>
-        {comments_count}
-        {comments_count > 1 ? ' Comments:' : ' Comment:'}
+        {count}
+        {count > 1 ? ' Comments:' : ' Comment:'}
       </h4>
 
-      {comments.map((comment: CommentProps) => (
+      {comments.map((comment) => (
         <Comment comment={comment} key={comment.id} />
       ))}
     </div>

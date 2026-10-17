@@ -35,10 +35,10 @@ export default function ListItem({
         </h3>
       </div>
       <Meta
-        points={points}
-        author={author}
+        points={points ?? 0}
+        author={author ?? ''}
         time={time}
-        commentCount={commentCount}
+        commentCount={commentCount ?? 0}
       />
     </li>
   );

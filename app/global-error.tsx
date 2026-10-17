@@ -1,14 +1,22 @@
 'use client';
 
-import NextError from 'next/error';
 import React from 'react';
 
-export default function GlobalError() {
+export default function GlobalError({
+  error,
+  reset,
+}: {
+  error: Error & { digest?: string };
+  reset: () => void;
+}) {
   return (
     <html lang="en">
       <body>
-        {/* This is the default Next.js error component but it doesn't allow omitting the statusCode property yet. */}
-        <NextError statusCode={undefined as any} />
+        <h2>Something went wrong</h2>
+        {error.digest ? <p>Error reference: {error.digest}</p> : null}
+        <button type="button" onClick={() => reset()}>
+          Try again
+        </button>
       </body>
     </html>
   );

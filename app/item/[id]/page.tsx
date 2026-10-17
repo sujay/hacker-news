@@ -65,6 +65,8 @@ async function ItemContent({ params }: { params: Promise<{ id: string }> }) {
 
   const item = await getMeta(+id);
 
+  // `&&` is intentional: a deleted item has an id but no title and must still
+  // reach the "has been deleted" branch below instead of 404-ing.
   if (!item?.id && !item?.title) {
     return notFound();
   }
@@ -77,7 +79,7 @@ async function ItemContent({ params }: { params: Promise<{ id: string }> }) {
       {!item.dead && !item.deleted ? (
         <>
           <ItemDetail item={item} />
-          {item.descendants > 0 && (
+          {(item.descendants ?? 0) > 0 && (
             <Suspense fallback={<Loading />}>
               <Comments id={item.id} />
             </Suspense>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { cache } from 'react';
 import sanitizeHtml from 'sanitize-html';
 
 import styles from './item-detail.module.css';
@@ -11,6 +11,11 @@ import { safeHref } from '../helpers/url';
 
 const HN_ITEM_LINK_RE =
   /https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item\?id=/g;
+
+// Memoized per render pass so identical content is only sanitized once.
+const sanitizeText = cache((html: string) =>
+  sanitizeHtml(html.replace(HN_ITEM_LINK_RE, '/item/')),
+);
 
 export default function ItemDetail({ item }: { item: ItemProps }) {
   return (
@@ -36,14 +41,12 @@ export default function ItemDetail({ item }: { item: ItemProps }) {
       {item.text ? (
         <div
           className={styles.content}
-          dangerouslySetInnerHTML={{
-            __html: sanitizeHtml(item.text.replace(HN_ITEM_LINK_RE, '/item/')),
-          }}
+          dangerouslySetInnerHTML={{ __html: sanitizeText(item.text) }}
         />
       ) : null}
       <Meta
-        points={item.score}
-        author={item.by}
+        points={item.score ?? 0}
+        author={item.by ?? ''}
         time={item.time}
         // disable comments count in meta on item detail page
         commentCount={0}

@@ -4,28 +4,26 @@ import ListItem from './list-item';
 
 import listStyles from './list-item.module.css';
 
-import { ItemProps } from '../types/interfaces';
-
 import { getList } from '../helpers/fetch';
 
 export default async function List({ type }: { type: string }) {
   const list = await getList(type);
 
   const visible = list.filter(
-    (item: ItemProps) => !item.dead && !item.deleted && item.id != null,
+    (item) => !item.dead && !item.deleted && item.id != null,
   );
 
   return (
     <ul>
       {visible.length > 0 ? (
-        visible.map((item: ItemProps) => (
+        visible.map((item) => (
           <ListItem
             id={item.id}
-            title={item.title}
-            points={item.points}
-            author={item.user}
+            title={item.title ?? ''}
+            points={item.points ?? 0}
+            author={item.user ?? ''}
             time={item.time}
-            commentCount={item.comments_count}
+            commentCount={item.comments_count ?? 0}
             dead={item.dead}
             deleted={item.deleted}
             key={item.id}
