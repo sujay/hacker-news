@@ -15,3 +15,6 @@ node_modules/
 # Sentry Auth Token
 .sentryclirc
 tsconfig.tsbuildinfo
+
+# Next.js generated types (managed by Next.js)
+next-env.d.ts
