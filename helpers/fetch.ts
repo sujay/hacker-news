@@ -1,70 +1,43 @@
-const DEFAULT_TIMEOUT_MS = 7000;
-const MAX_RETRIES = 1;
+import { cache } from 'react';
+import { cacheLife } from 'next/cache';
 
-function isRetryableError(error: unknown): boolean {
-  if (error instanceof DOMException && error.name === 'AbortError') {
-    return true; // timeout
-  }
-  if (error instanceof Error) {
-    const msg = error.message.toLowerCase();
-    return (
-      msg.includes('timeout') ||
-      msg.includes('connection closed') ||
-      msg.includes('fetch failed') ||
-      msg.includes('network')
-    );
-  }
-  return false;
+import type { ItemProps, SearchResponse } from '../types/interfaces';
+import { fetchJson } from './http';
+
+// Cache Components (`use cache`) provides cross-request caching for these
+// getters, and `React.cache` deduplicates concurrent identical calls within a
+// single render pass (e.g. `generateMetadata` + the page).
+async function fetchList(list: string): Promise<ItemProps[]> {
+  'use cache';
+  cacheLife('minutes');
+  return fetchJson<ItemProps[]>(`https://api.hackerwebapp.com/${list}`);
 }
 
-async function fetchJson(route: string, init?: RequestInit) {
-  let lastError: unknown;
-  for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
-    try {
-      const res = await fetch(route, {
-        signal: AbortSignal.timeout(DEFAULT_TIMEOUT_MS),
-        ...init,
-      });
-      if (!res.ok) {
-        throw new Error(`Failed to fetch data! Status: ${res.status}`);
-      }
-      return res.json();
-    } catch (error) {
-      lastError = error;
-      if (attempt < MAX_RETRIES && isRetryableError(error)) {
-        continue;
-      }
-      throw error;
-    }
-  }
-  throw lastError;
+async function fetchItem(itemId: number): Promise<ItemProps> {
+  'use cache';
+  cacheLife('minutes');
+  return fetchJson<ItemProps>(`https://api.hackerwebapp.com/item/${itemId}`);
 }
 
-export const getList = async (list: string) => {
-  return fetchJson(`https://api.hackerwebapp.com/${list}`, {
-    cache: 'no-store',
-  });
-};
+async function fetchMeta(itemId: number): Promise<ItemProps | null> {
+  'use cache';
+  cacheLife('minutes');
+  return fetchJson<ItemProps | null>(
+    `https://hacker-news.firebaseio.com/v0/item/${itemId}.json`,
+  );
+}
 
-export const getItem = async (itemId: number) => {
-  return fetchJson(`https://api.hackerwebapp.com/item/${itemId}`, {
-    cache: 'no-store',
-  });
-};
+async function fetchSearch(query: string): Promise<SearchResponse> {
+  'use cache';
+  cacheLife('minutes');
+  return fetchJson<SearchResponse>(
+    `https://hn.algolia.com/api/v1/search?query=${encodeURIComponent(
+      query,
+    )}&tags=story`,
+  );
+}
 
-export const getMeta = async (itemId: number) => {
-  return fetchJson(`https://hacker-news.firebaseio.com/v0/item/${itemId}.json`, {
-    cache: 'no-store',
-  });
-};
-
-export const getSearch = async (query: string) => {
-  try {
-    return await fetchJson(
-      `https://hn.algolia.com/api/v1/search?query=${encodeURIComponent(query)}&tags=story`,
-      { cache: 'no-store' },
-    );
-  } catch {
-    return null;
-  }
-};
+export const getList = cache(fetchList);
+export const getItem = cache(fetchItem);
+export const getMeta = cache(fetchMeta);
+export const getSearch = cache(fetchSearch);
