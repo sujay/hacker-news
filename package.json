@@ -17,10 +17,10 @@
   "dependencies": {
     "@next/third-parties": "^16.4.0",
     "geist": "^1.7.2",
-    "next": "^16.4.0",
+    "next": "^16.4.3",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
-    "sanitize-html": "^2.18.0"
+    "sanitize-html": "^2.18.1"
   },
   "devDependencies": {
     "@types/node": "^26.6.4",
