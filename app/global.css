@@ -4,14 +4,8 @@ html {
 }
 body {
   font-family:
-    var(--font-geist-sans),
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    'Helvetica Neue',
-    Helvetica,
-    Arial,
-    sans-serif;
+    var(--font-geist-sans), system-ui, -apple-system, BlinkMacSystemFont,
+    'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #333;
 }
 h1,
